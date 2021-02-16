@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'fa',
 
     /*
     |--------------------------------------------------------------------------
@@ -165,6 +165,8 @@ return [
         /*
          * Package Service Providers...
          */
+        Leantony\Grid\Providers\GridServiceProvider::class,
+        Hekmatinasser\Verta\VertaServiceProvider::class,
 
         /*
          * Application Service Providers...
