@@ -25,7 +25,6 @@ class CreateExchangesTable extends Migration
             $table->urlencode('site_with_query');
             $table->json('contacts');
 
-            $table->foreignId('market_type_id');
             $table->foreignId('admin_id');
 
             $table->timestamps();
