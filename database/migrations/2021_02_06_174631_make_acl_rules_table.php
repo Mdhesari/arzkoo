@@ -13,15 +13,15 @@ class MakeAclRulesTable extends Migration
      */
     public function up()
     {
-        Schema::create('acl_rules', function (Blueprint $table) {
-            $table->increments('id');
-            $table->foreignId('user_id')->nullable();
-            $table->string('disk');
-            $table->string('path');
-            $table->tinyInteger('access');
-            $table->timestamps();
+        // Schema::create('acl_rules', function (Blueprint $table) {
+        //     $table->increments('id');
+        //     $table->foreignId('user_id')->nullable();
+        //     $table->string('disk');
+        //     $table->string('path');
+        //     $table->tinyInteger('access');
+        //     $table->timestamps();
 
-        });
+        // });
     }
 
     /**
@@ -31,6 +31,6 @@ class MakeAclRulesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('acl_rules');
+        // Schema::dropIfExists('acl_rules');
     }
 }

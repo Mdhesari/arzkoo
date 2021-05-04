@@ -21,8 +21,8 @@ class CreateExchangesTable extends Migration
             $table->string('label', 16);
             $table->string('physcial_address');
             $table->text('description');
-            $table->urldecode('site');
-            $table->urlencode('site_with_query');
+            $table->string('site');
+            $table->string('site_with_query');
             $table->json('contacts');
 
             $table->foreignId('admin_id');
