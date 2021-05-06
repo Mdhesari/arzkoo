@@ -9,6 +9,7 @@
     <title>{{ config('app.name', 'Arzkoo') }}</title>
 
     <!-- Styles -->
+    <link rel="stylesheet" href="{{ mix('assets/css/font-awesome.css') }}">
     <link rel="stylesheet" href="{{ mix('assets/css/app.css') }}">
 
     @livewireStyles
@@ -52,6 +53,8 @@
     @stack('modals')
 
     @livewireScripts
+
+    @stack('add_scripts')
 </body>
 
 </html>

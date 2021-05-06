@@ -25,3 +25,19 @@
         </a>
     </div>
 </div>
+
+@push('add_scripts')
+    <script>
+        function openMenu() {
+
+            document.getElementById('mainMenu').classList.add('active-menu');
+            document.getElementById('darkLayer').classList.add('active');
+        }
+
+        function closeMenu() {
+            document.getElementById('mainMenu').classList.remove('active-menu');
+            document.getElementById('darkLayer').classList.remove('active');
+        }
+
+    </script>
+@endpush
