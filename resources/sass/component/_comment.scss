@@ -1,0 +1,145 @@
+.reviews {
+    .review {
+        width: 100%;
+        background: #fff;
+        border: 1px solid transparent;
+        border-radius: 15px;
+        padding: 20px;
+        display: flex;
+        margin-bottom: 30px;
+
+        .avatar {
+            margin-left: 16px;
+            flex: 0 0 30px;
+            height: 30px;
+            border-radius: 50%;
+            overflow: hidden;
+
+            i {
+                color: #666;
+                font-size: 24px;
+            }
+           img{
+               width: 100%;
+           }
+           
+
+        }
+
+        .review-body {
+            .review-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 16px;
+
+                .name {
+                    span {
+                        color: $color-purpel;
+                        font-weight: bold;
+                    }
+                }
+
+                .stars {
+                    i {}
+                }
+            }
+
+            .review-text {
+                p {
+                    color: $color-second;
+                    font-size: 16px;
+                }
+            }
+
+            .review-footer {
+                display: flex;
+                justify-content: space-between;
+                .time {
+                    color: #ccc;
+                    font-size: 14px;
+                }
+                .replay-review{
+                    a{
+                        color: $color-first;
+                    }
+                }
+            }
+        }
+        &.response{
+            background-color: rgba(0,0,0,.05);
+            box-shadow: none;
+            border: 1px solid rgba(0,0,0,.01);
+        }
+    }
+}
+
+.rate-holder {
+    .rate-inner {
+        width: 100%;
+        background: #fff;
+        border: 1px solid transparent;
+        border-radius: 15px;
+        padding: 20px;
+        margin-bottom: 30px;
+
+        .form-holder {
+            textarea {
+                width: 100%;
+                padding: 8px 12px;
+                background-color: #fff;
+                color: $color-second;
+                font-size: 14px;
+                background-image: none;
+                border: 1px solid #999;
+                border-radius: 4px;
+                transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+                margin-bottom: 16px;
+                &:focus {
+                    border-color: #6b59d4;
+                    outline: 0;
+                }
+            }
+            .btns-holder{
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+    }
+
+}
+.replay{
+    width: 100%;
+    background: #fff;
+    border: 1px solid transparent;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 30px;
+    span{
+        display: block;
+        margin-bottom: 16px;
+    }
+    form{
+        width: 100%;
+        }
+        .your-message{
+            textarea{
+                width: 100%;
+                padding: 8px 12px;
+                background-color: #fff;
+                color: #373f47;
+                font-size: 14px;
+                background-image: none;
+                border: 1px solid #999;
+                border-radius: 4px;
+                transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                &:focus {
+                    border-color: #6b59d4;
+                    outline: 0;
+            }
+        }
+        }
+        .send-message{
+            text-align: left;
+        }
+    }

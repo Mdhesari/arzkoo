@@ -1,0 +1,167 @@
+*,
+body {
+    padding: 0;
+    margin: 0;
+    direction: rtl;
+    box-sizing: border-box;
+    font-family: "irans";
+}
+
+@font-face {
+    font-family: "irans";
+    src: url("../../fonts/IRANSansWeb.woff");
+}
+
+@font-face {
+    font-family: "irans";
+    src: url("../../fonts/IRANSansWeb(FaNum).woff");
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+ul,
+li {
+    list-style: none;
+    margin-bottom: 0;
+}
+
+ol {
+    margin: 0 !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "irans";
+}
+
+.body-wrapper {
+    direction: rtl;
+    text-align: right;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.clickable {
+    transition: all 0.5s;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+.title-section {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 38px;
+    color: $color-second;
+    margin-bottom: 30px;
+}
+
+.box-bottom-header {
+    background-image: linear-gradient(to bottom right, #6b59d4, #453987);
+
+    .title {
+        color: $color-white;
+        font-weight: 700;
+        margin-top: 16px;
+        font-size: 26px;
+    }
+
+    .info-title {
+        color: $color-white;
+        font-weight: 100;
+        font-size: 14px;
+        margin-top: 16px;
+    }
+}
+
+.breadcrumb {
+    background-color: transparent;
+    padding: 16px 0;
+
+    li {
+        a {
+            color: $color-white;
+            font-size: 14px;
+        }
+    }
+
+    .active {
+        color: $color-white;
+        font-weight: 700;
+        font-size: 14px;
+    }
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+    display: inline-block;
+    padding: 0 8px;
+    color: #ccc;
+    content: "/";
+}
+
+.fa-star {
+    color: #bdc3c7;
+    font-size: 12px;
+}
+
+.star-yellow {
+    color: #ffc400 !important;
+}
+
+.aside-page {
+    overflow-x: visible !important;
+}
+
+.box-cmp{
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+    background: $color-white;
+    padding: 12px;
+    border-radius: 5px;
+}
+
+.featured-box {
+    border: 1px solid #ff6067 !important;
+    position: relative;
+    z-index: 22;
+    overflow: hidden;
+
+    &::after {
+        position: absolute;
+        content: attr(data-label);
+        padding: 0.5rem;
+        background-color: #ff6067;
+        color: $color-white;
+        text-align: center;
+        font-size: 10px;
+        transform: rotate(-45deg);
+        top: 10px;
+        left: -75px;
+        width: 200px;
+    }
+}
+
+.btn-default-outline {
+    border-color: $color-purpel;
+    color: $color-purpel;
+    background-color: transparent;
+    font-weight: 600;
+    padding: 8px;
+
+    &:hover {
+        background-color: $color-purpel;
+        color: $color-white;
+    }
+}

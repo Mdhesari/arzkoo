@@ -1,0 +1,107 @@
+.filters-main {
+    background-color: #f1f2f3;
+
+    &__card {
+        margin-bottom: 16px;
+        .header-right {
+            display: flex;
+            align-items: center;
+            margin: 12px 0;
+            .images {
+                img {
+                    max-height: 60px;
+                }
+            }
+
+            .star {
+                margin-right: 10px;
+
+                i {
+                    font-size: 16px;
+                }
+            }
+
+            .info-star {
+                font-size: 12px;
+                margin-right: 8px;
+                color: $color-second;
+            }
+        }
+        .header-left{
+            margin: 12px 0;
+            .price {
+                font-size: 24px;
+                font-weight: 600;
+                text-align: center;
+            }
+        }
+        .b-header-right{
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            &__item{
+                border-right: 1px solid #eee;
+                padding-right: 10px;
+                margin-left: 24px;
+                .title{
+                    margin-bottom: 6px;
+                    color: #666;
+                    font-size: 13px;
+                }
+                .info{
+                    font-size: 12px;
+                    color: $color-second;
+                }
+            }
+            &__item:first-child{
+                border: none;
+                padding-right: 0;
+            }
+        }
+        .b-header-left{
+            &__inner{
+                text-align: center;
+                p{
+                    margin: 0;
+                    color: #666;
+                    font-size: 12px;
+                }
+            }
+        }
+        .body-right{
+            margin: 12px 0;
+            .info-exchanges {
+                text-align: justify;
+                font-size: 13px;
+                color: $color-second;
+                line-height: 23px;
+            }
+        }
+        .body-left {
+            margin: 12px 0;
+            .link-site {
+                display: inline-block;
+                margin: 0 auto;
+                text-align: center;
+                padding: 8px 12px;
+                border-radius: 5px;
+                background-color: $color-first;
+                color: $color-white;
+                margin-top: 12px;
+                font-size: 13px;
+            }
+        }
+        .footer-right{
+            i{
+                color: $color-second;
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px){
+    .filters-main__card .header-right{
+        flex-wrap: wrap;
+    }
+}

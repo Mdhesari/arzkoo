@@ -1,0 +1,11 @@
+.exchanges{
+    background-color: $color-white;
+    .exchange-holder{
+        height: 150px;
+        .inner-slider{
+            img{
+                width: 100%;
+            }
+        }
+    }
+}

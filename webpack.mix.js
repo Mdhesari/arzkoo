@@ -19,7 +19,8 @@ mix.js("resources/js/app.js", "public/assets/js")
         require("autoprefixer"),
     ]) */
     // TODO: autoprefix support for sass (old browsers)
-    .sass("resources/sass/app.scss", "public/assets/css");
+    .sass("resources/sass/app.scss", "public/assets/css")
+    .sass("resources/sass/admin-app.scss", "public/assets/css");
 
 if (mix.inProduction()) {
     mix.version();

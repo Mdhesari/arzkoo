@@ -1,0 +1,39 @@
+.lists-exchanges{
+    background-color: $color-white;
+    &__inner{
+        margin: 16px 0;
+        li{
+            margin-bottom: 10px;
+            a{
+                display: inline-block;
+                color: $color-second;
+                font-size: 14px;
+                font-weight: 400;
+                img{
+                    width: 28px;
+                    height: 28px;
+                    border-radius: 16px;
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+    &__more{
+        display: inline-block;
+        margin: 30px auto 0 auto;
+        text-align: center;
+        color: $color-first;
+        display: flex;
+        align-items: center;
+        font-weight: 400;
+        font-size: 14px;
+        &:hover{
+            color: $color-first;
+        }
+        i{
+            font-size: 22px;
+            color: $color-first;
+            margin-right: 12px;
+        }
+    }
+}

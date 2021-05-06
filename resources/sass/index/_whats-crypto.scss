@@ -1,0 +1,11 @@
+.whats-crypto {
+    background-color: #f1f2f3;
+    &__info {
+        p {
+            color: $color-second;
+            text-align: justify;
+            font-size: 16px;
+            line-height: 26px;
+        }
+    }
+}

@@ -1,0 +1,266 @@
+.content-single {
+    margin-top: -30px;
+
+    .about-single {
+        background: #fff;
+        border: 1px solid transparent;
+        border-radius: 15px;
+        padding: 20px;
+        margin-bottom: 30px;
+
+        .about-holder {
+            h3 {
+                font-weight: 400;
+                font-size: 24px;
+                color: $color-second;
+                margin-bottom: 20px;
+            }
+
+            p {
+                color: $color-second;
+                line-height: 28px;
+            }
+        }
+
+        .features-holder {
+            margin-top: 50px;
+
+            h3 {
+                font-weight: 400;
+                font-size: 24px;
+                color: $color-second;
+                margin-bottom: 20px;
+            }
+
+            .features {
+                column-count: 3;
+
+                li {
+                    color: $color-second;
+                    margin-bottom: 8px;
+
+                    i {
+                        color: $color-purpel;
+                        margin-left: 10px;
+                    }
+                }
+            }
+        }
+
+        .tap-holder {
+            margin-top: 50px;
+
+            .nav {
+                border-bottom: 1px solid #ccc;
+
+                .nav-item {
+                    .nav-link {
+                        color: $color-second;
+                        border-radius: 0;
+
+                        &.active {
+                            border-bottom: 1px solid $color-purpel;
+                            background-color: initial;
+                        }
+                    }
+                }
+            }
+
+            table {
+                tbody {
+                    tr {
+                        border-bottom: 1px solid #ccc;
+
+                        &:last-child {
+                            border-bottom: 0;
+                        }
+
+                        td {
+                            padding: 8px;
+
+                            i {
+                                vertical-align: middle;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .about-left-column {
+            padding-right: 60px;
+
+            .broker-logo {
+                margin: 50px 0;
+
+                img {
+                    width: 100%;
+                }
+            }
+
+            .broker-rating {
+                .rating {
+                    color: $color-second;
+                    margin: 30px 0;
+
+                    p {
+                        font-size: 24px;
+                        line-height: normal;
+
+                        strong {
+                            font-size: 40px;
+                        }
+                    }
+                }
+
+                .user-count-rate {
+                    p {
+                        font-size: 14px;
+                        color: $color-second;
+
+                        strong {}
+                    }
+
+                }
+
+                .bars {
+                    margin-top: 50px;
+
+                    .bar {
+                        .title {
+                            margin-bottom: 8px;
+
+                            span {}
+                        }
+
+                        .rate-holder {
+                            display: flex;
+                            justify-content: space-between;
+
+                            .progress {
+                                width: 80%;
+                                margin-bottom: 10px;
+                                margin-top: 5px;
+                                box-shadow: none !important;
+                                height: 8px;
+
+                                .progress-bar {
+                                    background-color: $color-purpel;
+                                }
+                            }
+
+                            .label {
+                                width: 40px;
+                                height: 20px;
+                                background-color: #e9ecef;
+                                text-align: center;
+                                border-radius: 24px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+
+                                span {
+                                    color: #666;
+                                    font-size: 12px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+    }
+}
+
+.reviews-section {
+    .item-holder {
+        .inner {
+            width: 100%;
+            background: #fff;
+            border: 1px solid transparent;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+
+            .items {
+                .item {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    .exchange-image {
+                        img {
+                            width: 100%;
+                            max-width: 150px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .rating {
+        margin-top: 8px;
+        label {
+            cursor: pointer;
+            margin-left: 16px;
+            cursor: pointer;
+            width: 6px;
+            
+            &:before {
+                content: "\2605";
+                font-size: 30px;
+                color: #bdc3c7;
+                line-height: 1;
+            }
+        }
+
+        input {
+            display: none;
+        }
+
+        input:checked~label:before,
+        &:not(:checked)>label:hover:before,
+        &:not(:checked)>label:hover~label:before {
+            color: #ffc400;
+        }
+    }
+
+}
+
+@media (max-width: 768px) {
+    .about-single {
+        margin: 0 auto;
+
+        .features-holder {
+            .features {
+                column-count: 1 !important;
+
+            }
+        }
+
+        .about-left-column {
+            padding-right: 0 !important;
+        }
+    }
+}
+
+.stars {
+    display: flex;
+
+    i {
+        font-size: 18px;
+    }
+}
+
+.heading {
+    margin-bottom: 30px;
+
+    h3 {
+        font-weight: 400;
+        font-size: 24px;
+        color: $color-second;
+    }
+}

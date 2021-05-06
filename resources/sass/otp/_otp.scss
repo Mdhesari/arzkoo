@@ -1,0 +1,106 @@
+.register {
+    background-color: #f1f2f3;
+
+    &__form {
+        border-radius: 5px;
+        padding: 30px 16px;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, .16);
+        background-color: $color-white;
+
+        form {
+            text-align: center;
+            .holder-header-otp {
+                display: flex;
+                align-items: center;
+
+                h2 {
+                    font-size: 15px;
+                    color: $color-first;
+                    font-weight: 600;
+                    line-height: 24px;
+                }
+
+                img {
+                    width: 100px;
+                    margin-left: 16px;
+                }
+            }
+
+            .form-group {
+                width: 60%;
+                margin: 24px auto 12px auto;
+
+                input {
+                    margin-bottom: 8px;
+                    text-align: center;
+                    direction: ltr;
+                }
+
+                label {
+                    font-size: 13px;
+                    padding: 3px;
+                    color: $color-second;
+                    text-align: right;
+                }
+            }
+            button{
+                display: inline-block;
+                margin: 0 auto;
+                text-align: center;
+                outline: none !important;
+                border: none;
+                background-color: $color-first;
+                color: $color-white;
+                font-size: 13px;
+                padding: 13px 32px;
+                border-radius: 5px;
+            }
+            .form-enter-code{
+               &__link{
+                padding: 12px 0;
+                margin: 0 auto;
+                a{
+                    color: $color-second;
+                    font-size: 12px;
+                    margin: 0 8px;
+                }
+               }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px){
+    .register__form form .holder-header-otp{
+        flex-wrap: wrap;
+        img{
+            width: 50px;
+        }
+    }
+    .register__form form .form-group{
+        width: 100%;
+    }
+}
+
+.open__form-otp{
+    opacity: 1;
+    visibility: visible;
+    height: auto;
+}
+.close__form-otp{
+    opacity: 0;
+    visibility: hidden;
+    height: 0;  
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

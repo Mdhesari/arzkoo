@@ -1,0 +1,90 @@
+.searchly {
+    background-image: linear-gradient(to bottom right, #6b59d4, #453987);
+
+    .title-section {
+        color: $color-white;
+    }
+    .recommendations {
+        .recommendations-title {
+            width: 100%;
+
+            h2{
+                color: $color-white;
+                font-weight: 300;
+                font-size: 18px;
+                line-height: 24px;
+            }
+        }
+    }
+
+    .live-prices {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        .item {
+            width: 16%;
+            display: flex;
+            align-items: center;
+
+            .icon {
+                margin-left: 16px;
+
+                i {
+                    font-size: 40px;
+                    color: $color-white;
+                }
+            }
+
+            .detail {
+                text-align: center;
+                padding: 12px 0;
+
+                strong {
+                    color: $color-white;
+                    font-size: 22px;
+                }
+
+                p {
+                    color: $color-white;
+                    font-size: .8em;
+                    line-height: 1.33em;
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
+
+.bitcoin {
+    color: #f7931a
+}
+
+.m-30 {
+    margin: 3rem 0;
+}
+
+@media (max-width: 768px) {
+    .search-item {
+        margin-bottom: 30px;
+    }
+
+    .live-prices {
+        flex-wrap: wrap;
+
+        .item {
+            display: none !important;
+            width: 100% !important;
+            justify-content: center;
+
+            &:first-child {
+                display: flex !important;
+            }
+        }
+    }
+}
+
+.padding-0 {
+    padding: 0 !important;
+}

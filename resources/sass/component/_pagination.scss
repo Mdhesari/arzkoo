@@ -1,0 +1,33 @@
+.pagination {
+    li{
+        margin: 0 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $color-first;
+        border-radius: 50%!important;
+        height: 35px;
+        width: 35px;
+        .page-link{
+            border:none !important;
+            font-size: 14px;
+            color: $color-white;
+            background-color: transparent;
+            transition: all 0.5s;
+            line-height: 0 !important;
+            &:hover{
+                background-color: transparent;
+                color: $color-white;
+                font-size: 16px;
+            }
+            &:focus{
+                box-shadow: none !important;
+            }
+        }
+    }
+}
+
+.active-page{
+    background-color: $color-second !important;
+}
+

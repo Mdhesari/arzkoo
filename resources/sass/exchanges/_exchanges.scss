@@ -1,0 +1,56 @@
+.exchanges-main {
+    background-color: #f1f2f3;
+
+    .content-aside {
+        margin-bottom: 20px;
+
+        &__inner {
+            .box {
+                width: 100%;
+                border: 1px solid transparent;
+                margin-bottom: 16px;
+                position: relative;
+                transition: all 0.5s;
+
+                a {
+                    position: absolute;
+                    z-index: 90;
+                    height: 100%;
+                    width: 100%;
+                    left: 0;
+                    right: 0;
+                    top: 0;
+                    bottom: 0;
+                }
+
+                &__img {
+                    min-height: 60px;
+                    line-height: 60px;
+                    text-align: center;
+
+                    img {
+                        vertical-align: middle;
+                    }
+                }
+
+                &__star {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                &__name {
+                    color: #373f47;
+                    font-weight: 400;
+                    font-size: 14px;
+                    text-align: center;
+                    margin-top: 16px;
+                }
+
+                &:hover {
+                    transform: translatey(-6px);
+                }
+            }
+        }
+    }
+}

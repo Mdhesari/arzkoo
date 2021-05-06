@@ -1,0 +1,53 @@
+.compare {
+    background-color: #f1f2f3;
+
+    &__right {
+        &__item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+
+            &__right {
+                margin-left: 20px;
+
+                i {
+                    color: $color-white;
+                    font-size: 22px;
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    background-color: $color-first;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+
+            &__left {
+                h3 {
+                    color: $color-second;
+                    font-weight: 600;
+                    margin-bottom: 16px;
+                    font-size: 18px;
+                    line-height: 30px;
+                }
+
+                p {
+                    color: $color-second;
+                    font-weight: 100;
+                    font-size: 14px;
+                    line-height: 23px;
+                    text-align: justify;
+                }
+            }
+        }
+    }
+
+    &__left {
+        text-align: center;
+
+        img {
+            width: 400px;
+        }
+    }
+}

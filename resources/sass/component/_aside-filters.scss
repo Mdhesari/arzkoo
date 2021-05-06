@@ -1,0 +1,156 @@
+.filter-aside {
+    margin-bottom: 20px;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 90px;
+
+    .navbar-filter {
+        margin-bottom: 20px;
+        display: none;
+
+        &__text {
+            color: $color-second;
+            font-size: 16px;
+            font-weight: 300;
+            vertical-align: middle;
+        }
+
+        i {
+            color: $color-second;
+            float: left;
+            font-size: 18px;
+        }
+    }
+
+    &__box {
+        margin-bottom: 20px;
+
+        .title-filter {
+            display: block;
+            margin-bottom: 20px;
+            color: #3b3b3b;
+            font-size: 16px;
+            font-weight: 400;
+            border-bottom: 1px solid #edf2f5;
+            padding-bottom: 10px;
+        }
+
+        &__item {
+            display: flex;
+            margin-bottom: 8px;
+            position: relative;
+
+            .count {
+                width: 100%;
+                border: 1px solid #d4d4d4;
+                border-radius: 5px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                overflow: hidden;
+
+                &__input {
+                    width: 80%;
+                    outline: none !important;
+                    border: none;
+                    text-align: center;
+                    padding: 7px;
+
+                    &::placeholder {
+                        color: $color-second;
+                        font-size: 13px;
+                        text-align: center;
+                    }
+                }
+
+               button{
+                width: 20%;
+                height: 100%;
+                text-align: center;
+                background-color: $color-first;     
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                outline: none !important;
+                border: none;
+                i {
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: $color-white;
+                }
+               }
+            }
+
+            .name-item {
+                display: inline-block;
+                color: $color-second;
+                font-size: 14px;
+                margin-right: 12px;
+            }
+
+            .label-filter {
+                position: relative;
+                width: 35px;
+                height: 16px;
+                margin: 0;
+
+                .filter {
+                    opacity: 0;
+                    width: 0;
+                    height: 0;
+
+                    &:checked+.slider-filter {
+                        background-color: $color-first;
+                    }
+
+                    &:checked+.slider-filter::before {
+                        -webkit-transform: translateX(18px);
+                        -ms-transform: translateX(18px);
+                        transform: translateX(18px);
+                    }
+                }
+
+                .slider-filter {
+                    position: absolute;
+                    cursor: pointer;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background-color: #bdc3c7;
+                    border-radius: 34px;
+                    -webkit-transition: .2s cubic-bezier(.55, 0, .1, 1);
+                    transition: .2s cubic-bezier(.55, 0, .1, 1);
+
+                    &::before {
+                        position: absolute;
+                        content: "";
+                        height: 10px;
+                        width: 10px;
+                        left: 4px;
+                        bottom: 3px;
+                        background-color: #fff;
+                        border-radius: 50%;
+                        border-radius: 50%;
+                        -webkit-transition: .2s cubic-bezier(.55, 0, .1, 1);
+                        transition: .2s cubic-bezier(.55, 0, .1, 1);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar-filter {
+        display: block !important;
+    }
+
+    .filter-aside__box {
+        display: none;
+    }
+
+    .d-block {
+        display: block;
+    }
+}

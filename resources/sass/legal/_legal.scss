@@ -1,0 +1,19 @@
+.legal {
+    &__sec {
+        ol {
+            padding: 0 16px;
+            li {
+                font-size: 15px;
+                margin-bottom: 12px;
+                line-height: 25px;
+                text-align: justify;
+                color: $color-second;
+                list-style: decimal;
+                strong{
+                    font-size: 16px;
+                    color: $color-first;
+                }
+            }
+        }
+    }
+}

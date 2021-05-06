@@ -1,0 +1,111 @@
+.article {
+    &__wrapper {
+        padding: 10px 16px;
+    }
+
+    &__item {
+        margin-bottom: 20px;
+        background-color: $color-white;
+        border-radius: 5px;
+        overflow: hidden;
+        transition: all 0.5s;
+        min-height: 480px;
+        box-shadow: 0 8px 24px rgba(0,0,0,.12);
+
+        &:hover {
+            transform: translatey(-10px);
+        }
+
+        a {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
+        }
+
+        &__pic {
+            height: 180px;
+
+            img {
+                transition: all 0.5s;
+                margin-bottom: 12px;
+                height: 100%;
+                width: 100%;
+            }
+        }
+
+        &__heading {
+            padding: 20px 30px;
+
+            h3 {
+                color: #373f47;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 25px;
+                margin-bottom: 0;
+                text-align: center;
+            }
+        }
+
+        &__content {
+            position: relative;
+            padding: 12px;
+
+            &::after {
+                content: "";
+                position: absolute;
+                width: 55px;
+                border-top: 2px solid $color-first;
+                top: 0px;
+                left: 50%;
+                transform: translatex(-50%);
+            }
+
+            p {
+                color: $color-second;
+                font-size: 12px;
+                line-height: 20px;
+                text-align: center;
+                font-weight: 100;
+            }
+        }
+
+        &__info {
+            padding: 0 12px;
+            display: flex;
+            align-items: center;
+
+            &__item {
+                i {
+                    font-size: 15px;
+                    color: $color-second;
+                    vertical-align: middle;
+                    opacity: 0.9;
+                }
+
+                span {
+                    color: $color-first;
+                    font-size: 11px;
+                    font-weight: 100;
+                }
+            }
+        }
+
+        &__readmore {
+            padding: 12px;
+            margin-top: 20px;
+            span {
+                color: $color-white;
+                font-weight: 500;
+                font-size: 12px;
+                background: $color-first;
+                border-radius: 1em;
+                padding: 6px 12px;
+            }
+        }
+    }
+}

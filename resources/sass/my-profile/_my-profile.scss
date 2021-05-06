@@ -1,0 +1,85 @@
+body {
+    height: 100%;
+
+    .my-profile-section {
+        height: 100%;
+        background-image: linear-gradient(to bottom right, #6b59d4, #453987);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 120px 0;
+
+        .panel {
+            background-color: $color-white;
+            width: 600px;
+            height: auto;
+            border-radius: 8px;
+            position: relative;
+            padding: 0 36px;
+
+            .profile-image {
+                margin: 0 auto;
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                border: 2px solid $color-white;
+                background-position: center;
+                background-size: cover;
+                margin-top: -75px;
+                margin-bottom: 30px;
+            }
+            .user-id{
+                text-align: center;
+                font-size: 14px;
+                color: #9a9a9a;
+                margin-bottom: 30px;
+                span{
+
+                }
+            }
+            .switcher{
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 60px;
+                li{
+                    width: 33.3%;
+                    text-align: center;
+                    line-height: 3;
+                    transition: .3s all;
+                    border-radius: 4px 4px 0 0;
+                    
+                    &:hover{
+                        background-color: #ccc;
+                    }
+                    
+                    &.active{
+                        border-bottom: 2px solid $color-first;
+                    }
+                    a{
+                        color: $color-first;    
+                        display: block;
+                    }
+                    span{
+                        margin-left: 4px;
+                        font-size: 18px;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 768px) {
+    .my-profile-section {
+        padding: 30px !important;
+        .profile-image{
+            margin-top: 30px !important;
+        }
+    .switcher{
+
+        li{
+            width: 100% !important;
+        }
+    }
+}
+}

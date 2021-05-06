@@ -1,0 +1,74 @@
+.live-prices{
+    &__wrapper{
+        width: 100%;
+        .table-responsive{
+            border-radius: 5px;
+            .table{
+                thead{
+                    tr{
+                        background-color: $color-first;
+                        th{
+                            text-align: center;
+                            font-size: 14px;
+                            color: $color-white;
+                            border: none;
+                            border-left: 1px solid $color-white;
+                        }
+                    }
+                }
+                tbody{
+                    tr{
+                        th{
+                            font-size: 16px;
+                            text-align: center;
+                        }
+                        td{
+                            font-size: 15px;
+                            text-align: center;
+                            font-weight:600;
+                            .img{
+                                height: 35px;
+                                width: 35px;
+                                border-radius: 50%;
+                                background-position: center;
+                                background-repeat: no-repeat;
+                                background-size: cover;
+                                display: inline-block;
+                            }
+                            .name{
+                                margin-right: 4px;
+                               h2{
+                                   margin: 0;
+                                   min-width: 85px;
+                                    a{
+                                         color: $color-second;
+                                         font-size: 16px;
+                                    }
+                               }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 992px){
+    .live-prices{
+        &__wrapper{
+            overflow: scroll;
+        }
+    } 
+}
+
+.table td, .table th{
+    vertical-align: middle !important;
+}
+
+.top-info{
+    color:#16c784 ;
+}
+.bottom-info{
+    color: #ea3943;
+}

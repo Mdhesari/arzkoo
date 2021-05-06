@@ -1,0 +1,106 @@
+.faq-item {
+    width: 100%;
+    position: relative;
+    width: 100%;
+    background-color: white;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    margin-bottom: 10px;
+    -webkit-border-radius: 5px;
+    box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .07);
+    border: none;
+    background-color: white;
+
+    .faq-item {
+        &-header {
+            cursor: pointer;
+            &-right{
+                display: flex;
+                align-items: center;
+            }
+
+            .btn-faq {
+                white-space: normal;
+                width: 100%;
+                border: none;
+                background-color: transparent;
+                outline: none !important;
+                padding: 15px 20px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .icon-faq {
+                    margin-left: 16px;
+                    font-size: 21px;
+                    color: $color-first;
+                    height: 40px;
+                    width: 40px;
+                    border: 2px solid $color-first;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                .icon-down{
+                    font-size: 15px;
+                    color: $color-first;
+                    display: inline-block;
+                    margin-right: 20px;
+                }
+            }
+
+            &-title {
+                text-align: right;
+                font-weight: 100;
+                font-size: 14px;
+                color: #424242;
+            }
+            &:hover .faq-item-header-title{
+                color: $color-first;
+                font-weight: bold;
+            }
+        }
+
+        &-content {
+            border-top: 2px solid $color-first;
+
+            &-text {
+                padding: 15px;
+                text-align: justify;
+                font-size: 14px;
+                line-height: 24px;
+                color: #555;
+            }
+        }
+    }
+
+}
+.faq-pic{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img{
+        width: 250px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .faq-item .faq-item-header .btn-faq{
+        padding: 10px 8px;
+    }
+    .faq-item .faq-item-header-title{
+        font-size: 12px;
+    }
+    .faq-item .faq-item-content-text{
+        font-size: 12px;
+    }
+    .faq-item .faq-item-header .btn-faq .icon-faq{
+        font-size: 16px;
+        height: 35px;
+        width: 35px;
+    }
+}
