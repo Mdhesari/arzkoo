@@ -1,5 +1,6 @@
-@import "~bootstrap/scss/bootstrap";
+@import "./fonts.scss";
 
-body {
-    box-shadow: 1px 3px 4px #eee;
+body,
+body * {
+    font-family: IRANSans, sans-serif !important;
 }
