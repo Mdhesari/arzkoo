@@ -13,6 +13,11 @@ class Post extends BasePost
 
     public function getFullImageUrlAttribute()
     {
-        return Storage::url($this->image);
+        return url(Storage::url($this->image));
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 }

@@ -9,13 +9,15 @@ class BlogController extends Controller
 {
     public function index()
     {
-        return view('home.index', [
+        return view('blog.index', [
             'posts' => Post::published()->latest()->paginate(),
         ]);
     }
 
     public function show(Post $post)
     {
-        return $post;
+        return view('blog.show', [
+            'post' => $post,
+        ]);
     }
 }
