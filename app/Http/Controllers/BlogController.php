@@ -10,7 +10,7 @@ class BlogController extends Controller
     public function index()
     {
         return view('blog.index', [
-            'posts' => Post::published()->latest()->paginate(),
+            'posts' => Post::published()->latest()->paginate(1),
         ]);
     }
 
