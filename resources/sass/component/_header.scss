@@ -1,55 +1,56 @@
-body{
+body {
     padding-top: 80px;
 }
-header{
+header {
     background-color: #fff;
-    box-shadow: 0 0 2px rgba(0,0,0,.12), 0 2px 4px rgba(0,0,0,.24);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
     z-index: 999;
     width: 100%;
     position: fixed;
     top: 0%;
-.top-header{
+    .top-header {
         position: relative;
         display: flex;
         align-items: center;
         justify-content: space-between;
         height: 80px;
-        .right-header{
+        .right-header {
             display: flex;
             align-items: center;
-            .logo-holder{
+            .logo-holder {
                 width: 150px;
                 margin-left: 8px;
-                img{
+                img {
                     width: 100%;
                 }
             }
-            .main-menu{
-                ul{
-                    li{
-                        display: inline-block ;
-                        a{
-                            padding:  0 8px;
+            .main-menu {
+                ul {
+                    li {
+                        display: inline-block;
+                        a {
+                            padding: 0 8px;
                             color: $color-second;
-                            transition: .3s all;
-                            &.active{
-                                color: $color-purpel;
-                            }
-                            &:hover{
+                            transition: 0.3s all;
+                            &:hover {
                                 color: $color-purpel;
                             }
                         }
+
+                        &.active a {
+                            color: $color-purpel;
+                        }
                     }
                 }
-                &.active-menu{
+                &.active-menu {
                     right: 0 !important;
                 }
             }
         }
-        .actions{
+        .actions {
             display: inline-flex;
             position: relative;
-            & > a{
+            & > a {
                 color: $color-first;
                 padding: 6px 12px;
                 font-size: 14px;
@@ -59,111 +60,110 @@ header{
                 transition: all 0.5s;
                 align-items: center;
 
-                &:hover{
+                &:hover {
                     color: $color-white;
                     background-color: $color-first;
                 }
             }
-            .profile-btn{
+            .profile-btn {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                span{
+                span {
                     font-size: 12px;
                 }
-                i{
+                i {
                     margin-right: 8px;
                 }
-                img{
+                img {
                     border-radius: 50%;
                     width: 25px;
                     margin-left: 8px;
                 }
             }
-            .dropdown{
+            .dropdown {
                 position: absolute;
                 width: 100%;
                 left: 0;
                 right: 0;
                 top: 59px;
                 background-color: $color-white;
-                box-shadow:0 0 2px rgba(0,0,0,.60);
+                box-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
                 padding: 6px 0;
                 display: none;
-                ul{
-                    li{
-                        a{
-                            color : $color-second;
+                ul {
+                    li {
+                        a {
+                            color: $color-second;
                             font-size: 14px;
                             display: inline-block;
                             padding: 0 12px;
                         }
                         margin-bottom: 6px;
-                        &:last-child{
+                        &:last-child {
                             padding-top: 6px;
-                            border-top:1px solid #cecece;
+                            border-top: 1px solid #cecece;
                         }
                     }
                 }
             }
         }
     }
-    .burger-btn{
+    .burger-btn {
         height: 20px;
         border: none;
         background-color: transparent;
-        display: none ;
+        display: none;
         outline: none;
     }
-
 }
-@media (max-width: 768px){
-    .top-header{
-            .burger-btn{
-                display: block;
-            }
-            .logo-holder{
-                margin-right: 16px;
-            }
-            .main-menu{
-                position: fixed !important;
-                top: 0;
-                right: -100% !important;
-                bottom: 0;
-                width: 300px;
-                background-color: #fff;
-                max-width: 75%;
-                z-index: 100;
-                overflow-y: auto;
-                overflow-x: hidden;
-                transition: .3s all;
-                ul{
-                    margin-top: 16px;
-                    li{
-                        display: block !important;
-                        a{
-                            line-height: 3;
-                            padding: 0 32px !important;
-                            display: block;
-                        }
+@media (max-width: 768px) {
+    .top-header {
+        .burger-btn {
+            display: block;
+        }
+        .logo-holder {
+            margin-right: 16px;
+        }
+        .main-menu {
+            position: fixed !important;
+            top: 0;
+            right: -100% !important;
+            bottom: 0;
+            width: 300px;
+            background-color: #fff;
+            max-width: 75%;
+            z-index: 100;
+            overflow-y: auto;
+            overflow-x: hidden;
+            transition: 0.3s all;
+            ul {
+                margin-top: 16px;
+                li {
+                    display: block !important;
+                    a {
+                        line-height: 3;
+                        padding: 0 32px !important;
+                        display: block;
                     }
                 }
             }
         }
     }
-    .darklayer{
-        position: fixed;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        background-color: rgba(0,0,0,.5);
-        z-index: 10;
-        opacity: 0;
-        visibility: hidden;
-        transition: .3s all;
-        &.active{
-            opacity: 1;
-            visibility: visible;
-        }
+}
+.darklayer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s all;
+    &.active {
+        opacity: 1;
+        visibility: visible;
     }
+}
