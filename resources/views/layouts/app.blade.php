@@ -12,10 +12,14 @@
     <link rel="stylesheet" href="{{ mix('css/font-awesome.css') }}">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
+    @stack('add_styles')
+
     @livewireStyles
 
-        <!-- Scripts -->
-        <script src="{{ mix('js/app.js') }}" defer></script>
+    <!-- Scripts -->
+    <script src="{{ mix('js/app.js') }}" defer></script>
+
+    @stack('add_scripts')
 </head>
 
 <body>
@@ -36,7 +40,7 @@
             @yield('content')
 
             @if(isset($slot))
-                {{ $slot }}
+            {{ $slot }}
             @endif
         </main>
 
@@ -53,8 +57,6 @@
     @stack('modals')
 
     @livewireScripts
-
-    @stack('add_scripts')
 </body>
 
 </html>

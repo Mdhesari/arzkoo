@@ -156,6 +156,103 @@ class ExchangeDataRows extends BaseDataRows
             ])->save();
         }
 
+        $checkbox_arr = [
+            'two_factor_auth', 'app_android', 'app_ios', 'affiliate_support', 'cold_storage', 'integrated_wallet'
+        ];
+
+        foreach ($checkbox_arr as $checkbox) {
+
+            $dataRow = $this->dataRow($groupDataType, $checkbox);
+            if (!$dataRow->exists) {
+                $dataRow->fill([
+                    'type'         => 'checkbox',
+                    'display_name' => __("seeders.data_rows.$checkbox"),
+                    'required'     => 0,
+                    'browse'       => 1,
+                    'read'         => 1,
+                    'edit'         => 1,
+                    'add'          => 1,
+                    'delete'       => 1,
+                    'order'        => 2,
+                    'details' => [
+                        "on" => __("seeders.data_rows.enabled"),
+                        "off" => __("seeders.data_rows.disabled"),
+                        "checked" => false,
+                    ]
+                ])->save();
+            }
+        }
+
+        $option_arr = [
+            'instant_verification', 'beginner_friendly', 'chat_support'
+        ];
+
+        foreach ($option_arr as $option) {
+
+            $dataRow = $this->dataRow($groupDataType, $option);
+            if (!$dataRow->exists) {
+                $dataRow->fill([
+                    'type'         => 'select_dropdown',
+                    'display_name' => __("seeders.data_rows.$option"),
+                    'required'     => 0,
+                    'browse'       => 1,
+                    'read'         => 1,
+                    'edit'         => 1,
+                    'add'          => 1,
+                    'delete'       => 1,
+                    'order'        => 2,
+                    'details'      => [
+                        'default' => Exchange::OPTION_VALUE_AVG,
+                        'options' => [
+                            Exchange::OPTION_VALUE_NULL => __('seeders.data_rows.options.null'),
+                            Exchange::OPTION_VALUE_AVG     => __('seeders.data_rows.options.avg'),
+                            Exchange::OPTION_VALUE_BEST  => __('seeders.data_rows.options.best'),
+                        ],
+                    ],
+                ])->save();
+            }
+        }
+
+        $dataRow = $this->dataRow($groupDataType, 'min_fee_percent');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'number',
+                'display_name' => __('seeders.data_rows.min_fee_percent'),
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'order'        => 2,
+                'details' => [
+                    'validation' => [
+                        'rule' => ['required', 'min:0.1']
+                    ]
+                ]
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($groupDataType, 'max_fee_percent');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'number',
+                'display_name' => __('seeders.data_rows.max_fee_percent'),
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'order'        => 2,
+                'details' => [
+                    'validation' => [
+                        'rule' => ['required', 'gt:min_fee_percent']
+                    ]
+                ]
+            ])->save();
+        }
+
         return $next($groupDataType);
     }
 }

@@ -33,6 +33,10 @@ class Exchange extends Model
     const STATUS_PENDING = 'PENDING';
     const STATUS_CLOSED = 'CLOSED';
 
+    const OPTION_VALUE_NULL = 'NULL';
+    const OPTION_VALUE_AVG = 'AVG';
+    const OPTION_VALUE_BEST = 'BEST';
+
     public function save(array $options = [])
     {
         // If no author has been assigned, assign the current user's id as the author of the post

@@ -28,6 +28,22 @@ class CreateExchangesTable extends Migration
             $table->string('status')->default(Exchange::STATUS_PUBLISHED);
             $table->json('contacts')->nullable();
 
+            $table->boolean('two_factor_auth');
+            $table->boolean('app_android');
+            $table->boolean('app_ios');
+            $table->boolean('affiliate_support');
+            $table->boolean('cold_storage');
+            $table->boolean('integrated_wallet');
+
+            // tinyinteger : (0 no) to (1 average) (2 best)
+            $table->tinyInteger('instant_verification');
+            $table->tinyInteger('beginner_friendly');
+            $table->tinyInteger('chat_support');
+
+            $table->decimal('min_fee_percent');
+            $table->decimal('max_fee_percent');
+            $table->json('more_features')->nullable();
+
             $table->foreignId('admin_id');
 
             $table->timestamps();
