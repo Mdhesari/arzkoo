@@ -12,16 +12,16 @@
                 </div>
                 <div class="blog-desc">
                     <p>
-                        {{ $post->excerpt }}
+                        {{ \Str::limit($post->excerpt, $limit = 150, $end = '...') }}
                     </p>
                 </div>
-                <div class="read-time">
+                {{-- <div class="read-time">
                     <i class="fa fa-clock-o"></i>
                     <span>
                         3
                     </span>
                     دقیقه وقت خواندن
-                </div>
+                </div> --}}
             </div>
         </div>
     </article>

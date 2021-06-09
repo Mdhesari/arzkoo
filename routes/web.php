@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ExchangeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,9 +20,13 @@ Route::prefix('blog')->name('blog.')->group(function () {
     Route::get('/{post}', [BlogController::class, 'show'])->name('show');
 });
 
+Route::prefix('exchanges')->name('exchanges.')->group(function() {
+    Route::get('/exchanges', [ExchangeController::class, 'index'])->name('home');
+});
+
 Route::get('/welcome', function () {
     return view('welcome');
-});
+})->name('home');
 
 
 Route::group(['prefix' => 'admin'], function () {

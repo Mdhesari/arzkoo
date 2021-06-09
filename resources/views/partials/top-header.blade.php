@@ -6,13 +6,7 @@
         <x-arzkoo-logo></x-arzkoo-logo>
         <nav class="main-menu" id="mainMenu">
             <h2 class="d-none">منوی کاربری ارزکو</h2>
-            {{ menu('main') }}
-            <!-- <ul>
-                <li><a href="filter-page.html" class="active">مقایسه قیمت</a></li>
-                <li><a href="exchanges.html">صرافی ها </a></li>
-                <li><a href="blog.html">بلاگ </a></li>
-                <li><a href="live-prices.html">قیمت لحظه ای</a></li>
-            </ul> -->
+            {{ menu(config('menus.site.main')) }}
         </nav>
     </div>
     <div class="actions">
