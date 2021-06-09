@@ -64,5 +64,23 @@ class ArzkooMenuItemsTableSeeder extends Seeder
                 'order'      => 1,
             ])->save();
         }
+
+        $menu = Menu::where('name', 'admin')->firstOrFail();
+
+        $menuItem = MenuItem::firstOrNew([
+            'menu_id' => $menu->id,
+            'title'   => __('seeders.menu_items.exchanges'),
+            'url'     => '',
+            'route'   => 'voyager.exchanges.index',
+        ]);
+        if (!$menuItem->exists) {
+            $menuItem->fill([
+                'target'     => '_self',
+                'icon_class' => 'voyager-images',
+                'color'      => null,
+                'parent_id'  => $menuItem->id,
+                'order'      => 4,
+            ])->save();
+        }
     }
 }

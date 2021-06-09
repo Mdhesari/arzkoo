@@ -22,6 +22,10 @@ class VoyagerDatabaseSeeder extends Seeder
             PermissionsTableSeeder::class,
             PermissionRoleTableSeeder::class,
             SettingsTableSeeder::class,
+            ArzkooDataTypesTableSeeder::class,
+            ArzkooDataRowsTableSeeder::class,
+            ArzkooMenusTableSeeder::class,
+            ArzkooMenuItemsTableSeeder::class,
         ]);
     }
 }
