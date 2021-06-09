@@ -2,7 +2,7 @@
      <div class="col-lg-5 col-md-5 col-sm-12">
          <div class="footer__box">
              <a class="footer__box__logo" href="#">
-                 <img class="img-fluid" src="./assets/img/logo-white.png" alt="">
+                 <img class="img-fluid" src="{{ asset('assets/logo/logo.png') }}" alt="{{ config('app.name') }}">
              </a>
              <div class="footer__box__info">
                  <p class="footer__box__info__text"> ورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از

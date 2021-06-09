@@ -15,7 +15,7 @@ return [
 
     'name' => env('APP_NAME', 'Arzkoo'),
 
-    'version' => '0.11.5',
+    'version' => '0.12.0',
 
     /*
     |--------------------------------------------------------------------------
@@ -168,7 +168,6 @@ return [
          * Package Service Providers...
          */
         Leantony\Grid\Providers\GridServiceProvider::class,
-        Hekmatinasser\Verta\VertaServiceProvider::class,
 
         /*
          * Application Service Providers...

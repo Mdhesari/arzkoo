@@ -13,14 +13,14 @@ const mix = require("laravel-mix");
 
 mix.disableNotifications();
 
-mix.js("resources/js/app.js", "public/assets/js")
-    .postCss("resources/css/font-awesome.css", "public/assets/css", [
+mix.js("resources/js/app.js", "public/js")
+    .postCss("resources/css/font-awesome.css", "public/css", [
         require("postcss-import"),
         require("autoprefixer"),
     ])
     // TODO: autoprefix support for sass (old browsers)
-    .sass("resources/sass/app.scss", "public/assets/css")
-    .sass("resources/sass/admin-app.scss", "public/assets/css");
+    .sass("resources/sass/app.scss", "public/css")
+    .sass("resources/sass/admin-app.scss", "public/css");
 
 if (mix.inProduction()) {
     mix.version();

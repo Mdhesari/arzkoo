@@ -3,11 +3,7 @@
         <button class="burger-btn" id="burgerBtn" onclick="openMenu()">
             <i class="fas fa-bars"></i>
         </button>
-        <div class="logo-holder">
-            <a href="index.html">
-                <img src="assets/img/logo.png" alt="">
-            </a>
-        </div>
+        <x-arzkoo-logo></x-arzkoo-logo>
         <nav class="main-menu" id="mainMenu">
             <h2 class="d-none">منوی کاربری ارزکو</h2>
             {{ menu('main') }}
@@ -27,8 +23,8 @@
 </div>
 
 @push('add_scripts')
-    <script>
-        function openMenu() {
+<script>
+    function openMenu() {
 
             document.getElementById('mainMenu').classList.add('active-menu');
             document.getElementById('darkLayer').classList.add('active');
@@ -39,5 +35,5 @@
             document.getElementById('darkLayer').classList.remove('active');
         }
 
-    </script>
+</script>
 @endpush

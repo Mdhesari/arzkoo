@@ -21,7 +21,6 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
-        \App\Http\Middleware\GuessModulesAuthenticationProvider::class,
     ];
 
     /**
@@ -64,9 +63,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         // custom middlewares
-        'auth.admin' => \Modules\Admin\Http\Middleware\AuthenticatesAdmin::class,
-        'guest.admin' => \Modules\Admin\Http\Middleware\RedirectIfAuthenticatedAdmin::class,
-        'admin' => \Modules\Admin\Http\Middleware\AdminToken::class,
         'english_numbers' => \App\Http\Middleware\ConvertPersianNumbersToEnglish::class
     ];
 }

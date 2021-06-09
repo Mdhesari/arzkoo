@@ -9,13 +9,13 @@
     <title>{{ config('app.name', 'Arzkoo') }}</title>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ mix('assets/css/font-awesome.css') }}">
-    <link rel="stylesheet" href="{{ mix('assets/css/app.css') }}">
+    <link rel="stylesheet" href="{{ mix('css/font-awesome.css') }}">
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
     @livewireStyles
 
         <!-- Scripts -->
-        <script src="{{ mix('assets/js/app.js') }}" defer></script>
+        <script src="{{ mix('js/app.js') }}" defer></script>
 </head>
 
 <body>

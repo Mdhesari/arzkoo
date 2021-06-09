@@ -5,24 +5,9 @@ namespace App\Models;
 use App\Space\Contracts\HasOption;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Permission\Models\Role as BaseRole;
+use TCG\Voyager\Models\Role as BaseRole;
 
-class Role extends BaseRole implements HasOption
+class Role extends BaseRole
 {
     use HasFactory;
-
-    public function getRouteKeyName()
-    {
-        return 'name';
-    }
-
-    public function getOptionValue(): string
-    {
-        return $this->id;
-    }
-
-    public function getOptionText(): string
-    {
-        return $this->name;
-    }
 }
