@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\AdminExchangeController;
 use App\Http\Controllers\LotController;
 use App\Http\Controllers\LotGroupController;
 use App\Http\Controllers\OwnerController;
+use App\Models\Currencies\Crypto;
 use App\Models\Exchanges\Exchange;
 use App\Models\Lot;
 use App\Models\LotGroup;
@@ -31,6 +32,20 @@ class ArzkooDataTypesTableSeeder extends Seeder
                 'display_name_plural'   => __('seeders.data_types.exchanges.plural'),
                 'icon'                  => 'voyager-images',
                 'model_name'            => Exchange::class,
+                // 'controller'            => AdminExchangeController::class,
+                'generate_permissions'  => 1,
+                'description'           => '',
+            ])->save();
+        }
+
+        $dataType = $this->dataType('slug', 'cryptos');
+        if (!$dataType->exists) {
+            $dataType->fill([
+                'name'                  => 'cryptos',
+                'display_name_singular' => __('seeders.data_types.cryptos.singular'),
+                'display_name_plural'   => __('seeders.data_types.cryptos.plural'),
+                'icon'                  => 'voyager-images',
+                'model_name'            => Crypto::class,
                 // 'controller'            => AdminExchangeController::class,
                 'generate_permissions'  => 1,
                 'description'           => '',

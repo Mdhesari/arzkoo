@@ -5,17 +5,26 @@ return [
         'main' => 'صفحه اصلی',
         'exchanges' => 'صرافی ها',
         'blog' => 'وبلاگ',
-        'realtime_prices' => 'قیمت لحظه ای'
+        'realtime_prices' => 'قیمت لحظه ای',
+        'cryptos' => 'رمزارز ها',
     ],
     'data_types' => [
         'exchanges' => [
             'singular' => 'صرافی',
             'plural' => 'صرافی ها'
+        ],
+        'cryptos' => [
+            'singular' => 'رمزارز',
+            'plural' => 'رمزارز ها'
         ]
     ],
 
     'data_rows' => [
+        'symbol' => 'نماد',
         'enabled' => 'فعال',
+        'price' => 'قیمت',
+        'volume' => 'حجم',
+        'market_cap' => 'حجم بازار',
         'disabled' => 'غیر فعال',
         'persian_title' => 'عنوان فارسی',
         'physcial_address' => 'آدرس',

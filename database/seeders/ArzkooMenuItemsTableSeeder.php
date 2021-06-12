@@ -76,7 +76,23 @@ class ArzkooMenuItemsTableSeeder extends Seeder
         if (!$menuItem->exists) {
             $menuItem->fill([
                 'target'     => '_self',
-                'icon_class' => 'voyager-images',
+                'icon_class' => 'voyager-shop',
+                'color'      => null,
+                'parent_id'  => $menuItem->id,
+                'order'      => 4,
+            ])->save();
+        }
+
+        $menuItem = MenuItem::firstOrNew([
+            'menu_id' => $menu->id,
+            'title'   => __('seeders.menu_items.cryptos'),
+            'url'     => '',
+            'route'   => 'voyager.cryptos.index',
+        ]);
+        if (!$menuItem->exists) {
+            $menuItem->fill([
+                'target'     => '_self',
+                'icon_class' => 'voyager-dollar',
                 'color'      => null,
                 'parent_id'  => $menuItem->id,
                 'order'      => 4,
