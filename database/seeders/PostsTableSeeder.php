@@ -122,6 +122,20 @@ class PostsTableSeeder extends Seeder
                 'add'          => 1,
                 'delete'       => 1,
                 'order'        => 6,
+                'details' => [
+                    'tinymceOptions' => [
+                        'language' => 'fa_IR',
+                        'language_url' => asset('assets/tinymce/lang/fa_IR.js'),
+                        'font_formats' => "Vazir",
+                        'content_css' => asset('assets/tinymce/content.css'),
+                        'directionality' => 'rtl',
+                        'content_style' => "@import url('https://cdnjs.cloudflare.com/ajax/libs/vazir-font/28.0.0/font-face.css');",
+                        'menubar' => 'file edit view insert format tools table tc help',
+                        'toolbar' => 'undo redo | bold italic underline strikethrough | fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor casechange removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | a11ycheck ltr rtl | showcomments addcomment',
+                        'autosave_ask_before_unload' => true,
+                        'autosave_interval' => '30s',
+                    ],
+                ],
             ])->save();
         }
 
