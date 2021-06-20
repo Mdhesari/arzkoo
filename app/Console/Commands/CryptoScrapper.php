@@ -2,9 +2,13 @@
 
 namespace App\Console\Commands;
 
+use App\Console\BaseScrapper;
+use GuzzleHttp\Client;
+use Http;
 use Illuminate\Console\Command;
+use Symfony\Component\DomCrawler\Crawler;
 
-class CryptoScrapper extends Command
+class CryptoScrapper extends BaseScrapper
 {
     /**
      * The name and signature of the console command.
@@ -21,22 +25,20 @@ class CryptoScrapper extends Command
     protected $description = 'Command description';
 
     /**
-     * Create a new command instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
-    /**
      * Execute the console command.
      *
      * @return int
      */
     public function handle()
     {
-        return 0;
+       $res = $this->cli->request('GET', 'https://data.messari.io/api/v2/assets', ['verify' => false, 'headers' => [
+            'x-messari-api-key' => 'f90a730a-eca7-4015-8179-dee4b0ddb13c'
+        ]]);
+
+        $response = Http::withHeaders([
+            'x-messari-api-key' => 'f90a730a-eca7-4015-8179-dee4b0ddb13c'
+        ])->request();
+
+        dd($response->json());
     }
 }
