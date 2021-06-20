@@ -18,6 +18,10 @@ use Illuminate\Support\Facades\Route;
 
 // Route::get('/', [HomeController::class, 'index'])->name('home');
 
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
+
 Route::prefix('/')->name('blog.')->group(function () {
     Route::get('/', [BlogController::class, 'index'])->name('home');
     Route::get('/{post}', [BlogController::class, 'show'])->name('show');
@@ -26,7 +30,3 @@ Route::prefix('/')->name('blog.')->group(function () {
 // Route::prefix('exchanges')->name('exchanges.')->group(function () {
 //     Route::get('/exchanges', [ExchangeController::class, 'index'])->name('home');
 // });
-
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
-});

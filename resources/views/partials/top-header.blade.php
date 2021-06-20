@@ -10,7 +10,7 @@
         </nav>
     </div>
     <div class="actions">
-        <a href="otp.html">
+        <a href="#">
             ثبت نام
         </a>
     </div>

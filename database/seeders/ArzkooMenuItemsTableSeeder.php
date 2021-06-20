@@ -17,21 +17,21 @@ class ArzkooMenuItemsTableSeeder extends Seeder
     {
         $menu = Menu::where('name', config('menus.site.main'))->firstOrFail();
 
-        $menuItem = MenuItem::firstOrNew([
-            'menu_id' => $menu->id,
-            'title'   => __('seeders.menu_items.main'),
-            'url'     => '',
-            'route'   => 'home',
-        ]);
-        if (!$menuItem->exists) {
-            $menuItem->fill([
-                'target'     => '_self',
-                'icon_class' => 'voyager-boat',
-                'color'      => null,
-                'parent_id'  => null,
-                'order'      => 1,
-            ])->save();
-        }
+        // $menuItem = MenuItem::firstOrNew([
+        //     'menu_id' => $menu->id,
+        //     'title'   => __('seeders.menu_items.main'),
+        //     'url'     => '',
+        //     'route'   => 'home',
+        // ]);
+        // if (!$menuItem->exists) {
+        //     $menuItem->fill([
+        //         'target'     => '_self',
+        //         'icon_class' => 'voyager-boat',
+        //         'color'      => null,
+        //         'parent_id'  => null,
+        //         'order'      => 1,
+        //     ])->save();
+        // }
 
         $menuItem = MenuItem::firstOrNew([
             'menu_id' => $menu->id,
@@ -49,21 +49,21 @@ class ArzkooMenuItemsTableSeeder extends Seeder
             ])->save();
         }
 
-        $menuItem = MenuItem::firstOrNew([
-            'menu_id' => $menu->id,
-            'title'   => __('seeders.menu_items.exchanges'),
-            'url'     => '',
-            'route'   => 'exchanges.home',
-        ]);
-        if (!$menuItem->exists) {
-            $menuItem->fill([
-                'target'     => '_self',
-                'icon_class' => 'voyager-boat',
-                'color'      => null,
-                'parent_id'  => null,
-                'order'      => 1,
-            ])->save();
-        }
+        // $menuItem = MenuItem::firstOrNew([
+        //     'menu_id' => $menu->id,
+        //     'title'   => __('seeders.menu_items.exchanges'),
+        //     'url'     => '',
+        //     'route'   => 'exchanges.home',
+        // ]);
+        // if (!$menuItem->exists) {
+        //     $menuItem->fill([
+        //         'target'     => '_self',
+        //         'icon_class' => 'voyager-boat',
+        //         'color'      => null,
+        //         'parent_id'  => null,
+        //         'order'      => 1,
+        //     ])->save();
+        // }
 
         $menu = Menu::where('name', 'admin')->firstOrFail();
 
