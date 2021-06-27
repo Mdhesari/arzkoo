@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright (c) 2018.
  * @author Antony [leantony] Chacha
@@ -100,7 +101,6 @@ class GenerateGrid extends Command
         $suppliedModel = $this->getModelOption();
 
         if ($suppliedModel === null) {
-
             $this->error("Please supply a model name.");
             die(-1);
         }
@@ -163,7 +163,6 @@ class GenerateGrid extends Command
         $model = app($model);
 
         if (!$model instanceof Model) {
-
             $this->error("Invalid model supplied.");
 
             die(-1);
@@ -186,7 +185,6 @@ class GenerateGrid extends Command
         // skip column exclusions
         $rows = collect($columns)->reject(function ($v) {
             return in_array($v, $this->excludedColumns);
-
         })->map(function ($columnName) {
             if ($columnName === 'id') {
                 // a pk
@@ -230,8 +228,7 @@ class GenerateGrid extends Command
                                 ],
                             ],
                         ];
-                    } else // any other column
-                    {
+                    } else { // any other column
                         return [
                             $columnName => [
                                 'search' => [
@@ -264,8 +261,11 @@ class GenerateGrid extends Command
     {
         $stub = __DIR__ . '/../Stubs/GridInterface.txt';
 
-        list($namespace, $interfaceName, $replaced) = $this->makeReplacementsForBinding($model,
-            $this->generateDynamicNamespace(), $stub);
+        list($namespace, $interfaceName, $replaced) = $this->makeReplacementsForBinding(
+            $model,
+            $this->generateDynamicNamespace(),
+            $stub
+        );
 
         $this->binding = $interfaceName;
 
@@ -274,11 +274,8 @@ class GenerateGrid extends Command
         $path = $this->getPath($namespace);
 
         if ($this->dumpFile($path, $filename, $replaced)) {
-
             $this->info("Wrote generated binding to " . $path);
-
         } else {
-
             $this->info("skipped overwriting existing binding at " . $path);
         }
 
@@ -356,17 +353,13 @@ class GenerateGrid extends Command
         $dumpPath = $path . DIRECTORY_SEPARATOR . $filename;
 
         if ($this->filesystem->exists($dumpPath)) {
-
             if (($this->confirm(sprintf(trans('Overwrite file at %s ? [yes|no]'), $dumpPath), 'no'))) {
-
                 $this->filesystem->put($dumpPath, $contents);
 
                 return true;
             }
             return false;
-
         } else {
-
             $this->filesystem->put($dumpPath, $contents);
 
             return true;
@@ -404,14 +397,10 @@ class GenerateGrid extends Command
         $path = $this->getPath($namespace);
 
         if ($this->dumpFile($path, $filename, $replaced)) {
-
             $this->info("Wrote generated grid to " . $path);
-
         } else {
-
             $this->info('Skipped overwriting existing grid at ' . $path);
         }
-
     }
 
     /**

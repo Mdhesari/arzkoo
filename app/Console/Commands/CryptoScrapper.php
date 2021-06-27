@@ -3,6 +3,9 @@
 namespace App\Console\Commands;
 
 use App\Console\BaseScrapper;
+use App\Models\Currencies\Crypto;
+use DB;
+use Exception;
 use GuzzleHttp\Client;
 use Http;
 use Illuminate\Console\Command;
@@ -31,14 +34,49 @@ class CryptoScrapper extends BaseScrapper
      */
     public function handle()
     {
-       $res = $this->cli->request('GET', 'https://data.messari.io/api/v2/assets', ['verify' => false, 'headers' => [
-            'x-messari-api-key' => 'f90a730a-eca7-4015-8179-dee4b0ddb13c'
-        ]]);
+        $start_time = microtime(true);
 
         $response = Http::withHeaders([
             'x-messari-api-key' => 'f90a730a-eca7-4015-8179-dee4b0ddb13c'
-        ])->request();
+        ])->get('https://data.messari.io/api/v2/assets');
 
-        dd($response->json());
+        $data = $response->json()['data'];
+
+        $bar = $this->output->createProgressBar(count($data));
+
+        $bar->start();
+
+        try {
+            DB::beginTransaction();
+
+            foreach ($data as $item) {
+
+                $crypto = Crypto::whereSymbol($item['symbol'])->first();
+
+                if (is_null($crypto))
+                    $crypto = Crypto::create([
+                        'symbol' => $item['symbol'],
+                        'name' => $item['name'],
+                        'price' => $item['metrics']['market_data']['price_usd'],
+                        'volume' => $item['metrics']['market_data']['volume_last_24_hours'],
+                        'market_cap' => $item['metrics']['marketcap']['current_marketcap_usd'],
+                    ]);
+
+                $bar->advance();
+            }
+        } catch (Exception $e) {
+            $this->error($e->getMessage());
+            DB::rollBack();
+        }
+
+        $bar->finish();
+
+        DB::commit();
+
+        $end_time = microtime(true);
+
+        $execution_time = ($end_time - $start_time);
+
+        $this->info("\nExecution time of script = " . $execution_time . " sec");
     }
 }
