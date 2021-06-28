@@ -38,7 +38,9 @@ class CryptoScrapper extends BaseScrapper
 
         $response = Http::withHeaders([
             'x-messari-api-key' => 'f90a730a-eca7-4015-8179-dee4b0ddb13c'
-        ])->get('https://data.messari.io/api/v2/assets');
+        ])->get('https://data.messari.io/api/v2/assets', [
+            'limit' => 100,
+        ]);
 
         $data = $response->json()['data'];
 
@@ -54,13 +56,15 @@ class CryptoScrapper extends BaseScrapper
                 $crypto = Crypto::whereSymbol($item['symbol'])->first();
 
                 if (is_null($crypto))
-                    $crypto = Crypto::create([
+                    $crypto = new Crypto([
                         'symbol' => $item['symbol'],
                         'name' => $item['name'],
-                        'price' => $item['metrics']['market_data']['price_usd'],
-                        'volume' => $item['metrics']['market_data']['volume_last_24_hours'],
-                        'market_cap' => $item['metrics']['marketcap']['current_marketcap_usd'],
                     ]);
+
+                $crypto->market_cap = $item['metrics']['marketcap']['current_marketcap_usd'];
+                $crypto->volume = $item['metrics']['market_data']['volume_last_24_hours'];
+                $crypto->price = $item['metrics']['market_data']['price_usd'];
+                $crypto->save();
 
                 $bar->advance();
             }
