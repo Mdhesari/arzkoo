@@ -2,7 +2,9 @@
 
 namespace App\Models\Exchanges;
 
+use App\Models\Currencies\Crypto;
 use Auth;
+use finfo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,18 +12,7 @@ class Exchange extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'name',
-        'logo',
-        'title',
-        'persian_title',
-        'physcial_address',
-        'description',
-        'site',
-        'site_with_query',
-        'status',
-        'contacts',
-    ];
+    protected $guarded = ['id'];
 
     protected $casts = [
         'logo' => 'array',
@@ -36,6 +27,56 @@ class Exchange extends Model
     const OPTION_VALUE_NULL = 'NULL';
     const OPTION_VALUE_AVG = 'AVG';
     const OPTION_VALUE_BEST = 'BEST';
+
+    public function cryptos()
+    {
+        return $this->belongsToMany(Crypto::class, 'exchange_crypto');
+    }
+
+    public static function createData($exchange)
+    {
+        return array_merge([
+            'name' => $exchange['title'],
+            'title' => $exchange['exchange_title'],
+            'persian_title' => $exchange['label'],
+            'site' => optional(parse_url($exchange['site_with_source']))['host'],
+            'site_with_query' => $exchange['site_with_source'],
+            'buy_price' => $exchange['buy_price'],
+            'sell_price' => $exchange['sell_price'],
+            'logo' => static::storeAndGetExchangeLogoPath($exchange['logo'])
+        ], static::getFeesFields($exchange));
+    }
+
+    private static function storeAndGetExchangeLogoPath($logo)
+    {
+        if (!is_dir(public_path('assets/cryptos'))) {
+            mkdir(public_path('assets/cryptos'));
+        }
+
+        $data = pathinfo($logo);
+
+        $url = "https://tokenbaz.com" . $logo;
+
+        file_put_contents(public_path($path = 'assets/cryptos/' . $data['basename']), file_get_contents($url));
+
+        return $path;
+    }
+
+    private static function getFeesFields(array $exchange)
+    {
+        $irr_fee = $exchange['irr_fee'];
+        $usdt_fee = $exchange['usdt_fee'];
+
+        $irr_fee = explode('الی', $irr_fee);
+        $usdt_fee = explode('الی', $usdt_fee);
+
+        return [
+            'usdt_min_fee_percent' => $usdt_fee[0],
+            'usdt_max_fee_percent' => isset($usdt_fee[1]) ? $usdt_fee[1] : $usdt_fee[0],
+            'irr_min_fee_percent' => $irr_fee[0],
+            'irr_max_fee_percent' => isset($irr_fee[1]) ? $irr_fee[1] : $irr_fee[0],
+        ];
+    }
 
     public function save(array $options = [])
     {

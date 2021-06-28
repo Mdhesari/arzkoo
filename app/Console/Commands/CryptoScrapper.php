@@ -18,7 +18,7 @@ class CryptoScrapper extends BaseScrapper
      *
      * @var string
      */
-    protected $signature = 'scrap:cryptos';
+    protected $signature = 'scrap:cryptos {--limit=100}';
 
     /**
      * The console command description.
@@ -39,7 +39,7 @@ class CryptoScrapper extends BaseScrapper
         $response = Http::withHeaders([
             'x-messari-api-key' => 'f90a730a-eca7-4015-8179-dee4b0ddb13c'
         ])->get('https://data.messari.io/api/v2/assets', [
-            'limit' => 100,
+            'limit' => intval($this->option('limit')),
         ]);
 
         $data = $response->json()['data'];
