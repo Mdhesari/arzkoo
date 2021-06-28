@@ -15,7 +15,8 @@ class Exchange extends Model
     protected $guarded = ['id'];
 
     protected $casts = [
-        'logo' => 'array',
+        'buy_price' => 'float',
+        'sell_price' => 'float',
         'contacts' => 'array',
     ];
 
@@ -33,6 +34,11 @@ class Exchange extends Model
         return $this->belongsToMany(Crypto::class, 'exchange_crypto');
     }
 
+    public function scopePublished($query)
+    {
+        return $query->whereStatus(static::STATUS_PUBLISHED);
+    }
+
     public static function createData($exchange)
     {
         return array_merge([
@@ -41,10 +47,15 @@ class Exchange extends Model
             'persian_title' => $exchange['label'],
             'site' => optional(parse_url($exchange['site_with_source']))['host'],
             'site_with_query' => $exchange['site_with_source'],
-            'buy_price' => $exchange['buy_price'],
-            'sell_price' => $exchange['sell_price'],
+            'buy_price' =>  static::getPrice($exchange['buy_price']),
+            'sell_price' => static::getPrice($exchange['sell_price']),
             'logo' => static::storeAndGetExchangeLogoPath($exchange['logo'])
         ], static::getFeesFields($exchange));
+    }
+
+    private static function getPrice($amount)
+    {
+        return str_replace(",", "", $amount);
     }
 
     private static function storeAndGetExchangeLogoPath($logo)
@@ -70,12 +81,18 @@ class Exchange extends Model
         $irr_fee = explode('الی', $irr_fee);
         $usdt_fee = explode('الی', $usdt_fee);
 
-        return [
+        $data = [
             'usdt_min_fee_percent' => $usdt_fee[0],
             'usdt_max_fee_percent' => isset($usdt_fee[1]) ? $usdt_fee[1] : $usdt_fee[0],
             'irr_min_fee_percent' => $irr_fee[0],
             'irr_max_fee_percent' => isset($irr_fee[1]) ? $irr_fee[1] : $irr_fee[0],
         ];
+
+        $data = array_map(function ($item) {
+            return floatval(str_replace("%", " ", $item));
+        }, $data);
+
+        return $data;
     }
 
     public function save(array $options = [])

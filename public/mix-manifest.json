@@ -1,5 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
+    "/js/swiper-bundle.min.js": "/js/swiper-bundle.min.js",
     "/css/font-awesome.css": "/css/font-awesome.css",
+    "/css/swiper-bundle.min.css": "/css/swiper-bundle.min.css",
     "/css/app.css": "/css/app.css"
 }
