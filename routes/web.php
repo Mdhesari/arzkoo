@@ -24,6 +24,8 @@ Route::group(['prefix' => 'admin'], function () {
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+Route::resource('exchanges', ExchangeController::class);
+
 Route::middleware(['guest'])->group(function () {
     Route::prefix('auth')->group(function () {
         Route::get('login', [LoginController::class, 'show'])->name('login');

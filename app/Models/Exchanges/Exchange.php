@@ -39,6 +39,11 @@ class Exchange extends Model
         return $query->whereStatus(static::STATUS_PUBLISHED);
     }
 
+    public function isFeatured()
+    {
+        return false;
+    }
+
     public static function createData($exchange)
     {
         return array_merge([
