@@ -30,9 +30,12 @@
                                     </div>
                                     <button class="clickable" id="do_get_register-code" type="button">ورود</button>
                                     <div class="form-enter-code__link">
-                                        <a class="clickable" id="resend_btn">ارسال مجدد کد تا
-                                            <span id="seconds_to_resend"></span>
-                                            ثانیه دیگر
+                                        <a class="clickable" id="resend_btn">
+                                            ارسال مجدد کد
+                                            <div id="seconds_wrapper">تا
+                                                <span id="seconds_to_resend"></span>
+                                                ثانیه دیگر
+                                            </div>
                                         </a>
                                         <a class="clickable editnumber">تغییر شماره همراه</a>
                                     </div>
@@ -69,6 +72,7 @@
                         'passwordcode': '#passwordcode',
                         'confirmForm': '#form_confirm_code',
                         'resendSeconds': '#seconds_to_resend',
+                        'resendSecondsWrapper': '#seconds_wrapper',
                         'resendBtn': '#resend_btn',
                         'mainForm': '#main_form .inner-form'
                     }
@@ -113,15 +117,42 @@
                                 username: this.phoneNumber.value
                             }).then(res => {
                                 removeEventListener('click', registerEventUnsubsciber)
-                                this.resendSeconds.textContent = res.data.resend
+
+                                if (res.data.resend > 0)
+                                    this.resendSeconds.textContent = res.data.resend
+                                else
+                                    this.resendSecondsWrapper.classList.add('d-none')
+
+                                this.activateResendCountdown()
                                 this.goTo('verification')
                             }).catch(err => {
-                                this.goTo('error')
+                                const {
+                                    errors
+                                } = err.response.data
+                                for (let error in errors) {
+                                    for (err of errors[error]) {
+                                        this.addErrorToForm(err)
+                                    }
+                                }
                             })
                         } else {
                             this.goTo('error')
                         }
                     })
+                }
+
+                activateResendCountdown() {
+                    const countdownInterval = setInterval(() => {
+                        let seconds = Number(this.resendSeconds.textContent)
+
+                        if (seconds <= 0) {
+                            this.resendSecondsWrapper.classList.add('d-none')
+                            clearInterval(countdownInterval)
+                            return;
+                        }
+
+                        this.resendSeconds.textContent = (seconds - 1)
+                    }, 1000);
                 }
 
                 isPhoneNumberFormatValid(phoneNumber) {

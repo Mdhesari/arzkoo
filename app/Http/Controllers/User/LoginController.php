@@ -24,7 +24,7 @@ class LoginController extends Controller
     public function store(Request $request, RateLimiter $limiter, PasswordGenerator $pGenerator)
     {
         $request->validate([
-            'username' => ['required', 'numeric']
+            'username' => ['required', 'regex:/^[0-9]{11}$/i']
         ]);
 
         $username = $request->username;
@@ -50,13 +50,13 @@ class LoginController extends Controller
 
         $resend = get_available_in_rate_limiter($limiter, $key);
 
-        // if ($limiter->tooManyAttempts($key, config('session.otp_max_attempts'))) {
-        //     throw ValidationException::withMessages([
-        //         'username' => __('auth.throttle', [
-        //             'seconds' => $resend
-        //         ])
-        //     ]);
-        // }
+        if ($limiter->tooManyAttempts($key, config('session.otp_max_attempts'))) {
+            throw ValidationException::withMessages([
+                'username' => __('auth.throttle', [
+                    'seconds' => get_available_in_rate_limiter($limiter, $key)
+                ])
+            ]);
+        }
 
         $limiter->hit($key, 120);
 
