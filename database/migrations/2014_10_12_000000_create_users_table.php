@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('mobile')->unique()->nullable();
             $table->timestamp('mobile_verified_at')->nullable();
             $table->json('data')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps(); // created_at, updated_at

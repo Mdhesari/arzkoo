@@ -128,7 +128,7 @@ return [
 
     'cookie' => env(
         'SESSION_COOKIE',
-        Str::slug(env('APP_NAME', 'laravel'), '_').'_session'
+        Str::slug(env('APP_NAME', 'laravel'), '_') . '_session'
     ),
 
     /*
@@ -198,4 +198,7 @@ return [
 
     'same_site' => 'lax',
 
+    'otp_max_attempts' => 2,
+
+    'mobile_rate_limit' => env('MOBILE_RATE_LIMIT', 120),
 ];

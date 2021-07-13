@@ -10,15 +10,36 @@
         </nav>
     </div>
     <div class="actions">
-        <a href="#">
-            ثبت نام
-        </a>
+        @auth
+            <a class="profile-btn" href="#">
+                <img src="./assets/img/bt.png" alt="">
+                <span>پنل کاربری</span>
+                <i class="far fa-long-arrow-alt-left"></i>
+            </a>
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-link text-danger">خروج از حساب</button>
+            </form>
+            <div class="dropdown" id="profile-dropdown">
+                <ul>
+                    <li><a class="clickable" href="#">پروفایل من</a></li>
+                    <li><a class="clickable" href="#">سفارش های من</a></li>
+                    <li><a class="clickable" href="#">خبرنامه</a></li>
+                    <li><a class="clickable" href="#">خروج</a></li>
+                </ul>
+            </div>
+        @else
+            <a href="{{ route('login') }}">
+                ثبت نام
+            </a>
+        @endauth
     </div>
 </div>
 
 @push('add_scripts')
-<script>
-    function openMenu() {
+    <script>
+        function openMenu() {
 
             document.getElementById('mainMenu').classList.add('active-menu');
             document.getElementById('darkLayer').classList.add('active');
@@ -28,6 +49,5 @@
             document.getElementById('mainMenu').classList.remove('active-menu');
             document.getElementById('darkLayer').classList.remove('active');
         }
-
-</script>
+    </script>
 @endpush
