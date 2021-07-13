@@ -44,6 +44,24 @@ class Exchange extends Model
         return false;
     }
 
+    public function getFeaturesAttribute()
+    {
+        $features = [];
+
+        $data = collect($this->toArray());
+
+        $data = $data->filter(fn ($item) => $item === 0 || $item === 1);
+
+        $features = $data->map(function ($item, $key) {
+            return [
+                'title' => __('exchanges.features.' . $key),
+                'value' => $item
+            ];
+        });
+
+        return $features;
+    }
+
     public static function createData($exchange)
     {
         return array_merge([
@@ -56,6 +74,11 @@ class Exchange extends Model
             'sell_price' => static::getPrice($exchange['sell_price']),
             'logo' => static::storeAndGetExchangeLogoPath($exchange['logo'])
         ], static::getFeesFields($exchange));
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'title';
     }
 
     private static function getPrice($amount)

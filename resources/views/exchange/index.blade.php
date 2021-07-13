@@ -164,7 +164,7 @@
                                         <div class="box box-cmp @if ($isFeatured) featured-box @endif" @if ($isFeatured) data-label="پیشنهاد
                                             سایت"
                                 @endif>
-                                <a href="#"></a>
+                                <a href="{{ route('exchanges.show', $exchange) }}"></a>
                                 <div class="box__img">
                                     <img class="img-fluid" src="{{ asset($exchange->logo) }}"
                                         alt="{{ $exchange->title }}">
@@ -177,7 +177,7 @@
                                     <i class="fa fa-star star-yellow"></i>
                                 </div>
                                 <h2 class="box__name">
-                                    {{ $exchange->title }}
+                                    {{ $exchange->persian_title }}
                                 </h2>
                             </div>
                         </div>

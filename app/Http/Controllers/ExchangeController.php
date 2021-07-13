@@ -46,9 +46,11 @@ class ExchangeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Exchange $exchange)
     {
-        //
+        $cryptos = $exchange->cryptos()->paginate();
+
+        return view('exchange.show', compact('exchange', 'cryptos'));
     }
 
     /**
