@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Storage;
 
 class User extends \TCG\Voyager\Models\User
 {
@@ -20,6 +21,7 @@ class User extends \TCG\Voyager\Models\User
         'name',
         'mobile',
         'email',
+        'image',
         'password',
     ];
 
@@ -42,13 +44,25 @@ class User extends \TCG\Voyager\Models\User
         'email_verified_at' => 'datetime',
     ];
 
+    public function getFullImageAttribute()
+    {
+        return Storage::url($this->image);
+    }
+
+    public function hasPassword()
+    {
+        return !empty($this->password);
+    }
+
     public function save(array $options = [])
     {
         if (is_null($this->name)) {
             $this->name = __(' No Name ');
         }
 
-        $this->password = '';
+        if (is_null($this->password)) {
+            $this->password = '';
+        }
 
         return parent::save();
     }

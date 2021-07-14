@@ -37,10 +37,15 @@
 
         <!-- Page Content -->
         <main>
+
+            @if ($message = session('success'))
+                <div class="alert alert-success">{{ $message }}</div>
+            @endif
+
             @yield('content')
 
-            @if(isset($slot))
-            {{ $slot }}
+            @if (isset($slot))
+                {{ $slot }}
             @endif
         </main>
 

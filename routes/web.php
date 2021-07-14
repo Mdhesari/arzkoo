@@ -3,9 +3,11 @@
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ExchangeController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\User\DashboardController;
 use App\Http\Controllers\User\LoginController;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Support\Facades\Route;
+use Intervention\Image\Gd\Commands\RotateCommand;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +28,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::resource('exchanges', ExchangeController::class);
 
-Route::middleware(['guest'])->group(function () {
+Route::middleware('guest')->group(function () {
     Route::prefix('auth')->group(function () {
         Route::get('login', [LoginController::class, 'show'])->name('login');
         Route::post('login', [LoginController::class, 'store']);
@@ -35,6 +37,14 @@ Route::middleware(['guest'])->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
+    Route::prefix('dashboard')->name('dashboard')->group(function () {
+        Route::get('/', [DashboardController::class, 'index']);
+        Route::get('confirm-mobile', [DashboardController::class, 'updateMobileConfirmView'])->name('.confirm-mobile');
+        Route::put('update-picture', [DashboardController::class, 'updatePicture'])->name('.update-picture');
+        Route::put('update-name', [DashboardController::class, 'updateName'])->name('.update-name');
+        Route::put('update-mobile', [DashboardController::class, 'updateMobile'])->name('.update-mobile');
+        Route::put('update-password', [DashboardController::class, 'updatePassword'])->name('.update-password');
+    });
     Route::delete('logout', [LoginController::class, 'logout'])->name('logout');
 });
 

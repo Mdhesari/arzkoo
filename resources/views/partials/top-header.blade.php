@@ -11,7 +11,7 @@
     </div>
     <div class="actions">
         @auth
-            <a class="profile-btn" href="#">
+            <a class="profile-btn" href="{{ route('dashboard') }}">
                 <img src="./assets/img/bt.png" alt="">
                 <span>پنل کاربری</span>
                 <i class="far fa-long-arrow-alt-left"></i>
