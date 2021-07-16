@@ -17,5 +17,9 @@ class ArzkooMenusTableSeeder extends Seeder
         Menu::firstOrCreate([
             'name' => config('menus.site.main'),
         ]);
+
+        Menu::firstOrCreate([
+            'name' => config('menus.site.footer'),
+        ]);
     }
 }

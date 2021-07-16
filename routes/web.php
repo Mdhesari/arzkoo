@@ -39,6 +39,8 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::prefix('dashboard')->name('dashboard')->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('.home');
+        Route::get('delete-account', [DashboardController::class, 'deleteAccountView'])->name('.delete-account');
+        Route::delete('delete-account', [DashboardController::class, 'deleteAccount']);
         Route::get('confirm-mobile', [DashboardController::class, 'updateMobileConfirmView'])->name('.confirm-mobile');
         Route::post('confirm-mobile', [DashboardController::class, 'updateMobileConfirm']);
         Route::put('update-picture', [DashboardController::class, 'updatePicture'])->name('.update-picture');

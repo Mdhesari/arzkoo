@@ -4,22 +4,7 @@
     <section class="account-section py-5">
         <div class="container">
             <div class="row">
-                <aside class="col-lg-3 col-md-12 sidebar">
-                    <div class="sidebar-inner">
-                        <ul class="sidebar-items">
-                            <li class="sidebar-item active">
-                                <a href="account.html">
-                                    حساب کاربری
-                                </a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="delete-account.html">
-                                    حذف حساب کاربری
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </aside>
+                @include('partials.dashboard-sidebar')
                 <div class="col-lg-9 col-md-12 account-content-holder">
                     <div class="account-content-inner">
                         <div class="header">

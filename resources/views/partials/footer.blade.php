@@ -34,10 +34,7 @@
                  با ما در ارتباط باشید
              </h4>
              <div class="footer__box__links">
-                 <a href="about-us.html">درباره ما</a>
-                 <a href="#">مطبوعات خبری</a>
-                 <a href="blog.html">بلاگ ها</a>
-                 <a href="#">پشتیبانی</a>
+                 {{ menu(config('menus.site.footer')) }}
              </div>
          </div>
      </div>

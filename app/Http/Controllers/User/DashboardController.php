@@ -6,6 +6,7 @@ use App\Events\AuthenticationAttemptEvent;
 use App\Http\Controllers\Controller;
 use App\Models\Authentication;
 use App\Space\PasswordGenerator;
+use Auth;
 use Exception;
 use Hash;
 use Illuminate\Cache\RateLimiter;
@@ -19,6 +20,29 @@ class DashboardController extends Controller
     public function index()
     {
         return view('user.dashboard.index');
+    }
+
+    public function deleteAccount(Request $request)
+    {
+        $password = $request->password;
+
+        if (empty($password) || !Hash::check($password, $request->user()->password)) {
+            throw ValidationException::withMessages([
+                'mobile' => __('auth.failed')
+            ]);
+        }
+
+        $user = $request->user();
+
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        $user->delete();
+
+        return redirect()->route('home')->with('success', 'حساب کاربری شما با موفقیت حذف شد.');
     }
 
     public function updatePicture(Request $request)
@@ -153,10 +177,15 @@ class DashboardController extends Controller
             $request->session()->forget(['mobile', 'resend']);
 
             return redirect()->route('dashboard.home')->with('success', 'شماره موبایل شما با موفقیت بروزرسانی شد.');
-        }   
+        }
 
         throw ValidationException::withMessages([
             'code' => __('auth.failed')
         ]);
+    }
+
+    public function deleteAccountView()
+    {
+        return view('user.dashboard.delete-account');
     }
 }

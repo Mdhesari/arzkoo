@@ -21,3 +21,9 @@ function get_available_in_rate_limiter(RateLimiter $limiter, $key)
 {
     return now()->addSeconds($limiter->availableIn($key))->diffInSeconds();
 }
+
+function is_route($route)
+{
+    info(Route::current()->getName());
+    return Route::current()->getName() == $route;
+}
