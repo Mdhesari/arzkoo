@@ -14,7 +14,7 @@ function get_default_currency_symbol()
 
 function make_mobile_limiter_key($username)
 {
-    return $username . ':send_verification';
+    return 'key' . $username . ':send_verification';
 }
 
 function get_available_in_rate_limiter(RateLimiter $limiter, $key)

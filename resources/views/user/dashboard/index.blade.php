@@ -113,7 +113,7 @@
                                 @if ($user->hasPassword())
                                     <div class="form-group">
                                         <label for="current_password">رمز عبور کنونی</label>
-                                        <input type="current_password" name="current_password" id="current_password">
+                                        <input type="password" name="current_password" id="current_password">
                                     </div>
                                     @error('current_password')
                                         <p class="alert alert-danger">{{ $message }}</p>

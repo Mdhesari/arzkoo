@@ -32,19 +32,6 @@
                                 <button class="clickable" id="do_get_register-code" type="submit">ورود</button>
                             </div>
                         </form>
-                        <div class="form-enter-code__link">
-                            <form id="resend-form" action="{{ route('dashboard.update-mobile') }}" method="POST">
-                                @csrf
-                                @method('PUT')
-                                <a class="clickable" id="resend_btn">
-                                    ارسال مجدد کد
-                                    <div id="seconds_wrapper">تا
-                                        <span id="seconds_to_resend">{{ $resend }}</span>
-                                        ثانیه دیگر
-                                    </div>
-                                </a>
-                            </form>
-                        </div>
                     </div>
 
                 </div>
@@ -59,7 +46,6 @@
 
             document.getElementById('resend_btn').addEventListener('click', (e) => {
                 e.preventDefault();
-                alert('hi')
                 document.getElementById('resend-form').submit()
             })
 
