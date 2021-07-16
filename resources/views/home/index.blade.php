@@ -166,7 +166,7 @@
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="compare__left">
-                        <img class="img-fluid" src="{{ asset('assets/img/miniwire-search') }}.png" alt="">
+                        <img class="img-fluid" src="{{ asset('assets/img/miniwire-search') }}" alt="">
                     </div>
                 </div>
             </div>

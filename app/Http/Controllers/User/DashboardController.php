@@ -12,6 +12,7 @@ use Illuminate\Cache\RateLimiter;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Mockery\Generator\StringManipulation\Pass\Pass;
+use Session;
 
 class DashboardController extends Controller
 {
@@ -32,7 +33,7 @@ class DashboardController extends Controller
             'image' => $path,
         ]);
 
-        return redirect()->route('dashboard')->with('success', 'تصویر شما با موفقیت بروزرسانی شد.');
+        return redirect()->route('dashboard.home')->with('success', 'تصویر شما با موفقیت بروزرسانی شد.');
     }
 
     public function updateName(Request $request)
@@ -45,7 +46,7 @@ class DashboardController extends Controller
             'name' => $request->name,
         ]);
 
-        return redirect()->route('dashboard')->with('success', 'نام شما با موفقیت بروزرسانی شد.');
+        return redirect()->route('dashboard.home')->with('success', 'نام شما با موفقیت بروزرسانی شد.');
     }
 
     public function updatePassword(Request $request)
@@ -72,7 +73,7 @@ class DashboardController extends Controller
             'password' => Hash::make($request->password),
         ])->save();
 
-        return redirect()->route('dashboard')->with('success', 'رمز عبور با موفقیت بروزرسانی شد.');
+        return redirect()->route('dashboard.home')->with('success', 'رمز عبور با موفقیت بروزرسانی شد.');
     }
 
     public function updateMobile(Request $request, RateLimiter $limiter, PasswordGenerator $pGenerator)
@@ -100,10 +101,10 @@ class DashboardController extends Controller
 
         event(new AuthenticationAttemptEvent($auth, $password));
 
-        return redirect()->route('dashboard.confirm-mobile')->with([
-            'resend' => $resend,
-            'mobile' => $username
-        ]);
+        $request->session()->put('mobile', $username);
+        $request->session()->put('resend', $resend);
+
+        return redirect()->route('dashboard.confirm-mobile');
     }
 
     private function setupRateLimit($limiter, $username)
@@ -114,7 +115,7 @@ class DashboardController extends Controller
 
         if ($limiter->tooManyAttempts($key, config('session.otp_max_attempts'))) {
             throw ValidationException::withMessages([
-                'username' => __('auth.throttle', [
+                'mobile' => __('auth.throttle', [
                     'seconds' => get_available_in_rate_limiter($limiter, $key)
                 ])
             ]);
@@ -131,13 +132,31 @@ class DashboardController extends Controller
 
         $resend = session('resend');
 
-        return view('user.dashboard.confrim-mobile', compact('mobile', 'resend'));
+        return view('user.dashboard.confirm-mobile', compact('mobile', 'resend'));
     }
 
     public function updateMobileConfirm(Request $request)
     {
         $request->validate([
-            'code' => 'required'
+            'code' => 'required',
+        ]);
+
+        $mobile = session('mobile');
+
+        $auth = Authentication::whereValue($mobile)->latest()->active()->firstOrFail();
+
+        if (Hash::check($request->code, $auth->secret)) {
+            $request->user()->update([
+                'mobile' => $mobile,
+            ]);
+
+            $request->session()->forget(['mobile', 'resend']);
+
+            return redirect()->route('dashboard.home')->with('success', 'شماره موبایل شما با موفقیت بروزرسانی شد.');
+        }   
+
+        throw ValidationException::withMessages([
+            'code' => __('auth.failed')
         ]);
     }
 }

@@ -38,8 +38,9 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::prefix('dashboard')->name('dashboard')->group(function () {
-        Route::get('/', [DashboardController::class, 'index']);
+        Route::get('/', [DashboardController::class, 'index'])->name('.home');
         Route::get('confirm-mobile', [DashboardController::class, 'updateMobileConfirmView'])->name('.confirm-mobile');
+        Route::post('confirm-mobile', [DashboardController::class, 'updateMobileConfirm']);
         Route::put('update-picture', [DashboardController::class, 'updatePicture'])->name('.update-picture');
         Route::put('update-name', [DashboardController::class, 'updateName'])->name('.update-name');
         Route::put('update-mobile', [DashboardController::class, 'updateMobile'])->name('.update-mobile');
