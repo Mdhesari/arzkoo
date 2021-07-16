@@ -26,7 +26,11 @@ Route::group(['prefix' => 'admin'], function () {
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::resource('exchanges', ExchangeController::class);
+Route::prefix('exchanges')->name('exchanges')->group(function () {
+    Route::get('/', [ExchangeController::class, 'index'])->name('.home');
+    Route::get('/analytics-list', [ExchangeController::class, 'list'])->name('.analytics-list');
+    Route::get('/show', [ExchangeController::class, 'show'])->name('.show');
+});
 
 Route::middleware('guest')->group(function () {
     Route::prefix('auth')->group(function () {
