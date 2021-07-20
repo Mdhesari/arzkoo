@@ -1,8 +1,6 @@
 .lists-exchanges{
     background-color: $color-white;
-    &__inner{
-        margin: 16px 0;
-        li{
+        .list-exchange{
             margin-bottom: 10px;
             a{
                 display: inline-block;
@@ -10,14 +8,14 @@
                 font-size: 14px;
                 font-weight: 400;
                 img{
-                    width: 28px;
-                    height: 28px;
-                    border-radius: 16px;
+                    width: 90px;
+                    height: 60px;
                     margin-left: 10px;
+                    object-fit: contain;
+                    padding: 10px;
                 }
             }
         }
-    }
     &__more{
         display: inline-block;
         margin: 30px auto 0 auto;

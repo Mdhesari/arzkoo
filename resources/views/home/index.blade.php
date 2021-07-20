@@ -65,22 +65,16 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-12">
-                    <ul class="lists-exchanges__inner">
-                        @foreach ($exchanges as $exchange)
-
-                            <li>
+                @foreach ($exchanges as $exchange)
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                            <div class="list-exchange">
                                 <a class="clickable" href="#">
                                     <img src="{{ asset($exchange->logo) }}" alt="{{ $exchange->title }}">
                                     {{ $exchange->persian_title }}
                                 </a>
-                            </li>
-
-                        @endforeach
-
-                    </ul>
+                            </div>
                 </div>
-
+                @endforeach
                 <a class="clickable lists-exchanges__more" href="#">
                     مشاهده بیشتر
                     <i class="fad fa-angle-double-left"></i>

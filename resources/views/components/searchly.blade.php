@@ -12,6 +12,7 @@
                 <div class="switch-toggle">
                     <a href="#" class="toggle clickable active" onclick="toggle(this)">خرید</a>
                     <a href="#" class="toggle clickable" onclick="toggle(this)">فروش</a>
+                    
                 </div>
             </div>
             <div class="search-item col-md-5 col-xs-12">
