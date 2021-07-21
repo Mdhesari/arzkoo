@@ -1,24 +1,27 @@
-<section class="searchly">
+<section class="{{ $className }}">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12">
-                <h1 class="title-section m-30">
-                    بهترین مکان را برای خرید ارز دیجیتال پیدا کن
-                </h1>
+
+        @if ($showMetaData)
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <h1 class="title-section m-30">
+                        بهترین مکان را برای خرید ارز دیجیتال پیدا کن
+                    </h1>
+                </div>
             </div>
-        </div>
+        @endif
+
         <div class="row search-holder">
             <div class="search-item col-md-4 col-xs-12">
                 <div class="switch-toggle">
                     <a href="#" class="toggle clickable active" onclick="toggle(this)">خرید</a>
                     <a href="#" class="toggle clickable" onclick="toggle(this)">فروش</a>
-                    
                 </div>
             </div>
             <div class="search-item col-md-5 col-xs-12">
                 <select id="currencies" name="currency">
                     @foreach ($cryptos as $crypto)
-                        <option value="{{ $crypto->symbol }}" @if($loop->first) selected @endif>{{ $crypto->name }}</option>
+                        <option value="{{ $crypto->symbol }}" @if ($loop->first) selected @endif>{{ $crypto->name }}</option>
                     @endforeach
                 </select>
             </div>
@@ -31,58 +34,61 @@
                 </a>
             </div>
         </div>
-        <div class="row recommendations">
-            <div class="recommendations-title text-center ">
-                <h2 class="mt-5">ارزکو در آخرین لحظه {{ $totalCryptos }} نرخ ارز را برای شما بررسی کرده است</h2>
+
+        @if ($showMetaData)
+            <div class="row recommendations">
+                <div class="recommendations-title text-center ">
+                    <h2 class="mt-5">ارزکو در آخرین لحظه {{ $totalCryptos }} نرخ ارز را برای شما بررسی کرده است</h2>
+                </div>
+                <div class="live-prices m-30">
+                    <div class="item">
+                        <div class="icon">
+                            <i class="fab fa-btc"></i>
+                        </div>
+                        <div class="detail">
+                            <strong>800 میلیون</strong>
+                            <p>بهترین قیمت بیتکون در کریپتو</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="icon">
+                            <i class="fab fa-btc"></i>
+                        </div>
+                        <div class="detail">
+                            <strong>800 میلیون</strong>
+                            <p>بهترین قیمت بیتکون در کریپتو</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="icon">
+                            <i class="fab fa-btc"></i>
+                        </div>
+                        <div class="detail">
+                            <strong>800 میلیون</strong>
+                            <p>بهترین قیمت بیتکون در کریپتو</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="icon">
+                            <i class="fab fa-btc"></i>
+                        </div>
+                        <div class="detail">
+                            <strong>800 میلیون</strong>
+                            <p>بهترین قیمت بیتکون در کریپتو</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="icon">
+                            <i class="fab fa-btc"></i>
+                        </div>
+                        <div class="detail">
+                            <strong>800 میلیون</strong>
+                            <p>بهترین قیمت بیتکون در کریپتو</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="live-prices m-30">
-                <div class="item">
-                    <div class="icon">
-                        <i class="fab fa-btc"></i>
-                    </div>
-                    <div class="detail">
-                        <strong>800 میلیون</strong>
-                        <p>بهترین قیمت بیتکون در کریپتو</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="icon">
-                        <i class="fab fa-btc"></i>
-                    </div>
-                    <div class="detail">
-                        <strong>800 میلیون</strong>
-                        <p>بهترین قیمت بیتکون در کریپتو</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="icon">
-                        <i class="fab fa-btc"></i>
-                    </div>
-                    <div class="detail">
-                        <strong>800 میلیون</strong>
-                        <p>بهترین قیمت بیتکون در کریپتو</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="icon">
-                        <i class="fab fa-btc"></i>
-                    </div>
-                    <div class="detail">
-                        <strong>800 میلیون</strong>
-                        <p>بهترین قیمت بیتکون در کریپتو</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="icon">
-                        <i class="fab fa-btc"></i>
-                    </div>
-                    <div class="detail">
-                        <strong>800 میلیون</strong>
-                        <p>بهترین قیمت بیتکون در کریپتو</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @endif
     </div>
 </section>
 

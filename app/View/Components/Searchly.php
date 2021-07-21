@@ -7,14 +7,20 @@ use Illuminate\View\Component;
 
 class Searchly extends Component
 {
+
+    public $showMetaData;
+
+    public $className;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($showMetaData = true, $className = "searchly")
     {
-        //
+        $this->showMetaData = $showMetaData;
+        $this->className = $className;
     }
 
     /**

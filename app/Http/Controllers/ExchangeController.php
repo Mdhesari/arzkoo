@@ -20,9 +20,14 @@ class ExchangeController extends Controller
     }
 
 
-    public function list()
+    public function buyList(Request $request, $crypto)
     {
-        return view('exchange.analytics-list');
+        return view('exchange.list');
+    }
+
+    public function sellList(Request $request, $crypto)
+    {
+        return view('exchange.list');
     }
 
     /**

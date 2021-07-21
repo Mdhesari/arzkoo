@@ -2,20 +2,19 @@
 
 namespace App\View\Components;
 
+use App\Models\Exchanges\Exchange;
 use Illuminate\View\Component;
 
 class SectionExchanges extends Component
 {
-    public $exchanges;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($exchanges)
+    public function __construct()
     {
-        $this->exchanges = $exchanges;
     }
 
     /**
@@ -25,6 +24,8 @@ class SectionExchanges extends Component
      */
     public function render()
     {
-        return view('components.section-exchanges');
+        return view('components.section-exchanges', [
+            'exchanges' => Exchange::published()->get()
+        ]);
     }
 }

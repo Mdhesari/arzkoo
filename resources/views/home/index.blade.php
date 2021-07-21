@@ -2,7 +2,7 @@
 
 @section('content')
     <x-searchly></x-searchly>
-    <x-section-exchanges :exchanges="$exchanges"></x-section-exchanges>
+    <x-section-exchanges></x-section-exchanges>
     <section class="compare py-5">
         <div class="container">
             <div class="row">
