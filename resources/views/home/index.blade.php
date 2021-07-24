@@ -49,7 +49,8 @@
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="compare__left">
-                        <img class="img-fluid" src="{{ asset('assets/img/miniwire-search') }}" alt="">
+                        <img class="img-fluid" src="{{ asset('assets/img/miniwire-search') }}"
+                            alt="{{ config('app.name') }}">
                     </div>
                 </div>
             </div>
@@ -66,16 +67,16 @@
             </div>
             <div class="row">
                 @foreach ($exchanges as $exchange)
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                            <div class="list-exchange">
-                                <a class="clickable" href="#">
-                                    <img src="{{ asset($exchange->logo) }}" alt="{{ $exchange->title }}">
-                                    {{ $exchange->persian_title }}
-                                </a>
-                            </div>
-                </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                        <div class="list-exchange">
+                            <a class="clickable" href="{{ route('home') }}">
+                                <img src="{{ asset($exchange->logo) }}" alt="{{ $exchange->title }}">
+                                {{ $exchange->persian_title }}
+                            </a>
+                        </div>
+                    </div>
                 @endforeach
-                <a class="clickable lists-exchanges__more" href="#">
+                <a class="clickable lists-exchanges__more" href="{{ route('exchanges.home') }}">
                     مشاهده بیشتر
                     <i class="fad fa-angle-double-left"></i>
                 </a>
@@ -94,20 +95,23 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="whats-crypto__info">
-                        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                        <p>
+                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
                             گرافیک
                             است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط
                             فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
                             کتابهای
                             زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد
                         </p>
-                        <p>تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و
+                        <p>
+                            تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و
                             فرهنگ
                             پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود
                             در
                             ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی
                             دستاوردهای
-                            اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
+                            اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+                        </p>
                     </div>
                 </div>
             </div>
