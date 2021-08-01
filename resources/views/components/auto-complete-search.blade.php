@@ -25,7 +25,7 @@
 
 		const selectId = '#{{ $id }}',
 		route = '{{ $route }}',
-		placeholder = '{{ __(" Select an option... ") }}',
+		placeholder = '{{ __(" انتخاب یک صرافی... ") }}',
 		ignore = @json($ignore),
 		defaults = @json($defaults)
 

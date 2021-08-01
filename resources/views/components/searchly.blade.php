@@ -14,19 +14,19 @@
         <div class="row search-holder">
             <div class="search-item col-md-4 col-xs-12">
                 <div class="switch-toggle">
-                    <a href="#" class="toggle clickable active" onclick="toggle(this)">خرید</a>
-                    <a href="#" class="toggle clickable" onclick="toggle(this)">فروش</a>
+                    <a href="#" class="toggle clickable active" data-type="buy">خرید</a>
+                    <a href="#" class="toggle clickable" data-type="sell">فروش</a>
                 </div>
             </div>
             <div class="search-item col-md-5 col-xs-12">
                 <select id="currencies" name="currency">
                     @foreach ($cryptos as $crypto)
-                        <option value="{{ $crypto->symbol }}" @if ($loop->first) selected @endif>{{ $crypto->name }}</option>
+                        <option value="{{ $crypto->name }}" @if ($loop->first) selected @endif>{{ $crypto->name }}</option>
                     @endforeach
                 </select>
             </div>
             <div class="search-item col-md-3 col-xs-12">
-                <a class="btn btn-search btn-primary btn-lg btn-block">
+                <a class="btn btn-search btn-primary btn-lg btn-block" id="search-btn">
                     <span>
                         جستجو
                         <i aria-hidden="true" class="fa fa-search"></i>
@@ -123,6 +123,34 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
         $(function() {
+
+            const toggles = Array.from(document.querySelectorAll('.switch-toggle .toggle')),
+                searchBtn = document.getElementById('search-btn')
+
+            searchBtn.addEventListener('click', (e) => {
+                const type = document.querySelector('.switch-toggle .toggle.active').dataset.type,
+                    currency = $("#currencies").val().toLowerCase();
+                let url = ""
+
+                switch (type) {
+                    case 'buy':
+                        url = '{{ route('exchanges.buy-list') }}' + currency
+                        break;
+                    default:
+                        url = '{{ route('exchanges.sell-list') }}' + currency
+                }
+
+                window.location = url
+            })
+
+            toggles.map(item => {
+                item.addEventListener('click', (e) => {
+                    document.querySelector('.switch-toggle .toggle.active').classList.remove(
+                        'active')
+                    e.target.classList.add('active')
+                })
+            })
+
             function formatState(state) {
                 if (!state.id) {
                     return state.text;
