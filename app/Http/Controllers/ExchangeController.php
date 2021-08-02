@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Currencies\Crypto;
 use App\Models\Exchanges\Exchange;
 use Illuminate\Http\Request;
 
@@ -20,14 +21,20 @@ class ExchangeController extends Controller
     }
 
 
-    public function buyList(Request $request, $crypto)
+    public function buyList(Request $request, Crypto $crypto)
     {
-        return view('exchange.list');
+        $exchanges = $crypto->exchanges()->paginate();
+        $isBuy = true;
+
+        return view('exchange.list', compact('crypto', 'isBuy', 'exchanges'));
     }
 
-    public function sellList(Request $request, $crypto)
+    public function sellList(Request $request, Crypto $crypto)
     {
-        return view('exchange.list');
+        $exchanges = $crypto->exchanges()->paginate();
+        $isBuy = false;
+
+        return view('exchange.list', compact('crypto', 'isBuy', 'exchanges'));
     }
 
     /**

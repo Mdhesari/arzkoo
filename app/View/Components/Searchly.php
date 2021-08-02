@@ -10,17 +10,23 @@ class Searchly extends Component
 
     public $showMetaData;
 
+    public $crypto;
+
     public $className;
+
+    public $isBuy;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($showMetaData = true, $className = "searchly")
+    public function __construct($showMetaData = true, $className = "searchly", $crypto = null, $isBuy = true)
     {
         $this->showMetaData = $showMetaData;
         $this->className = $className;
+        $this->isBuy = $isBuy;
+        $this->crypto = $crypto;
     }
 
     /**
@@ -30,9 +36,15 @@ class Searchly extends Component
      */
     public function render()
     {
+        $query = Crypto::query();
+
+        if ($this->crypto) {
+            $query->offset($this->crypto->id);
+        }
+
         return view('components.searchly', [
-            'cryptos' => Crypto::paginate(),
-            'totalCryptos' => Crypto::count(),
+            'cryptos' => $query->paginate(),
+            'totalCryptos' => $query->count(),
         ]);
     }
 }

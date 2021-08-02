@@ -14,14 +14,15 @@
         <div class="row search-holder">
             <div class="search-item col-md-4 col-xs-12">
                 <div class="switch-toggle">
-                    <a href="#" class="toggle clickable active" data-type="buy">خرید</a>
-                    <a href="#" class="toggle clickable" data-type="sell">فروش</a>
+                    <a href="#" class="toggle clickable @if($isBuy) active @endif" data-type="buy">خرید</a>
+                    <a href="#" class="toggle clickable @if(! $isBuy) active @endif" data-type="sell">فروش</a>
                 </div>
             </div>
             <div class="search-item col-md-5 col-xs-12">
                 <select id="currencies" name="currency">
-                    @foreach ($cryptos as $crypto)
-                        <option value="{{ $crypto->name }}" @if ($loop->first) selected @endif>{{ $crypto->name }}</option>
+                    @foreach ($cryptos as $cry)
+                        <option value="{{ $cry->name }}" @if ($crypto && $crypto->id == $cry->id) selected @elseif($loop->first) selected @endif>{{ $cry->name }}
+                        </option>
                     @endforeach
                 </select>
             </div>
