@@ -89,3 +89,17 @@
         </div>
     </section>
 @endsection
+
+@push('add_scripts')
+    <script>
+        window.onload = () => {
+            const filters = Array.from(document.querySelectorAll('.slider-filter'))
+
+            filters.map((filter) => {
+                filter.addEventListener('click', (e) => {
+                    // alert('hi')
+                })
+            })
+        }
+    </script>
+@endpush

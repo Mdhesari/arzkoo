@@ -33,6 +33,8 @@ class ExchangeBox extends Component
      */
     public function render()
     {
-        return view('components.exchange-box');
+        return view('components.exchange-box', [
+            'isFeatured' => $this->exchange->isFeatured(),
+        ]);
     }
 }

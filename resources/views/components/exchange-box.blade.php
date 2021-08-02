@@ -1,4 +1,5 @@
-<div class="filters-main__card featured-box box-cmp" data-label="پیشنهاد سایت">
+<div class="filters-main__card @if ($isFeatured) featured-box @endif
+    box-cmp" @if ($isFeatured) data-label="پیشنهاد سایت" @endif>
     <div class="row align-items-center">
         <div class="col-lg-8 col-md-8 col-sm-12">
             <div class="header-right">
