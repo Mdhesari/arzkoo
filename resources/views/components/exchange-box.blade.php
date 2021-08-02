@@ -71,8 +71,8 @@
         </div>
         <div class="col-lg-4 col-md-4 col-sm-12">
             <div class="body-left text-center">
-                <a class="link-site clickable" href="#">
-                    برو تو سایت
+                <a class="link-site clickable" href="{{ route('exchanges.show', $exchange) }}">
+                    اطلاعات بیشتر
                 </a>
             </div>
         </div>

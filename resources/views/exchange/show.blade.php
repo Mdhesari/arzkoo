@@ -47,10 +47,10 @@
                                         ارزهای دیجیتال
                                     </a>
                                 </li>
-                                <li class="nav-item" role="presentation">
+                                {{-- <li class="nav-item" role="presentation">
                                     <a class="nav-link" id="pills-peyment-tab" data-bs-toggle="pill" href="#pills-peyment"
                                         role="tab" aria-controls="pills-peyment" aria-selected="false">روش پرداخت</a>
-                                </li>
+                                </li> --}}
                             </ul>
                             <div class="tab-content" id="pills-tabContent">
                                 <div class="tab-pane fade show active" id="pills-currencies" role="tabpanel"

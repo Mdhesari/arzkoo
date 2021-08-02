@@ -13,7 +13,7 @@
                     @foreach ($exchanges as $exchange)
                         <div class="swiper-slide">
                             <div class="inner-slider">
-                                <a href="{{ route('exchanges.show') }}">
+                                <a href="{{ route('exchanges.show', $exchange) }}">
                                     <img src="{{ asset($exchange->logo) }}" alt="{{ $exchange->title }}">
                                 </a>
                             </div>
