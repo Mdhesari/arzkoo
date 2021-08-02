@@ -45,6 +45,11 @@ class User extends \TCG\Voyager\Models\User
         'email_verified_at' => 'datetime',
     ];
 
+    public function getImageAttribute()
+    {
+        return $this->image ?: 'vaUu3Z652eyYjhW3Jd3DBlcozhJ3Ux1WB8Ri6rDP.png';
+    }
+
     public function getFullImageAttribute()
     {
         return Storage::url($this->image);
