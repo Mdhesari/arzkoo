@@ -29,6 +29,16 @@ class Exchange extends Model
     const OPTION_VALUE_AVG = 'AVG';
     const OPTION_VALUE_BEST = 'BEST';
 
+    public function getSellPriceFormattedAttribute()
+    {
+        return number_format($this->sell_price) . ' تومان ';
+    }
+
+    public function getBuyPriceFormattedAttribute()
+    {
+        return number_format($this->buy_price) . ' تومان ';
+    }
+
     public function cryptos()
     {
         return $this->belongsToMany(Crypto::class, 'exchange_crypto');

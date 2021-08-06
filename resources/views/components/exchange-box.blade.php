@@ -23,7 +23,7 @@
         </div>
         <div class="col-lg-4 col-md-4 col-sm-12">
             <div class="header-left">
-                <div class="price">{{ $isBuy ? $exchange->buy_price : $exchange->sell_price }}</div>
+                <div class="price">{{ $isBuy ? $exchange->buy_price_formatted : $exchange->sell_price_formatted }}</div>
             </div>
         </div>
         <div class="col-lg-8 col-md-8 col-sm-12">

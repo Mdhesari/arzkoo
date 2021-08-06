@@ -28,12 +28,19 @@ class ExchangeList extends Component
         ]
     ];
 
+    private function getExchangesQuery()
+    {
+        return $this->crypto->exchanges()->orderBy(
+            $this->isBuy ? 'buy_price' : 'sell_price'
+        );
+    }
+
     public function mount($crypto, $isBuy)
     {
         $this->crypto = $crypto;
         $this->isBuy = $isBuy;
         $whereArr = $this->getWhereArrFilter(explode('@', $this->filter));
-        $this->exchanges = $this->crypto->exchanges()->where($whereArr)->paginate();
+        $this->exchanges = $this->getExchangesQuery()->where($whereArr)->paginate();
         $this->features = __('exchanges.features');
     }
 
@@ -54,7 +61,7 @@ class ExchangeList extends Component
 
         $whereArr = $this->getWhereArrFilter($features);
 
-        $this->exchanges = $this->crypto->exchanges()->where($whereArr)->paginate();
+        $this->exchanges = $this->getExchangesQuery()->where($whereArr)->paginate();
 
         $this->page = 1;
     }
