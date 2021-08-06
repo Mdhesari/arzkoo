@@ -55,11 +55,19 @@
             <div class="b-header-left">
                 <div class="b-header-left__inner">
                     <p>
-                        Price for <span>1 {{ $crypto->symbol }}</span>
+                        قیمت برای <span>{{ arzkoo_money(1, 'USDT') }}</span>
                     </p>
                     <p>
-                        Usually <strong>+117,498.6%</strong> more
-                    <p>than best price</p>
+                        @if ($isBestToBuy)
+                        <strong>بهترین قیمت</strong>
+                        @else
+                            معمولا
+                            <strong>
+                                {{ $exchange->getBestAmountDiffPercent($isBuy ? $exchange->pivot->buy_price : $exchange->pivot->sell_price, $isBuy ? $bestExchange->pivot->buy_price : $bestExchange->pivot->sell_price) }}
+                                درصد
+                            </strong>
+                            <p>بیشتر از بهترین قیمت</p>
+                        @endif
                     </p>
                 </div>
             </div>

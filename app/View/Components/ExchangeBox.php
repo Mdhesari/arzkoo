@@ -14,16 +14,22 @@ class ExchangeBox extends Component
 
     public $isBuy;
 
+    public $bestExchange;
+
+    public $isBestToBuy;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(Exchange $exchange, Crypto $crypto, $isBuy = true)
+    public function __construct(Exchange $exchange, Crypto $crypto, $isBuy = true, $isBest = false)
     {
         $this->exchange = $exchange;
         $this->crypto = $crypto;
         $this->isBuy = $isBuy;
+        $this->isBestToBuy = $isBest;
+        $this->bestExchange = $crypto->bestExchange()->select('buy_price', 'sell_price')->first();
     }
 
     /**

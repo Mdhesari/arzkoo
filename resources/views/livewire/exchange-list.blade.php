@@ -91,7 +91,8 @@
             <div class="content-aside__inner" wire:loading.remove>
                 @if ($exchanges->total() > 0)
                     @foreach ($exchanges as $exchange)
-                        <x-exchange-box :isBuy="$isBuy" :crypto="$crypto" :exchange="$exchange"></x-exchange-box>
+                        <x-exchange-box :isBest="$loop->first" :isBuy="$isBuy" :crypto="$crypto" :exchange="$exchange">
+                        </x-exchange-box>
                     @endforeach
                 @else
                     <div class="alert alert-info">

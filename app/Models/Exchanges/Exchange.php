@@ -53,6 +53,13 @@ class Exchange extends Model
         return arzkoo_money($number, $currency);
     }
 
+    public function getBestAmountDiffPercent($currentAmount, $bestAmount)
+    {
+        $percent = $currentAmount - $bestAmount;
+        $percent = $percent / $bestAmount * 100;
+        return round($percent);
+    }
+
     public function getSellPriceFormattedAttribute()
     {
         return $this->getNumberAndCurrency($this->pivot->sell_price, $this->pivot->currency);
