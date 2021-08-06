@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="head-section" style="background:#50429d url('{{ asset($exchange->logo) }}') no-repeat 30% center">
+    <section class="head-section" style="background:#50429d url('{{ asset($exchange->logo) }}') no-repeat 20% center">
         <div class="title-blog">
             <h1>
                 {{ $exchange->persian_title . ' (' . $exchange->title . ') ' }}

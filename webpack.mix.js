@@ -22,6 +22,7 @@ mix.js("resources/js/app.js", "public/js")
     ])
     // TODO: autoprefix support for sass (old browsers)
     .sass("resources/sass/app.scss", "public/css")
+    .sass("resources/sass/tools.scss", "public/css")
 
 if (mix.inProduction()) {
     mix.version();

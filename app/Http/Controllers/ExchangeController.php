@@ -23,18 +23,16 @@ class ExchangeController extends Controller
 
     public function buyList(Request $request, Crypto $crypto)
     {
-        $exchanges = $crypto->exchanges()->paginate();
         $isBuy = true;
 
-        return view('exchange.list', compact('crypto', 'isBuy', 'exchanges'));
+        return view('exchange.list', compact('crypto', 'isBuy'));
     }
 
     public function sellList(Request $request, Crypto $crypto)
     {
-        $exchanges = $crypto->exchanges()->paginate();
         $isBuy = false;
 
-        return view('exchange.list', compact('crypto', 'isBuy', 'exchanges'));
+        return view('exchange.list', compact('crypto', 'isBuy'));
     }
 
     /**
