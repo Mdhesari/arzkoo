@@ -14,8 +14,8 @@
         <div class="row search-holder">
             <div class="search-item col-md-4 col-xs-12">
                 <div class="switch-toggle">
-                    <a href="#" class="toggle clickable @if($isBuy) active @endif" data-type="buy">خرید</a>
-                    <a href="#" class="toggle clickable @if(! $isBuy) active @endif" data-type="sell">فروش</a>
+                    <a href="#" class="toggle clickable @if ($isBuy) active @endif" data-type="buy">خرید</a>
+                    <a href="#" class="toggle clickable @if (!$isBuy) active @endif" data-type="sell">فروش</a>
                 </div>
             </div>
             <div class="search-item col-md-5 col-xs-12">
@@ -42,7 +42,22 @@
                     <h2 class="mt-5">ارزکو در آخرین لحظه {{ $totalCryptos }} نرخ ارز را برای شما بررسی کرده است</h2>
                 </div>
                 <div class="live-prices m-30">
-                    <div class="item">
+                    @foreach ($favCryptos as $cry)
+                        @php $best = $cry->bestExchange->first() @endphp
+                        <div class="item">
+                            @if ($cry->icon)
+                                <div class="icon">
+                                    <i class="fab fa-btc"></i>
+                                </div>
+                            @endif
+                            <div class="detail">
+                                <strong>{{ $best->irr_buy_price_formatted }}</strong>
+                                <p>بهترین قیمت {{ $cry->name }} در {{ $best->persian_title }}</p>
+                            </div>
+                        </div>
+                    @endforeach
+
+                    {{-- <div class="item">
                         <div class="icon">
                             <i class="fab fa-btc"></i>
                         </div>
@@ -77,16 +92,7 @@
                             <strong>800 میلیون</strong>
                             <p>بهترین قیمت بیتکون در کریپتو</p>
                         </div>
-                    </div>
-                    <div class="item">
-                        <div class="icon">
-                            <i class="fab fa-btc"></i>
-                        </div>
-                        <div class="detail">
-                            <strong>800 میلیون</strong>
-                            <p>بهترین قیمت بیتکون در کریپتو</p>
-                        </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         @endif

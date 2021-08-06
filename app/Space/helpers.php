@@ -27,3 +27,10 @@ function is_route($route)
     info(Route::current()->getName());
     return Route::current()->getName() == $route;
 }
+
+function arzkoo_money($number, $currency = 'IRR', $locale = 'fa_IR')
+{
+    $fmt = numfmt_create($locale, NumberFormatter::CURRENCY);
+
+    return numfmt_format_currency($fmt, $number, $currency);
+}

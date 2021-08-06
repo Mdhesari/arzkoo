@@ -14,7 +14,16 @@ class Crypto extends Model
 
     public function exchanges()
     {
-        return $this->belongsToMany(Exchange::class, 'exchange_crypto');
+        return $this->belongsToMany(Exchange::class, 'exchange_crypto')->withPivot([
+            'buy_price', 'sell_price', 'currency'
+        ]);
+    }
+
+    public function bestExchange()
+    {
+        return $this->belongsToMany(Exchange::class, 'exchange_crypto')->withPivot([
+            'buy_price', 'sell_price', 'currency'
+        ])->orderByPivot('buy_price');
     }
 
     public function storeExchanges(array $exchanges)
@@ -26,11 +35,13 @@ class Crypto extends Model
                 'name' => $exch['title'],
             ], Exchange::createData($exch));
 
-            $data[] = $exchange;
+            $data[$exchange->id] = [
+                'buy_price' => Exchange::getPrice($exch['buy_price']),
+                'sell_price' => Exchange::getPrice($exch['sell_price']),
+                'currency' => $exch['pair']
+            ];
         }
 
-        $data = collect($data);
-
-        $this->exchanges()->syncWithoutDetaching($data->pluck('id'));
+        $this->exchanges()->syncWithoutDetaching($data);
     }
 }

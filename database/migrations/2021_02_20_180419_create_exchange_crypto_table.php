@@ -17,6 +17,11 @@ class CreateExchangeCryptoTable extends Migration
             $table->foreignId('exchange_id');
             $table->foreignId('crypto_id');
 
+            $table->float('buy_price', null, null);
+            $table->float('sell_price', null, null);
+
+            $table->string('currency')->default('IRR');
+
             $table->primary(['exchange_id', 'crypto_id']);
         });
     }

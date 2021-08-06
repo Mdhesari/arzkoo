@@ -30,8 +30,9 @@ class ExchangeList extends Component
 
     private function getExchangesQuery()
     {
-        return $this->crypto->exchanges()->orderBy(
-            $this->isBuy ? 'buy_price' : 'sell_price'
+        return $this->crypto->exchanges()->orderByPivot(
+            $this->isBuy ? 'buy_price' : 'sell_price',
+            $this->isBuy ? 'ASC' : 'DESC'
         );
     }
 

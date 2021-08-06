@@ -40,8 +40,6 @@ class CreateExchangesTable extends Migration
             $table->tinyInteger('beginner_friendly')->default(0);
             $table->tinyInteger('chat_support')->default(0);
 
-            $table->decimal('buy_price', 18, 2);
-            $table->decimal('sell_price', 18, 2);
             $table->decimal('usdt_min_fee_percent');
             $table->decimal('usdt_max_fee_percent');
             $table->decimal('irr_min_fee_percent');

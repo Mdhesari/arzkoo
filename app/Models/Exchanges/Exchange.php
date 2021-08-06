@@ -15,8 +15,6 @@ class Exchange extends Model
     protected $guarded = ['id'];
 
     protected $casts = [
-        'buy_price' => 'float',
-        'sell_price' => 'float',
         'contacts' => 'array',
     ];
 
@@ -29,14 +27,40 @@ class Exchange extends Model
     const OPTION_VALUE_AVG = 'AVG';
     const OPTION_VALUE_BEST = 'BEST';
 
+    public function getIRRSellPriceFormattedAttribute()
+    {
+        $currency = $this->pivot->currency;
+        $number = $this->pivot->sell_price;
+
+        return $this->getNumberAndCurrency($number, $currency, true);
+    }
+
+    public function getIRRBuyPriceFormattedAttribute()
+    {
+        $currency = $this->pivot->currency;
+        $number = $this->pivot->buy_price;
+
+        return $this->getNumberAndCurrency($number, $currency, true);
+    }
+
+    private function getNumberAndCurrency($number, $currency, $forceIRR = false)
+    {
+        if ($forceIRR && $currency == 'USDT') {
+            $number *= config('app.USDT_TO_IRR');
+            $currency = 'IRR';
+        }
+
+        return arzkoo_money($number, $currency);
+    }
+
     public function getSellPriceFormattedAttribute()
     {
-        return number_format($this->sell_price) . ' تومان ';
+        return $this->getNumberAndCurrency($this->pivot->sell_price, $this->pivot->currency);
     }
 
     public function getBuyPriceFormattedAttribute()
     {
-        return number_format($this->buy_price) . ' تومان ';
+        return $this->getNumberAndCurrency($this->pivot->buy_price, $this->pivot->currency);
     }
 
     public function cryptos()
@@ -80,8 +104,6 @@ class Exchange extends Model
             'persian_title' => $exchange['label'],
             'site' => optional(parse_url($exchange['site_with_source']))['host'],
             'site_with_query' => $exchange['site_with_source'],
-            'buy_price' =>  static::getPrice($exchange['buy_price']),
-            'sell_price' => static::getPrice($exchange['sell_price']),
             'logo' => static::storeAndGetExchangeLogoPath($exchange['logo'])
         ], static::getFeesFields($exchange));
     }
@@ -91,7 +113,7 @@ class Exchange extends Model
         return 'title';
     }
 
-    private static function getPrice($amount)
+    public static function getPrice($amount)
     {
         return str_replace(",", "", $amount);
     }

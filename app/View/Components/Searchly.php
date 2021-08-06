@@ -16,6 +16,8 @@ class Searchly extends Component
 
     public $isBuy;
 
+    public $favCryptos;
+
     /**
      * Create a new component instance.
      *
@@ -27,6 +29,9 @@ class Searchly extends Component
         $this->className = $className;
         $this->isBuy = $isBuy;
         $this->crypto = $crypto;
+        $this->favCryptos = Crypto::with([
+            'bestExchange'
+        ])->limit(5)->get();
     }
 
     /**
