@@ -26,6 +26,26 @@ class Crypto extends Model
         ])->orderByPivot('buy_price');
     }
 
+    private function getNumberAndCurrency($number, $currency, $forceIRR = false)
+    {
+        if ($forceIRR && $currency == 'USDT') {
+            $number *= config('app.USDT_TO_IRR');
+            $currency = 'IRR';
+        }
+
+        return arzkoo_money($number, $currency);
+    }
+
+    public function getPivotSellPriceFormattedAttribute()
+    {
+        return $this->getNumberAndCurrency($this->pivot->sell_price, $this->pivot->currency);
+    }
+
+    public function getPivotBuyPriceFormattedAttribute()
+    {
+        return $this->getNumberAndCurrency($this->pivot->buy_price, $this->pivot->currency);
+    }
+
     public function storeExchanges(array $exchanges)
     {
         $data = [];

@@ -9,7 +9,7 @@
                 <span class="navbar-filter__text">فیلترها</span>
                 <i class="fas fa-search-dollar"></i>
             </div>
-            <div class="filter-aside__box box-cmp">
+            {{-- <div class="filter-aside__box box-cmp">
                 <h5 class="title-filter">بر اساس مبلغ مورد نظر</h5>
                 <div class="filter-aside__box__item">
                     <div class="count">
@@ -17,7 +17,7 @@
                         <button class="clickable"><i class="fas fa-coins"></i></button>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <div class="filter-aside__box box-cmp">
                 <h5 class="title-filter"> ویژگی ها </h5>
 

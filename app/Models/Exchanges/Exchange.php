@@ -65,7 +65,9 @@ class Exchange extends Model
 
     public function cryptos()
     {
-        return $this->belongsToMany(Crypto::class, 'exchange_crypto');
+        return $this->belongsToMany(Crypto::class, 'exchange_crypto')->withPivot([
+            'buy_price', 'sell_price', 'currency'
+        ]);
     }
 
     public function scopePublished($query)
