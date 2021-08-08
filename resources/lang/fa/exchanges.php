@@ -11,5 +11,11 @@ return [
         // 'instant_verification' => 'احراز هویت سریع',
         // 'beginner_friendly' => 'کارکرد آسان',
         // 'chat_support' => 'پشتیبانی چت',
+    ],
+    'rates' => [
+        'value_for_money_range' => 'ارزش خرید',
+        'ease_of_use_range' => 'کارکرد آسان',
+        'verification_range' => 'احراز هویت سریع',
+        'support_range' => 'پشتیبانی'
     ]
 ];

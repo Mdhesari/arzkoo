@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use DB;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -28,5 +29,15 @@ class Rating extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function scopeCaclulateItemsRate($query)
+    {
+        return $query->select(
+            DB::raw('SUM(ease_of_use_range) / count(ease_of_use_range) AS ease_of_use_rate'),
+            DB::raw('SUM(support_range) / count(support_range) AS support_rate'),
+            DB::raw('SUM(value_for_money_range) / count(value_for_money_range) AS value_for_money_rate'),
+            DB::raw('SUM(verification_range) / count(verification_range) AS verification_rate'),
+        );
     }
 }
