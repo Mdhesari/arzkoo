@@ -3,6 +3,7 @@
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ExchangeController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RatingController;
 use App\Http\Controllers\User\DashboardController;
 use App\Http\Controllers\User\LoginController;
 use Illuminate\Auth\Events\Login;
@@ -54,6 +55,8 @@ Route::middleware('auth')->group(function () {
         Route::put('update-password', [DashboardController::class, 'updatePassword'])->name('.update-password');
     });
     Route::delete('logout', [LoginController::class, 'logout'])->name('logout');
+
+    Route::post('exchanges/ratings/{exchange}', [RatingController::class, 'store'])->name('exchanges.rating');
 });
 
 Route::prefix('/blog')->name('blog.')->group(function () {

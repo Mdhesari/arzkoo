@@ -3,7 +3,10 @@
 namespace App\Models\Exchanges;
 
 use App\Models\Currencies\Crypto;
+use App\Models\Rating;
 use Auth;
+use DB;
+use Doctrine\DBAL\Types\FloatType;
 use finfo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -26,6 +29,30 @@ class Exchange extends Model
     const OPTION_VALUE_NULL = 'NULL';
     const OPTION_VALUE_AVG = 'AVG';
     const OPTION_VALUE_BEST = 'BEST';
+
+    public function ratings()
+    {
+        return $this->hasMany(Rating::class);
+    }
+
+    public function calcAverageRate()
+    {
+        $ratings = $this->ratings()->cursor();
+
+        $results = [];
+        foreach ($ratings as $rating) {
+            $results[] = ($rating->ease_of_use_range + $rating->support_range + $rating->value_for_money_range + $rating->verification_range) / 4;
+        }
+
+        info(array_sum($results));
+        $ratingsCount = $this->ratings()->count();
+
+        $total = $ratingsCount > 0 ? array_sum($results) / $ratingsCount : 0;
+
+        $this->forceFill([
+            'rate_avg' => $total
+        ])->save();
+    }
 
     public function getIRRSellPriceFormattedAttribute()
     {

@@ -44,6 +44,7 @@ class SetupDev extends Command
         Artisan::call('voyager:install --with-dummy');
         $this->call('scrap:cryptos');
         $this->call('scrap:exchanges');
+        $this->call('scrap:exchanges-update');
         $this->info('done...');
     }
 }

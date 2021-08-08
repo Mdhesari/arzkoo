@@ -8,8 +8,8 @@ return [
         'affiliate_support' => 'سیستم درآمدزایی',
         'cold_storage' => 'کیف پول سرد',
         'integrated_wallet' => 'کیف پول اختصاصی',
-        'instant_verification' => 'احراز هویت سریع',
-        'beginner_friendly' => 'کارکرد آسان',
-        'chat_support' => 'پشتیبانی چت',
+        // 'instant_verification' => 'احراز هویت سریع',
+        // 'beginner_friendly' => 'کارکرد آسان',
+        // 'chat_support' => 'پشتیبانی چت',
     ]
 ];

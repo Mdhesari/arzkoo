@@ -7,14 +7,12 @@
                     <img src="{{ asset($exchange->logo) }}" alt="{{ $exchange->name }}">
                 </div>
                 <div class="star">
-                    <i class="fa fa-star star-yellow"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
+                    @for ($i = 1; $i <= 5; $i++)
+                        <i class="fa fa-star @if ($exchange->rate_avg >= $i) star-yellow @endif"></i>
+                    @endfor
                 </div>
                 <div class="info-star">
-                    <span>1</span>
+                    <span>{{ $exchange->rate_avg }}</span>
                     امتیاز از
                     <span>5</span>
                     امتیاز
@@ -59,7 +57,7 @@
                     </p>
                     <p>
                         @if ($isBestToBuy)
-                        <strong>بهترین قیمت</strong>
+                            <strong>بهترین قیمت</strong>
                         @else
                             معمولا
                             <strong>
@@ -74,12 +72,8 @@
         </div>
         <div class="col-lg-8 col-md-8 col-sm-12">
             <div class="body-right">
-                <p class="info-exchanges">لورم ایپسوم متن ساختگی با تولید
-                    سادگی نامفهوم از صنعت
-                    چاپ و با استفاده از طراحان گرافیک است. چاپگرها و
-                    متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم
-                    است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای
-                    متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+                <p class="info-exchanges">
+                    {{ $exchange->description }}
                 </p>
             </div>
         </div>

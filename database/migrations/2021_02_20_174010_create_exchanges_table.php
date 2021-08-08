@@ -27,6 +27,7 @@ class CreateExchangesTable extends Migration
             $table->string('site_with_query')->nullable();
             $table->string('status')->default(Exchange::STATUS_PUBLISHED);
             $table->json('contacts')->nullable();
+            $table->float('rate_avg')->default(0);
 
             $table->boolean('two_factor_auth')->default(false);
             $table->boolean('app_android')->default(false);
@@ -36,9 +37,9 @@ class CreateExchangesTable extends Migration
             $table->boolean('integrated_wallet')->default(false);
 
             // tinyinteger : (0 no) to (1 average) (2 best)
-            $table->tinyInteger('instant_verification')->default(0);
-            $table->tinyInteger('beginner_friendly')->default(0);
-            $table->tinyInteger('chat_support')->default(0);
+            // $table->tinyInteger('instant_verification')->default(0);
+            // $table->tinyInteger('beginner_friendly')->default(0);
+            // $table->tinyInteger('chat_support')->default(0);
 
             $table->decimal('usdt_min_fee_percent');
             $table->decimal('usdt_max_fee_percent');
