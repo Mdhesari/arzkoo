@@ -14,7 +14,7 @@ class ReviewsSection extends Component
     public function mount($exchange)
     {
         $this->exchange = $exchange;
-        $this->ratings = $exchange->ratings;
+        $this->ratings = $exchange->ratings()->limit(10)->get();
     }
 
     public function render()

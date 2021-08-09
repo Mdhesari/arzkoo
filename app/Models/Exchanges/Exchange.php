@@ -146,6 +146,7 @@ class Exchange extends Model
             'beginner_friendly',
             'chat_support',
             'verification_days',
+            'admin_id',
         ]));
 
         $features = $data->map(function ($item, $key) {

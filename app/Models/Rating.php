@@ -31,6 +31,11 @@ class Rating extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function scopeActive($query)
+    {
+        return $query->whereStatus(true);
+    }
+
     public function scopeCaclulateItemsRate($query)
     {
         return $query->select(
