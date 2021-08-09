@@ -35,6 +35,27 @@ class Exchange extends Model
         return $this->hasMany(Rating::class);
     }
 
+    public function getContactsSocialAttribute()
+    {
+        if (!isset($this->contacts['socials'])) return null;
+
+        return $this->contacts['socials'];
+    }
+
+    public function getContactsMobilesAttribute()
+    {
+        if (!isset($this->contacts['mobiles'])) return null;
+
+        return $this->contacts['mobiles'];
+    }
+
+    public function getContactsEmailsAttribute()
+    {
+        if (!isset($this->contacts['emails'])) return null;
+
+        return $this->contacts['emails'];
+    }
+
     public function calcAverageRate()
     {
         $ratings = $this->ratings()->cursor();
@@ -120,7 +141,12 @@ class Exchange extends Model
 
         $data = collect($this->toArray());
 
-        $data = $data->filter(fn ($item) => $item === 0 || $item === 1);
+        $data = $data->filter(fn ($item, $key) => ($item === 0 || $item === 1) && !in_array($key, [
+            'instant_verification',
+            'beginner_friendly',
+            'chat_support',
+            'verification_days',
+        ]));
 
         $features = $data->map(function ($item, $key) {
             return [

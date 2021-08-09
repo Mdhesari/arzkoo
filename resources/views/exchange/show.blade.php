@@ -20,6 +20,40 @@
                             <p>
                                 {{ $exchange->description }}
                             </p>
+                            <ul class="list-group list-group-flush">
+                                @if ($exchange->physical_address)
+                                    <li class="list-group-item">
+                                        <span>آدرس</span>
+                                        <span>{{ $exchange->physical_address }}</span>
+                                    </li>
+                                @endif
+
+                                @if ($mobiles = $exchange->contacts_mobiles)
+                                    <li class="list-group-item">
+                                        <span>تماس ها (موبایل)</span>
+                                        <span>
+                                            @foreach ($mobiles as $mobile)
+                                                <a href="tel:{{ $mobile }}">{{ $mobile }}</a>
+                                                @if (!$loop->last)
+                                                    -
+                                                @endif
+                                            @endforeach
+                                        </span>
+                                    </li>
+                                @endif
+
+                                @if ($emails = $exchange->contacts_emails)
+                                    <li class="list-group-item">
+                                        <span>تماس ها (ایمیل)</span>
+                                        @foreach ($emails as $email)
+                                            <a href="mailto:{{ $email }}">{{ $email }}</a>
+                                            @if (!$loop->last)
+                                                -
+                                            @endif
+                                        @endforeach
+                                    </li>
+                                @endif
+                            </ul>
                         </div>
                         <div class="features-holder">
                             <h3>
