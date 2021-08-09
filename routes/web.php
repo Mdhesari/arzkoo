@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\CryptoController;
 use App\Http\Controllers\ExchangeController;
 use App\Http\Controllers\HomeController;
@@ -29,6 +30,8 @@ Route::group(['prefix' => 'admin'], function () {
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/live-prices', [CryptoController::class, 'livePrices'])->name('live-price');
+
+Route::get('/contact-us', [ContactUsController::class, 'index'])->name('contact-us');
 
 Route::prefix('exchanges')->name('exchanges')->group(function () {
     Route::get('/', [ExchangeController::class, 'index'])->name('.home');
