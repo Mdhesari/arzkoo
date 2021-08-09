@@ -175,7 +175,7 @@ class Exchange extends Model
             'name' => $exchange['title'],
             'title' => $exchange['exchange_title'],
             'persian_title' => $exchange['label'],
-            'site' => optional(parse_url($exchange['site_with_source']))['host'],
+            'site' => 'https://' . optional(parse_url($exchange['site_with_source']))['host'],
             'site_with_query' => $exchange['site_with_source'],
             'logo' => static::storeAndGetExchangeLogoPath($exchange['logo'])
         ], static::getFeesFields($exchange));

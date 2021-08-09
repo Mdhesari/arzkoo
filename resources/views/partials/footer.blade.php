@@ -44,10 +44,7 @@
                  عضویت در خبرنامه
              </h4>
              <div class="footer__box__newsletter">
-                 <form action="" class="footer__box__newsletter__form">
-                     <input type="email" placeholder="ایمیل خود را وارد کنید">
-                     <button class="clickable" type="submit">عضویت</button>
-                 </form>
+                 <livewire:newsletter-form />
                  <p class="footer__box__newsletter__text">
                      با خبرنامه ما از جدیدترین اتفاقات ارزهای دیجیتال با خبر شوید و به روز باشید .
                  </p>

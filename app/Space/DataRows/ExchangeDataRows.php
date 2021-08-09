@@ -274,7 +274,7 @@ class ExchangeDataRows extends BaseDataRows
                         'width' => 6,
                     ],
                     'validation' => [
-                        'rule' => ['required', 'gt:min_fee_percent']
+                        'rule' => ['required']
                     ]
                 ]
             ])->save();
@@ -297,7 +297,7 @@ class ExchangeDataRows extends BaseDataRows
                         'width' => 6,
                     ],
                     'validation' => [
-                        'rule' => ['required', 'min:0.1']
+                        'rule' => ['required']
                     ]
                 ]
             ])->save();
@@ -320,7 +320,7 @@ class ExchangeDataRows extends BaseDataRows
                         'width' => 6,
                     ],
                     'validation' => [
-                        'rule' => ['required', 'min:0.1']
+                        'rule' => ['required']
                     ]
                 ]
             ])->save();
@@ -340,7 +340,7 @@ class ExchangeDataRows extends BaseDataRows
                 'order'        => 3,
                 'details' => [
                     'validation' => [
-                        'rule' => ['required', 'gt:min_fee_percent']
+                        'rule' => ['required']
                     ]
                 ]
             ])->save();
