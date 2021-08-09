@@ -7,7 +7,7 @@
 
                 <div class="about-us-title contact-us-title">
                     <h1>
-                        تماس با ما (دیجیتال رادار)
+                        تماس با ما (ارزکو)
                     </h1>
                 </div>
             </div>
@@ -20,7 +20,7 @@
                                     <i class="fas fa-map-marker"></i>
                                 </div>
                                 <div class="info">
-                                    تهران - سید خندان
+                                   ایران - تهران
                                 </div>
                             </div>
                         </a>
@@ -38,13 +38,13 @@
                         </a>
                     </div>
                     <div class="col-md-4 col-xs-12 information">
-                        <a href="tel:09123456789">
+                        <a href="tel:021 - به زودی">
                             <div class="inner">
                                 <div class="icon">
                                     <i class="fas fa-phone-alt"></i>
                                 </div>
                                 <div class="info">
-                                    09123456789
+                                    021 - به زودی
                                 </div>
                             </div>
                         </a>
