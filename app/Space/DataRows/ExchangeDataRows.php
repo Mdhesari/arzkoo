@@ -62,7 +62,7 @@ class ExchangeDataRows extends BaseDataRows
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'order'        => 2,
+                'order'        => 1,
             ])->save();
         }
 
@@ -77,7 +77,7 @@ class ExchangeDataRows extends BaseDataRows
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'order'        => 2,
+                'order'        => 1,
             ])->save();
         }
 
@@ -92,7 +92,7 @@ class ExchangeDataRows extends BaseDataRows
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'order'        => 2,
+                'order'        => 1,
             ])->save();
         }
 
@@ -114,7 +114,7 @@ class ExchangeDataRows extends BaseDataRows
         $dataRow = $this->dataRow($groupDataType, 'logo');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'media_picker',
+                'type'         => 'image',
                 'display_name' => __('seeders.data_rows.pictures'),
                 'required'     => 1,
                 'browse'       => 1,
@@ -122,11 +122,11 @@ class ExchangeDataRows extends BaseDataRows
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'order'        => 2,
+                'order'        => 1,
                 'details' => [
-                    'allowed' => ['image'],
-                    'max' => 2,
-                    'min' => 1,
+                    // 'allowed' => ['image'],
+                    // 'max' => 2,
+                    // 'min' => 1,
                 ]
             ])->save();
         }
@@ -144,7 +144,9 @@ class ExchangeDataRows extends BaseDataRows
                 'delete'       => 1,
                 'order'        => 2,
                 'details' => [
-                    'width' => 6,
+                    'display' => [
+                        'width' => 6,
+                    ],
                     'validation' => [
                         'rule' => ['nullable', 'url']
                     ]
@@ -165,7 +167,9 @@ class ExchangeDataRows extends BaseDataRows
                 'delete'       => 1,
                 'order'        => 2,
                 'details' => [
-                    'width' => 6,
+                    'display' => [
+                        'width' => 6,
+                    ],
                     'validation' => [
                         'rule' => ['nullable', 'url']
                     ]
@@ -190,7 +194,7 @@ class ExchangeDataRows extends BaseDataRows
                     'edit'         => 1,
                     'add'          => 1,
                     'delete'       => 1,
-                    'order'        => 2,
+                    'order'        => 3,
                     'details' => [
                         "on" => __("seeders.data_rows.enabled"),
                         "off" => __("seeders.data_rows.disabled"),
@@ -217,7 +221,7 @@ class ExchangeDataRows extends BaseDataRows
                     'edit'         => 1,
                     'add'          => 1,
                     'delete'       => 1,
-                    'order'        => 2,
+                    'order'        => 3,
                     'details'      => [
                         'default' => Exchange::OPTION_VALUE_AVG,
                         'options' => [
@@ -241,9 +245,11 @@ class ExchangeDataRows extends BaseDataRows
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'order'        => 2,
+                'order'        => 3,
                 'details' => [
-                    'width' => 6,
+                    'display' => [
+                        'width' => 6,
+                    ],
                     'validation' => [
                         'rule' => ['required', 'min:0.1']
                     ]
@@ -262,9 +268,11 @@ class ExchangeDataRows extends BaseDataRows
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'order'        => 2,
+                'order'        => 3,
                 'details' => [
-                    'width' => 6,
+                    'display' => [
+                        'width' => 6,
+                    ],
                     'validation' => [
                         'rule' => ['required', 'gt:min_fee_percent']
                     ]
@@ -283,9 +291,11 @@ class ExchangeDataRows extends BaseDataRows
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'order'        => 2,
+                'order'        => 3,
                 'details' => [
-                    'width' => 6,
+                    'display' => [
+                        'width' => 6,
+                    ],
                     'validation' => [
                         'rule' => ['required', 'min:0.1']
                     ]
@@ -304,9 +314,11 @@ class ExchangeDataRows extends BaseDataRows
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'order'        => 2,
+                'order'        => 3,
                 'details' => [
-                    'width' => 6,
+                    'display' => [
+                        'width' => 6,
+                    ],
                     'validation' => [
                         'rule' => ['required', 'min:0.1']
                     ]
@@ -325,7 +337,7 @@ class ExchangeDataRows extends BaseDataRows
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'order'        => 2,
+                'order'        => 3,
                 'details' => [
                     'validation' => [
                         'rule' => ['required', 'gt:min_fee_percent']

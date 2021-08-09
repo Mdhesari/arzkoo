@@ -32,20 +32,21 @@
         <div class="col-lg-8 col-md-8 col-sm-12">
             <div class="b-header-right">
                 <div class="b-header-right__item">
-                    <div class="title">پشتیبانی</div>
-                    <div class="info">24 ساعته</div>
+                    <div class="title">زمان احراز هویت</div>
+                    <div class="info">{{ $exchange->verification_days_label }}</div>
+                </div>
+                <div class="b-header-right__item">
+                    <div class="title">کارکرد آسان</div>
+                    <div class="info">{{ getRangeLabel($exchange->beginner_friendly) }}</div>
                 </div>
                 <div class="b-header-right__item">
                     <div class="title">پشتیبانی</div>
-                    <div class="info">24 ساعته</div>
+                    <div class="info">{{ getRangeLabel($exchange->chat_support) }}</div>
                 </div>
+
                 <div class="b-header-right__item">
-                    <div class="title">پشتیبانی</div>
-                    <div class="info">24 ساعته</div>
-                </div>
-                <div class="b-header-right__item">
-                    <div class="title">پشتیبانی</div>
-                    <div class="info">24 ساعته</div>
+                    <div class="title">ارزش خرید</div>
+                    <div class="info">{{ getRangeLabel($exchange->value_for_money) }}</div>
                 </div>
             </div>
         </div>
@@ -73,7 +74,7 @@
         <div class="col-lg-8 col-md-8 col-sm-12">
             <div class="body-right">
                 <p class="info-exchanges">
-                    {{ $exchange->description }}
+                    {{ \Str::limit($exchange->description, 524, '...') }}
                 </p>
             </div>
         </div>

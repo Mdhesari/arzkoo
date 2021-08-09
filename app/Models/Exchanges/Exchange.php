@@ -35,6 +35,16 @@ class Exchange extends Model
         return $this->hasMany(Rating::class);
     }
 
+    public function getVerificationDaysLabelAttribute()
+    {
+        return ' + ' . $this->verification_days . ' روز ';
+    }
+
+    public function getLogoAttribute($value)
+    {
+        return asset($value);
+    }
+
     public function getContactsSocialAttribute()
     {
         if (!isset($this->contacts['socials'])) return null;

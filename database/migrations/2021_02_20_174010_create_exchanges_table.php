@@ -37,9 +37,10 @@ class CreateExchangesTable extends Migration
             $table->boolean('integrated_wallet')->default(false);
 
             // tinyinteger : (0 no) to (1 average) (2 best)
-            $table->unsignedTinyInteger('instant_verification')->default(0);
-            $table->unsignedTinyInteger('beginner_friendly')->default(0);
-            $table->unsignedTinyInteger('chat_support')->default(0);
+            $table->unsignedTinyInteger('instant_verification')->default(1);
+            $table->unsignedTinyInteger('value_for_money')->default(1);
+            $table->unsignedTinyInteger('beginner_friendly')->default(1);
+            $table->unsignedTinyInteger('chat_support')->default(1);
             $table->unsignedTinyInteger('verification_days')->default(3);
 
             $table->decimal('usdt_min_fee_percent')->nullable();

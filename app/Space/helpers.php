@@ -34,3 +34,18 @@ function arzkoo_money($number, $currency = 'IRR', $locale = 'fa_IR')
 
     return numfmt_format_currency($fmt, $number, $currency);
 }
+
+function getRangeLabel($range)
+{
+    $label = 'null';
+
+    switch ($range) {
+        case 1:
+            $label = 'avg';
+            break;
+        case 2:
+            $label = 'avg';
+    }
+
+    return __('seeders.data_rows.options.' . $label);
+}
