@@ -156,6 +156,7 @@ class Exchange extends Model
             'beginner_friendly',
             'chat_support',
             'verification_days',
+            'value_for_money',
             'admin_id',
         ]));
 
