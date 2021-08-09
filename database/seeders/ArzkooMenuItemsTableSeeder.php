@@ -98,5 +98,21 @@ class ArzkooMenuItemsTableSeeder extends Seeder
                 'order'      => 4,
             ])->save();
         }
+
+        $menuItem = MenuItem::firstOrNew([
+            'menu_id' => $menu->id,
+            'title'   => __('seeders.menu_items.contacts'),
+            'url'     => '',
+            'route'   => 'voyager.contacts.index',
+        ]);
+        if (!$menuItem->exists) {
+            $menuItem->fill([
+                'target'     => '_self',
+                'icon_class' => 'voyager-telephone',
+                'color'      => null,
+                'parent_id'  => $menuItem->id,
+                'order'      => 4,
+            ])->save();
+        }
     }
 }

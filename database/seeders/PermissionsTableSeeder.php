@@ -38,5 +38,7 @@ class PermissionsTableSeeder extends Seeder
         Permission::generateFor('exchanges');
 
         Permission::generateFor('cryptos');
+
+        Permission::generateFor('contacts');
     }
 }

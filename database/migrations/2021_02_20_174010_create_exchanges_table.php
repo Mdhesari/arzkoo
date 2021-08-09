@@ -37,14 +37,15 @@ class CreateExchangesTable extends Migration
             $table->boolean('integrated_wallet')->default(false);
 
             // tinyinteger : (0 no) to (1 average) (2 best)
-            // $table->tinyInteger('instant_verification')->default(0);
-            // $table->tinyInteger('beginner_friendly')->default(0);
-            // $table->tinyInteger('chat_support')->default(0);
+            $table->unsignedTinyInteger('instant_verification')->default(0);
+            $table->unsignedTinyInteger('beginner_friendly')->default(0);
+            $table->unsignedTinyInteger('chat_support')->default(0);
+            $table->unsignedTinyInteger('verification_days')->default(3);
 
-            $table->decimal('usdt_min_fee_percent');
-            $table->decimal('usdt_max_fee_percent');
-            $table->decimal('irr_min_fee_percent');
-            $table->decimal('irr_max_fee_percent');
+            $table->decimal('usdt_min_fee_percent')->nullable();
+            $table->decimal('usdt_max_fee_percent')->nullable();
+            $table->decimal('irr_min_fee_percent')->nullable();
+            $table->decimal('irr_max_fee_percent')->nullable();
             $table->json('more_features')->nullable();
 
             $table->foreignId('admin_id')->nullable();
