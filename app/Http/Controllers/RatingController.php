@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\NewSubmittedRating;
 use App\Models\Exchanges\Exchange;
 use App\Models\Rating;
 use Illuminate\Http\Request;
@@ -17,6 +18,8 @@ class RatingController extends Controller
         $exchange->ratings()->save($rating);
 
         $exchange->calcAverageRate();
+
+        event(new NewSubmittedRating($rating));
 
         return back()->with('success', 'نظر شما با موفقیت ثبت شد.');
     }
