@@ -3,6 +3,7 @@
     <div class="row align-items-center">
         <div class="col-lg-8 col-md-8 col-sm-12">
             <div class="header-right">
+                <h3 class="mx-1">{{ $exchange->persian_title }}</h3>
                 <div class="images">
                     <img src="{{ asset($exchange->logo) }}" alt="{{ $exchange->name }}">
                 </div>
@@ -50,8 +51,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-12">
-            <div class="b-header-left">
+        <div class="col-lg-4 col-md-4 col-sm-12">            <div class="b-header-left">
                 <div class="b-header-left__inner">
                     <p>
                         قیمت برای <span>{{ arzkoo_money(1, 'USDT') }}</span>

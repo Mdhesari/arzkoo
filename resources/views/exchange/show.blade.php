@@ -128,7 +128,7 @@
                     <div class="about-left-column col-md-4 col-sm-5">
                         <div class="broker-logo">
                             <a href="#">
-                                <img src="assets/img/xcoins.png" alt="">
+                                <img src="{{ asset($exchange->logo) }}" alt="{{ $exchange->name }}">
                             </a>
                         </div>
                         <div class="broker-rating row">
@@ -147,7 +147,8 @@
                                         <strong>{{ $exchange->ratings()->count() }}</strong>
                                         امتیاز کاربران
                                     </p>
-                                    <a href="#reviews" class="btn btn-default-outline btn-block">
+                                    <a href="@auth #reviews @else {{ route('login') }} @endauth"
+                                        class="btn btn-default-outline btn-block">
                                         ثبت امتیاز
                                     </a>
                                 </div>

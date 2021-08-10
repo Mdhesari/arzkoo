@@ -6,6 +6,12 @@
                     <div class="heading">
                         <h3>ثبت نظر </h3>
                     </div>
+                    @guest
+                        <div class="alert alert-warning">
+                            برای ثبت نظر ابتدا باید وارد شوید
+                            <a href="{{ route('login') }}">ورود یا ثبت نام در سایت</a>
+                        </div>
+                    @endguest
                     <form action="{{ route('exchanges.rating', $exchange) }}" method="POST">
 
                         <div class="rate-inner">
