@@ -38,13 +38,13 @@
                         </a>
                     </div>
                     <div class="col-md-4 col-xs-12 information">
-                        <a href="tel:021 - به زودی">
+                        <a href="tel:021 - به زودی  ">
                             <div class="inner">
                                 <div class="icon">
                                     <i class="fas fa-phone-alt"></i>
                                 </div>
                                 <div class="info">
-                                    021 - به زودی
+                                    021 - به زودی   
                                 </div>
                             </div>
                         </a>

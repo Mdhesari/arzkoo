@@ -11,7 +11,7 @@ class NewsletterForm extends Component
     public $email;
 
     protected $rules = [
-        'email' => ['required', 'email'],
+        'email' => ['required', 'email', 'unique:email_subscriptions'],
     ];
 
     public function submit()
