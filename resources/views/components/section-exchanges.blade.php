@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <h2 class="title-section">
-                    مقایسه بیشتر از 50 صرافی ارزهای دیجیتال
+                    مقایسه بیشتر از {{ $exchanges->count() }} صرافی ارزهای دیجیتال
                 </h2>
             </div>
         </div>
@@ -36,7 +36,7 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     {{-- <script defer src="{{ asset('js/swiper-bundle.min.js') }}"></script> --}}
     <script>
-        window.onload = () => {
+        $(function() {
             // SWIPER
             var swiper = new Swiper('.swiper-container', {
                 slidesPerView: 4,
@@ -68,6 +68,6 @@
                 },
             });
             // SWIPER
-        }
+        })
     </script>
 @endpush
