@@ -71,6 +71,15 @@ return [
         ]
     ],
     'settings' => [
+        'landing' => [
+            'title' => 'عنوان صفحه اصلی',
+            'description' => 'توضیحات وبسایت ارزکو',
+            'compare' => [
+                'bestPriceDescription' => 'قسمت مربوط به تفاوت ها (بهترین قیمت)',
+                'bestRateDescription' => 'قسمت مربوط به تفاوت ها (بررسی امتیاز ها)',
+                'bestFeatureDescription' => 'قسمت مربوط به تفاوت ها (ویژگی ها)',
+            ]
+        ],
         'footer' => [
             'info' => 'متن اطلاعات (فوتر)',
             'copyright' => 'متن کپی رایت',

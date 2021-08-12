@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <h2 class="title-section">
-                        جستجو و مقایسه کنید
+                        {{ setting('landing.title', 'جستجو و مقایسه کنید') }}
                     </h2>
                 </div>
             </div>
@@ -21,8 +21,9 @@
                             </div>
                             <div class="compare__right__item__left">
                                 <h3>بهترین قیمت را پیدا کنید</h3>
-                                <p>در این حالت شما ارز دیجیتال خود را با قیمت پیشنهادی خودتان ثبت می کنید و
-                                    منتظر درخواست خرید ...</p>
+                                <p>
+                                    {{ setting('landing.compare.bestPriceDescription') }}
+                                </p>
                             </div>
                         </div>
                         <div class="compare__right__item">
@@ -31,8 +32,9 @@
                             </div>
                             <div class="compare__right__item__left">
                                 <h3>امتیازها را بررسی کنید</h3>
-                                <p>در این حالت شما ارز دیجیتال خود را با قیمت پیشنهادی خودتان ثبت می کنید و
-                                    منتظر درخواست خرید ...</p>
+                                <p>
+                                    {{ setting('landing.compare.bestRateDescription') }}
+                                </p>
                             </div>
                         </div>
                         <div class="compare__right__item">
@@ -41,8 +43,9 @@
                             </div>
                             <div class="compare__right__item__left">
                                 <h3>ویژگی ها را مقایسه کنید</h3>
-                                <p>در این حالت شما ارز دیجیتال خود را با قیمت پیشنهادی خودتان ثبت می کنید و
-                                    منتظر درخواست خرید ...</p>
+                                <p>
+                                    {{ setting('landing.compare.bestFeatureDescription') }}
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -61,7 +64,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <h2 class="title-section">
-                        ویژگی ها و خصوصیات بیش از 50 صرافی را بررسی کنید
+                        ویژگی ها و خصوصیات بیش از {{ $exchanges->count() }} صرافی را بررسی کنید
                     </h2>
                 </div>
             </div>
@@ -88,30 +91,14 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <h2 class="title-section">
-                        کریپتو چیست ؟
+                        {{ setting('landing.Abouttitle') }}
                     </h2>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="whats-crypto__info">
-                        <p>
-                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                            گرافیک
-                            است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط
-                            فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
-                            کتابهای
-                            زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد
-                        </p>
-                        <p>
-                            تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و
-                            فرهنگ
-                            پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود
-                            در
-                            ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی
-                            دستاوردهای
-                            اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-                        </p>
+                        {{ setting('landing.Aboutdescription') }}
                     </div>
                 </div>
             </div>
