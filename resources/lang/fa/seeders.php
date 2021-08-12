@@ -5,9 +5,9 @@ return [
         'main' => 'صفحه اصلی',
         'exchanges' => 'صرافی ها',
         'blog' => 'وبلاگ',
-        'realtime_prices' => 'قیمت لحظه ای',
+        'live-prices' => 'قیمت لحظه ای',
         'cryptos' => 'رمزارز ها',
-        'contacts' => 'تماس ها'
+        'contacts' => 'تماس ها',
     ],
     'data_types' => [
         'exchanges' => [
