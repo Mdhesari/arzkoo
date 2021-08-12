@@ -30,6 +30,18 @@ class Exchange extends Model
     const OPTION_VALUE_AVG = 'AVG';
     const OPTION_VALUE_BEST = 'BEST';
 
+    public function updateRatingsAvg()
+    {
+        $data = $this->ratings()->select(
+            DB::raw('SUM(ease_of_use_range) / count(ease_of_use_range) AS ease_of_use_avg'),
+            DB::raw('SUM(support_range) / count(support_range) AS support_avg'),
+            DB::raw('SUM(value_for_money_range) / count(value_for_money_range) AS value_for_money_avg'),
+            DB::raw('SUM(verification_range) / count(verification_range) AS verification_avg'),
+        )->first()->toArray();
+
+        $this->update($data);
+    }
+
     public function ratings()
     {
         return $this->hasMany(Rating::class);
@@ -152,11 +164,7 @@ class Exchange extends Model
         $data = collect($this->toArray());
 
         $data = $data->filter(fn ($item, $key) => ($item === 0 || $item === 1) && !in_array($key, [
-            'instant_verification',
-            'beginner_friendly',
-            'chat_support',
             'verification_days',
-            'value_for_money',
             'admin_id',
         ]));
 

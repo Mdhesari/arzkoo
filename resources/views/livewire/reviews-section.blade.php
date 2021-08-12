@@ -19,17 +19,17 @@
                                 <div class="col-lg-6 col-sm-12 col-xs-12">
                                     <div class="title-star">راحتی در استفاده</div>
                                     <div class="rating">
-                                        <input type="radio" id="star15" name="ease_of_use_range" value="5" /><label
+                                        <input type="radio" required id="star15" name="ease_of_use_range" value="5" /><label
                                             for="star15" data-toggle="tooltip" data-placement="top"
                                             title="خیلی خوب"></label>
-                                        <input type="radio" id="star14" name="ease_of_use_range" value="4" /><label
+                                        <input type="radio" required id="star14" name="ease_of_use_range" value="4" /><label
                                             for="star14" data-toggle="tooltip" data-placement="top" title="خوب"></label>
-                                        <input type="radio" id="star13" name="ease_of_use_range" value="3" /><label
+                                        <input type="radio" required id="star13" name="ease_of_use_range" value="3" /><label
                                             for="star13" data-toggle="tooltip" data-placement="top"
                                             title="متعادل"></label>
-                                        <input type="radio" id="star12" name="ease_of_use_range" value="2" /><label
+                                        <input type="radio" required id="star12" name="ease_of_use_range" value="2" /><label
                                             for="star12" data-toggle="tooltip" data-placement="top" title="بد"></label>
-                                        <input type="radio" id="star11" name="ease_of_use_range" value="1" /><label
+                                        <input type="radio" required id="star11" name="ease_of_use_range" value="1" /><label
                                             for="star11" data-toggle="tooltip" data-placement="top"
                                             title="خیلی بد"></label>
                                     </div>
@@ -37,17 +37,17 @@
                                 <div class="col-lg-6 col-sm-12 col-xs-12">
                                     <div class="title-star">احراز هویت سریع</div>
                                     <div class="rating my-1">
-                                        <input type="radio" id="star25" name="verification_range" value="5" /><label
+                                        <input type="radio" required id="star25" name="verification_range" value="5" /><label
                                             for="star25" data-toggle="tooltip" data-placement="top"
                                             title="خیلی خوب"></label>
-                                        <input type="radio" id="star24" name="verification_range" value="4" /><label
+                                        <input type="radio" required id="star24" name="verification_range" value="4" /><label
                                             for="star24" data-toggle="tooltip" data-placement="top" title="خوب"></label>
-                                        <input type="radio" id="star23" name="verification_range" value="3" /><label
+                                        <input type="radio" required id="star23" name="verification_range" value="3" /><label
                                             for="star23" data-toggle="tooltip" data-placement="top"
                                             title="متعادل"></label>
-                                        <input type="radio" id="star22" name="verification_range" value="2" /><label
+                                        <input type="radio" required id="star22" name="verification_range" value="2" /><label
                                             for="star22" data-toggle="tooltip" data-placement="top" title="بد"></label>
-                                        <input type="radio" id="star21" name="verification_range" value="1" /><label
+                                        <input type="radio" required id="star21" name="verification_range" value="1" /><label
                                             for="star21" data-toggle="tooltip" data-placement="top"
                                             title="خیلی بد"></label>
                                     </div>
@@ -55,17 +55,17 @@
                                 <div class="col-lg-6 col-sm-12 col-xs-12">
                                     <div class="title-star">ارزش خرید</div>
                                     <div class="rating my-1">
-                                        <input type="radio" id="star35" name="value_for_money_range" value="5" /><label
+                                        <input type="radio" required id="star35" name="value_for_money_range" value="5" /><label
                                             for="star35" data-toggle="tooltip" data-placement="top"
                                             title="خیلی خوب"></label>
-                                        <input type="radio" id="star34" name="value_for_money_range" value="4" /><label
+                                        <input type="radio" required id="star34" name="value_for_money_range" value="4" /><label
                                             for="star34" data-toggle="tooltip" data-placement="top" title="خوب"></label>
-                                        <input type="radio" id="star33" name="value_for_money_range" value="3" /><label
+                                        <input type="radio" required id="star33" name="value_for_money_range" value="3" /><label
                                             for="star33" data-toggle="tooltip" data-placement="top"
                                             title="متعادل"></label>
-                                        <input type="radio" id="star32" name="value_for_money_range" value="2" /><label
+                                        <input type="radio" required id="star32" name="value_for_money_range" value="2" /><label
                                             for="star32" data-toggle="tooltip" data-placement="top" title="بد"></label>
-                                        <input type="radio" id="star31" name="value_for_money_range" value="1" /><label
+                                        <input type="radio" required id="star31" name="value_for_money_range" value="1" /><label
                                             for="star31" data-toggle="tooltip" data-placement="top"
                                             title="خیلی بد"></label>
                                     </div>
@@ -73,17 +73,17 @@
                                 <div class="col-lg-6 col-sm-12 col-xs-12">
                                     <div class="title-star">پشتیبانی</div>
                                     <div class="rating my-1">
-                                        <input type="radio" id="star45" name="support_range" value="5" /><label
+                                        <input type="radio" required id="star45" name="support_range" value="5" /><label
                                             for="star45" data-toggle="tooltip" data-placement="top"
                                             title="خیلی خوب"></label>
-                                        <input type="radio" id="star44" name="support_range" value="4" /><label
+                                        <input type="radio" required id="star44" name="support_range" value="4" /><label
                                             for="star44" data-toggle="tooltip" data-placement="top" title="خوب"></label>
-                                        <input type="radio" id="star43" name="support_range" value="3" /><label
+                                        <input type="radio" required id="star43" name="support_range" value="3" /><label
                                             for="star43" data-toggle="tooltip" data-placement="top"
                                             title="متعادل"></label>
-                                        <input type="radio" id="star42" name="support_range" value="2" /><label
+                                        <input type="radio" required id="star42" name="support_range" value="2" /><label
                                             for="star42" data-toggle="tooltip" data-placement="top" title="بد"></label>
-                                        <input type="radio" id="star41" name="support_range" value="1" /><label
+                                        <input type="radio" required id="star41" name="support_range" value="1" /><label
                                             for="star41" data-toggle="tooltip" data-placement="top"
                                             title="خیلی بد"></label>
                                     </div>

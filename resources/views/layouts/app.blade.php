@@ -39,7 +39,7 @@
         <main>
 
             @if ($message = session('success'))
-                <div class="alert alert-success">{{ $message }}</div>
+                <div class="alert alert-success m-0">{{ $message }}</div>
             @endif
 
             @yield('content')

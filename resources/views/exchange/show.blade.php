@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="head-section" style="background:#50429d url('{{ asset($exchange->logo) }}') no-repeat 20% center">
+    <section class="head-section">
         <div class="title-blog">
             <h1>
                 {{ $exchange->persian_title . ' (' . $exchange->title . ') ' }}
@@ -21,6 +21,12 @@
                                 {{ $exchange->description }}
                             </p>
                             <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <span>کارمزد</span>
+                                    <span>%{{ $exchange->irr_min_fee_percent }}</span>
+                                    -
+                                    <span>%{{ $exchange->irr_max_fee_percent }}</span>
+                                </li>
                                 @if ($exchange->physical_address)
                                     <li class="list-group-item">
                                         <span>آدرس</span>

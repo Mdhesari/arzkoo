@@ -12,12 +12,9 @@ class ExchangeRating extends Component
 
     public function mount(Exchange $exchange)
     {
-        $this->data = $exchange->ratings()->select(
-            DB::raw('SUM(ease_of_use_range) / count(ease_of_use_range) AS ease_of_use_range'),
-            DB::raw('SUM(support_range) / count(support_range) AS support_range'),
-            DB::raw('SUM(value_for_money_range) / count(value_for_money_range) AS value_for_money_range'),
-            DB::raw('SUM(verification_range) / count(verification_range) AS verification_range'),
-        )->first()->toArray();
+        $this->data = $exchange->only([
+            'ease_of_use_avg', 'support_avg', 'value_for_money_avg', 'verification_avg'
+        ]);
     }
 
     public function render()

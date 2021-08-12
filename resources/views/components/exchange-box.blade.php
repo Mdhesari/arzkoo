@@ -38,20 +38,21 @@
                 </div>
                 <div class="b-header-right__item">
                     <div class="title">کارکرد آسان</div>
-                    <div class="info">{{ getRangeLabel($exchange->beginner_friendly) }}</div>
+                    <div class="info">{{ getRangeLabel($exchange->ease_of_use_avg) }}</div>
                 </div>
                 <div class="b-header-right__item">
                     <div class="title">پشتیبانی</div>
-                    <div class="info">{{ getRangeLabel($exchange->chat_support) }}</div>
+                    <div class="info">{{ getRangeLabel($exchange->support_avg) }}</div>
                 </div>
 
                 <div class="b-header-right__item">
                     <div class="title">ارزش خرید</div>
-                    <div class="info">{{ getRangeLabel($exchange->value_for_money) }}</div>
+                    <div class="info">{{ getRangeLabel($exchange->value_for_money_avg) }}</div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-12">            <div class="b-header-left">
+        <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="b-header-left">
                 <div class="b-header-left__inner">
                     <p>
                         قیمت برای <span>{{ arzkoo_money(1, 'USDT') }}</span>

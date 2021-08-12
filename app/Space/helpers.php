@@ -39,13 +39,11 @@ function getRangeLabel($range)
 {
     $label = 'null';
 
-    switch ($range) {
-        case 1:
-            $label = 'avg';
-            break;
-        case 2:
-            $label = 'avg';
-    }
+    if ($range > 0 && $range < 3)
+        $label  = 'avg';
+
+    if ($range > 0 && $range > 3)
+        $label = 'best';
 
     return __('seeders.data_rows.options.' . $label);
 }

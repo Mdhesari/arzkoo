@@ -13,9 +13,9 @@ return [
         // 'chat_support' => 'پشتیبانی چت',
     ],
     'rates' => [
-        'value_for_money_range' => 'ارزش خرید',
-        'ease_of_use_range' => 'کارکرد آسان',
-        'verification_range' => 'احراز هویت سریع',
-        'support_range' => 'پشتیبانی'
+        'value_for_money_avg' => 'ارزش خرید',
+        'ease_of_use_avg' => 'کارکرد آسان',
+        'verification_avg' => 'احراز هویت سریع',
+        'support_avg' => 'پشتیبانی'
     ]
 ];

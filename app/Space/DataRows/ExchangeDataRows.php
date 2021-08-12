@@ -204,36 +204,6 @@ class ExchangeDataRows extends BaseDataRows
             }
         }
 
-        $option_arr = [
-            'instant_verification', 'beginner_friendly', 'chat_support'
-        ];
-
-        foreach ($option_arr as $option) {
-
-            $dataRow = $this->dataRow($groupDataType, $option);
-            if (!$dataRow->exists) {
-                $dataRow->fill([
-                    'type'         => 'select_dropdown',
-                    'display_name' => __("seeders.data_rows.$option"),
-                    'required'     => 0,
-                    'browse'       => 1,
-                    'read'         => 1,
-                    'edit'         => 1,
-                    'add'          => 1,
-                    'delete'       => 1,
-                    'order'        => 3,
-                    'details'      => [
-                        'default' => Exchange::OPTION_VALUE_AVG,
-                        'options' => [
-                            Exchange::OPTION_VALUE_NULL => __('seeders.data_rows.options.null'),
-                            Exchange::OPTION_VALUE_AVG     => __('seeders.data_rows.options.avg'),
-                            Exchange::OPTION_VALUE_BEST  => __('seeders.data_rows.options.best'),
-                        ],
-                    ],
-                ])->save();
-            }
-        }
-
         $dataRow = $this->dataRow($groupDataType, 'irr_min_fee_percent');
         if (!$dataRow->exists) {
             $dataRow->fill([
