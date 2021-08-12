@@ -77,11 +77,11 @@ class ArzkooSettingsTableSeeder extends Seeder
         $setting = $this->findSetting('landing.aboutTitle');
         if (!$setting->exists) {
             $setting->fill([
-                'display_name' => __('seeders.settings.landing.AboutTitle'),
-                'value'        => __('seeders.settings.landing.AboutTitle'),
+                'display_name' => __('seeders.settings.landing.aboutTitle'),
+                'value'        => __('seeders.settings.landing.aboutTitle'),
                 'details'      => '',
                 'type'         => 'text',
-                'order'        => 1,
+                'order'        => 2,
                 'group'        => 'Landing',
             ])->save();
         }
@@ -93,46 +93,43 @@ class ArzkooSettingsTableSeeder extends Seeder
                 'value'        => __('seeders.settings.landing.aboutDescription'),
                 'details'      => '',
                 'type'         => 'text_area',
-                'order'        => 1,
+                'order'        => 2,
                 'group'        => 'Landing',
             ])->save();
         }
 
-        $setting = $this->findSetting('landing.compare.bestPriceDescription');
+        $setting = $this->findSetting('landing.compareBestPriceDescription');
         if (!$setting->exists) {
             $setting->fill([
                 'display_name' => __('seeders.settings.landing.compare.bestPriceDescription'),
-                'value'        => 'در این حالت شما ارز دیجیتال خود را با قیمت پیشنهادی خودتان ثبت می کنید و
-                منتظر درخواست خرید ...',
+                'value'        => 'در این حالت شما ارز دیجیتال خود را با قیمت پیشنهادی خودتان ثبت می کنید و منتظر درخواست خرید ...',
                 'details'      => '',
                 'type'         => 'text_area',
-                'order'        => 1,
+                'order'        => 2,
                 'group'        => 'Landing',
             ])->save();
         }
 
-        $setting = $this->findSetting('landing.compare.bestRateDescription');
+        $setting = $this->findSetting('landing.compareBestRateDescription');
         if (!$setting->exists) {
             $setting->fill([
                 'display_name' => __('seeders.settings.landing.compare.bestRateDescription'),
-                'value'        => 'در این حالت شما ارز دیجیتال خود را با قیمت پیشنهادی خودتان ثبت می کنید و
-                منتظر درخواست خرید ...',
+                'value'        => 'در این حالت شما ارز دیجیتال خود را با قیمت پیشنهادی خودتان ثبت می کنید و منتظر درخواست خرید ...',
                 'details'      => '',
                 'type'         => 'text_area',
-                'order'        => 1,
+                'order'        => 2,
                 'group'        => 'Landing',
             ])->save();
         }
 
-        $setting = $this->findSetting('landing.compare.bestFeatureDescription');
+        $setting = $this->findSetting('landing.compareBestFeatureDescription');
         if (!$setting->exists) {
             $setting->fill([
                 'display_name' => __('seeders.settings.landing.compare.bestFeatureDescription'),
-                'value'        => 'در این حالت شما ارز دیجیتال خود را با قیمت پیشنهادی خودتان ثبت می کنید و
-                منتظر درخواست خرید ...',
+                'value'        => 'در این حالت شما ارز دیجیتال خود را با قیمت پیشنهادی خودتان ثبت می کنید و منتظر درخواست خرید ...',
                 'details'      => '',
                 'type'         => 'text_area',
-                'order'        => 1,
+                'order'        => 2,
                 'group'        => 'Landing',
             ])->save();
         }

@@ -74,6 +74,8 @@ return [
         'landing' => [
             'title' => 'عنوان صفحه اصلی',
             'description' => 'توضیحات وبسایت ارزکو',
+            'aboutTitle' => 'عنوان درباره ما',
+            'aboutDescription' => 'توضیحات درباره ما ارزکو',
             'compare' => [
                 'bestPriceDescription' => 'قسمت مربوط به تفاوت ها (بهترین قیمت)',
                 'bestRateDescription' => 'قسمت مربوط به تفاوت ها (بررسی امتیاز ها)',

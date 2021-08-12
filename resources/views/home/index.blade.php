@@ -22,7 +22,7 @@
                             <div class="compare__right__item__left">
                                 <h3>بهترین قیمت را پیدا کنید</h3>
                                 <p>
-                                    {{ setting('landing.compare.bestPriceDescription') }}
+                                    {{ setting('landing.compareBestPriceDescription') }}
                                 </p>
                             </div>
                         </div>
@@ -33,7 +33,7 @@
                             <div class="compare__right__item__left">
                                 <h3>امتیازها را بررسی کنید</h3>
                                 <p>
-                                    {{ setting('landing.compare.bestRateDescription') }}
+                                    {{ setting('landing.compareBestRateDescription') }}
                                 </p>
                             </div>
                         </div>
@@ -44,7 +44,7 @@
                             <div class="compare__right__item__left">
                                 <h3>ویژگی ها را مقایسه کنید</h3>
                                 <p>
-                                    {{ setting('landing.compare.bestFeatureDescription') }}
+                                    {{ setting('landing.compareBestFeatureDescription') }}
                                 </p>
                             </div>
                         </div>
@@ -52,7 +52,7 @@
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="compare__left">
-                        <img class="img-fluid" src="{{ asset('assets/img/miniwire-search') }}"
+                        <img class="img-fluid" src="{{ asset('assets/img/miniwire-search.png') }}"
                             alt="{{ config('app.name') }}">
                     </div>
                 </div>
@@ -91,14 +91,16 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <h2 class="title-section">
-                        {{ setting('landing.Abouttitle') }}
+                        {{ setting('landing.aboutTitle') }}
                     </h2>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="whats-crypto__info">
-                        {{ setting('landing.Aboutdescription') }}
+                        <p>
+                            {{ setting('landing.aboutDescription') }}
+                        </p>
                     </div>
                 </div>
             </div>
