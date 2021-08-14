@@ -1,8 +1,14 @@
 {
+<<<<<<< HEAD
+    "/js/app.js": "/js/app.js?id=97e4fce3119a6a8498ac",
+    "/css/font-awesome.css": "/css/font-awesome.css?id=4e5a606ee8fe455f096c",
+    "/css/app.css": "/css/app.css?id=15318b21ceedf0c54980"
+=======
     "/js/app.js": "/js/app.js",
     "/js/swiper-bundle.min.js": "/js/swiper-bundle.min.js",
     "/css/font-awesome.css": "/css/font-awesome.css",
     "/css/swiper-bundle.min.css": "/css/swiper-bundle.min.css",
     "/css/tools.css": "/css/tools.css",
     "/css/app.css": "/css/app.css"
+>>>>>>> b6b528f63b465fbac30eb4c8295b9ac96f817b19
 }
