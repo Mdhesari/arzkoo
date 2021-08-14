@@ -19,7 +19,7 @@ class CreateCryptosTable extends Migration
             $table->string('symbol', 8);
             $table->string('name', 32);
             $table->json('image')->nullable();
-            $table->decimal('price', 18, 2);
+            $table->decimal('price', 30, 2);
             $table->unsignedBigInteger('volume');
             $table->unsignedBigInteger('market_cap');
             $table->string('currency', 8)->default('USD');
