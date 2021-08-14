@@ -38,8 +38,13 @@ class SetupDev extends Command
      */
     public function handle()
     {
-        Artisan::call('migrate:fresh --seed');
+        $this->call('migrate:fresh');
+        $this->call('db:seed');
+        $this->info('start setting up admin panel...');
         Artisan::call('voyager:install --with-dummy');
+        $this->call('scrap:cryptos');
+        $this->call('scrap:exchanges');
+        $this->call('scrap:exchanges-update');
         $this->info('done...');
     }
 }

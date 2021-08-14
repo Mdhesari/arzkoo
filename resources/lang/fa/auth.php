@@ -13,8 +13,8 @@ return [
     |
     */
 
-    'failed' => 'کد وارد شده صحیح نمیباشد.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'failed' => 'رمز وارد شده صحیح نمیباشد.',
+    'throttle' => 'تعداد درخواست های شما بیش از حد مجاز میباشد لطفا بعد از :seconds ثانیه دوباره امتحان کنید.',
 
 ];
  

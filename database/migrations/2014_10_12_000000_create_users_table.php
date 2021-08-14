@@ -17,12 +17,12 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->nullable();
-            $table->string('image')->default('vaUu3Z652eyYjhW3Jd3DBlcozhJ3Ux1WB8Ri6rDP.png');
+            $table->string('image')->nullable();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('mobile')->unique()->nullable();
+            $table->string('mobile')->nullable();
             $table->timestamp('mobile_verified_at')->nullable();
             $table->json('data')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps(); // created_at, updated_at

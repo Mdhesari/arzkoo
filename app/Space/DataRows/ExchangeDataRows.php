@@ -51,26 +51,6 @@ class ExchangeDataRows extends BaseDataRows
             ])->save();
         }
 
-        $dataRow = $this->dataRow($groupDataType, 'logo');
-        if (!$dataRow->exists) {
-            $dataRow->fill([
-                'type'         => 'media_picker',
-                'display_name' => __('seeders.data_rows.pictures'),
-                'required'     => 1,
-                'browse'       => 1,
-                'read'         => 1,
-                'edit'         => 1,
-                'add'          => 1,
-                'delete'       => 1,
-                'order'        => 2,
-                'details' => [
-                    'allowed' => ['image'],
-                    'max' => 2,
-                    'min' => 1,
-                ]
-            ])->save();
-        }
-
         $dataRow = $this->dataRow($groupDataType, 'title');
         if (!$dataRow->exists) {
             $dataRow->fill([
@@ -82,7 +62,7 @@ class ExchangeDataRows extends BaseDataRows
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'order'        => 2,
+                'order'        => 1,
             ])->save();
         }
 
@@ -97,7 +77,22 @@ class ExchangeDataRows extends BaseDataRows
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'order'        => 2,
+                'order'        => 1,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($groupDataType, 'description');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'text_area',
+                'display_name' => __('seeders.data_rows.description'),
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'order'        => 1,
             ])->save();
         }
 
@@ -116,6 +111,26 @@ class ExchangeDataRows extends BaseDataRows
             ])->save();
         }
 
+        $dataRow = $this->dataRow($groupDataType, 'logo');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'image',
+                'display_name' => __('seeders.data_rows.pictures'),
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'order'        => 1,
+                'details' => [
+                    // 'allowed' => ['image'],
+                    // 'max' => 2,
+                    // 'min' => 1,
+                ]
+            ])->save();
+        }
+
         $dataRow = $this->dataRow($groupDataType, 'site');
         if (!$dataRow->exists) {
             $dataRow->fill([
@@ -129,6 +144,9 @@ class ExchangeDataRows extends BaseDataRows
                 'delete'       => 1,
                 'order'        => 2,
                 'details' => [
+                    'display' => [
+                        'width' => 6,
+                    ],
                     'validation' => [
                         'rule' => ['nullable', 'url']
                     ]
@@ -149,6 +167,9 @@ class ExchangeDataRows extends BaseDataRows
                 'delete'       => 1,
                 'order'        => 2,
                 'details' => [
+                    'display' => [
+                        'width' => 6,
+                    ],
                     'validation' => [
                         'rule' => ['nullable', 'url']
                     ]
@@ -173,7 +194,7 @@ class ExchangeDataRows extends BaseDataRows
                     'edit'         => 1,
                     'add'          => 1,
                     'delete'       => 1,
-                    'order'        => 2,
+                    'order'        => 3,
                     'details' => [
                         "on" => __("seeders.data_rows.enabled"),
                         "off" => __("seeders.data_rows.disabled"),
@@ -183,49 +204,22 @@ class ExchangeDataRows extends BaseDataRows
             }
         }
 
-        $option_arr = [
-            'instant_verification', 'beginner_friendly', 'chat_support'
-        ];
-
-        foreach ($option_arr as $option) {
-
-            $dataRow = $this->dataRow($groupDataType, $option);
-            if (!$dataRow->exists) {
-                $dataRow->fill([
-                    'type'         => 'select_dropdown',
-                    'display_name' => __("seeders.data_rows.$option"),
-                    'required'     => 0,
-                    'browse'       => 1,
-                    'read'         => 1,
-                    'edit'         => 1,
-                    'add'          => 1,
-                    'delete'       => 1,
-                    'order'        => 2,
-                    'details'      => [
-                        'default' => Exchange::OPTION_VALUE_AVG,
-                        'options' => [
-                            Exchange::OPTION_VALUE_NULL => __('seeders.data_rows.options.null'),
-                            Exchange::OPTION_VALUE_AVG     => __('seeders.data_rows.options.avg'),
-                            Exchange::OPTION_VALUE_BEST  => __('seeders.data_rows.options.best'),
-                        ],
-                    ],
-                ])->save();
-            }
-        }
-
-        $dataRow = $this->dataRow($groupDataType, 'min_fee_percent');
+        $dataRow = $this->dataRow($groupDataType, 'irr_min_fee_percent');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'number',
-                'display_name' => __('seeders.data_rows.min_fee_percent'),
+                'display_name' => __('seeders.data_rows.irr_min_fee_percent'),
                 'required'     => 1,
                 'browse'       => 1,
                 'read'         => 1,
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'order'        => 2,
+                'order'        => 3,
                 'details' => [
+                    'display' => [
+                        'width' => 6,
+                    ],
                     'validation' => [
                         'rule' => ['required', 'min:0.1']
                     ]
@@ -233,21 +227,90 @@ class ExchangeDataRows extends BaseDataRows
             ])->save();
         }
 
-        $dataRow = $this->dataRow($groupDataType, 'max_fee_percent');
+        $dataRow = $this->dataRow($groupDataType, 'irr_max_fee_percent');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'number',
-                'display_name' => __('seeders.data_rows.max_fee_percent'),
+                'display_name' => __('seeders.data_rows.irr_max_fee_percent'),
                 'required'     => 1,
                 'browse'       => 1,
                 'read'         => 1,
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'order'        => 2,
+                'order'        => 3,
+                'details' => [
+                    'display' => [
+                        'width' => 6,
+                    ],
+                    'validation' => [
+                        'rule' => ['required']
+                    ]
+                ]
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($groupDataType, 'usdt_min_fee_percent');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'number',
+                'display_name' => __('seeders.data_rows.usdt_min_fee_percent'),
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'order'        => 3,
+                'details' => [
+                    'display' => [
+                        'width' => 6,
+                    ],
+                    'validation' => [
+                        'rule' => ['required']
+                    ]
+                ]
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($groupDataType, 'usdt_max_fee_percent');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'number',
+                'display_name' => __('seeders.data_rows.usdt_max_fee_percent'),
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'order'        => 3,
+                'details' => [
+                    'display' => [
+                        'width' => 6,
+                    ],
+                    'validation' => [
+                        'rule' => ['required']
+                    ]
+                ]
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($groupDataType, 'verification_days');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'number',
+                'display_name' => __('seeders.data_rows.verification_days'),
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'order'        => 3,
                 'details' => [
                     'validation' => [
-                        'rule' => ['required', 'gt:min_fee_percent']
+                        'rule' => ['required']
                     ]
                 ]
             ])->save();

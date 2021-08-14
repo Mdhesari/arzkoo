@@ -14,12 +14,15 @@ const mix = require("laravel-mix");
 mix.disableNotifications();
 
 mix.js("resources/js/app.js", "public/js")
+    .js("./node_modules/swiper/swiper-bundle.min.js", "public/js")
+    .postCss("./node_modules/swiper/swiper-bundle.min.css", "public/css")
     .postCss("resources/css/font-awesome.css", "public/css", [
         require("postcss-import"),
         require("autoprefixer"),
     ])
     // TODO: autoprefix support for sass (old browsers)
     .sass("resources/sass/app.scss", "public/css")
+    .sass("resources/sass/tools.scss", "public/css")
 
 if (mix.inProduction()) {
     mix.version();

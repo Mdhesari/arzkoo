@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Space\DataRows\ContactDataRows;
 use App\Space\DataRows\CryptoDataRows;
 use App\Space\DataRows\ExchangeDataRows;
 use App\Space\DataRows\LotDataRows;
@@ -25,6 +26,7 @@ class ArzkooDataRowsTableSeeder extends Seeder
         app(Pipeline::class)->send($groupDataType)->through([
             ExchangeDataRows::class,
             CryptoDataRows::class,
+            ContactDataRows::class,
         ])
             ->via('create')
             ->then(function ($groupDataType) {

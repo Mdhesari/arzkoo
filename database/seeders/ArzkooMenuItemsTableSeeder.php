@@ -17,27 +17,11 @@ class ArzkooMenuItemsTableSeeder extends Seeder
     {
         $menu = Menu::where('name', config('menus.site.main'))->firstOrFail();
 
-        // $menuItem = MenuItem::firstOrNew([
-        //     'menu_id' => $menu->id,
-        //     'title'   => __('seeders.menu_items.main'),
-        //     'url'     => '',
-        //     'route'   => 'home',
-        // ]);
-        // if (!$menuItem->exists) {
-        //     $menuItem->fill([
-        //         'target'     => '_self',
-        //         'icon_class' => 'voyager-boat',
-        //         'color'      => null,
-        //         'parent_id'  => null,
-        //         'order'      => 1,
-        //     ])->save();
-        // }
-
         $menuItem = MenuItem::firstOrNew([
             'menu_id' => $menu->id,
-            'title'   => __('seeders.menu_items.blog'),
+            'title'   => __('seeders.menu_items.main'),
             'url'     => '',
-            'route'   => 'blog.home',
+            'route'   => 'home',
         ]);
         if (!$menuItem->exists) {
             $menuItem->fill([
@@ -49,21 +33,53 @@ class ArzkooMenuItemsTableSeeder extends Seeder
             ])->save();
         }
 
-        // $menuItem = MenuItem::firstOrNew([
-        //     'menu_id' => $menu->id,
-        //     'title'   => __('seeders.menu_items.exchanges'),
-        //     'url'     => '',
-        //     'route'   => 'exchanges.home',
-        // ]);
-        // if (!$menuItem->exists) {
-        //     $menuItem->fill([
-        //         'target'     => '_self',
-        //         'icon_class' => 'voyager-boat',
-        //         'color'      => null,
-        //         'parent_id'  => null,
-        //         'order'      => 1,
-        //     ])->save();
-        // }
+        $menuItem = MenuItem::firstOrNew([
+            'menu_id' => $menu->id,
+            'title'   => __('seeders.menu_items.exchanges'),
+            'url'     => '',
+            'route'   => 'exchanges.home',
+        ]);
+        if (!$menuItem->exists) {
+            $menuItem->fill([
+                'target'     => '_self',
+                'icon_class' => 'voyager-boat',
+                'color'      => null,
+                'parent_id'  => null,
+                'order'      => 2,
+            ])->save();
+        }
+
+        $menuItem = MenuItem::firstOrNew([
+            'menu_id' => $menu->id,
+            'title'   => __('seeders.menu_items.live-prices'),
+            'url'     => '',
+            'route'   => 'live-price',
+        ]);
+        if (!$menuItem->exists) {
+            $menuItem->fill([
+                'target'     => '_self',
+                'icon_class' => 'voyager-boat',
+                'color'      => null,
+                'parent_id'  => null,
+                'order'      => 3,
+            ])->save();
+        }
+
+        $menuItem = MenuItem::firstOrNew([
+            'menu_id' => $menu->id,
+            'title'   => __('seeders.menu_items.blog'),
+            'url'     => '',
+            'route'   => 'blog.blog',
+        ]);
+        if (!$menuItem->exists) {
+            $menuItem->fill([
+                'target'     => '_self',
+                'icon_class' => 'voyager-boat',
+                'color'      => null,
+                'parent_id'  => null,
+                'order'      => 4,
+            ])->save();
+        }
 
         $menu = Menu::where('name', 'admin')->firstOrFail();
 
@@ -93,6 +109,22 @@ class ArzkooMenuItemsTableSeeder extends Seeder
             $menuItem->fill([
                 'target'     => '_self',
                 'icon_class' => 'voyager-dollar',
+                'color'      => null,
+                'parent_id'  => $menuItem->id,
+                'order'      => 4,
+            ])->save();
+        }
+
+        $menuItem = MenuItem::firstOrNew([
+            'menu_id' => $menu->id,
+            'title'   => __('seeders.menu_items.contacts'),
+            'url'     => '',
+            'route'   => 'voyager.contacts.index',
+        ]);
+        if (!$menuItem->exists) {
+            $menuItem->fill([
+                'target'     => '_self',
+                'icon_class' => 'voyager-telephone',
                 'color'      => null,
                 'parent_id'  => $menuItem->id,
                 'order'      => 4,

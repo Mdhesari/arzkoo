@@ -4,12 +4,14 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Storage;
 
 class User extends \TCG\Voyager\Models\User
 {
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -18,7 +20,9 @@ class User extends \TCG\Voyager\Models\User
      */
     protected $fillable = [
         'name',
+        'mobile',
         'email',
+        'image',
         'password',
     ];
 
@@ -40,4 +44,32 @@ class User extends \TCG\Voyager\Models\User
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getImageAttribute($value)
+    {
+        return $value ?: 'vaUu3Z652eyYjhW3Jd3DBlcozhJ3Ux1WB8Ri6rDP.png';
+    }
+
+    public function getFullImageAttribute()
+    {
+        return Storage::url($this->image);
+    }
+
+    public function hasPassword()
+    {
+        return !empty($this->password);
+    }
+
+    public function save(array $options = [])
+    {
+        if (is_null($this->name)) {
+            $this->name = __(' No Name ');
+        }
+
+        if (is_null($this->password)) {
+            $this->password = '';
+        }
+
+        return parent::save();
+    }
 }

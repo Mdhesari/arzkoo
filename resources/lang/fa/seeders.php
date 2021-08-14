@@ -5,8 +5,9 @@ return [
         'main' => 'صفحه اصلی',
         'exchanges' => 'صرافی ها',
         'blog' => 'وبلاگ',
-        'realtime_prices' => 'قیمت لحظه ای',
+        'live-prices' => 'قیمت لحظه ای',
         'cryptos' => 'رمزارز ها',
+        'contacts' => 'تماس ها',
     ],
     'data_types' => [
         'exchanges' => [
@@ -16,10 +17,15 @@ return [
         'cryptos' => [
             'singular' => 'رمزارز',
             'plural' => 'رمزارز ها'
-        ]
+        ],
+        'contacts' => [
+            'singular' => 'تماس',
+            'plural' => 'تماس ها'
+        ],
     ],
 
     'data_rows' => [
+        'message' => 'پیام',
         'symbol' => 'نماد',
         'enabled' => 'فعال',
         'price' => 'قیمت',
@@ -33,6 +39,7 @@ return [
         'pictures'              => 'تصاویر',
         'bio'              => 'زندگی نامه',
         'mobile' => 'موبایل',
+        'verification_days' => 'حداکثر زمان احراز هویت',
         'two_factor_auth' => 'احراز هویت دو مرحله ای',
         'app_android' => 'اپلیکیشن اندروید',
         'app_ios' => 'اپلیکیشن ios',
@@ -44,16 +51,41 @@ return [
         'chat_support' => 'پشتیبانی چت',
         'min_fee_percent' => 'حداقل کارمز (درصد)',
         'max_fee_percent' => 'حداکثر کارمزد (درصد)',
+        'irr_max_fee_percent' => 'حداکثر کارمزد (درصد)',
+        'irr_min_fee_percent' => 'حداقل کارمزد (درصد)',
+        'usdt_max_fee_percent' => 'حداکثر کارمزد دلاری (درصد)',
+        'usdt_min_fee_percent' => 'حداقل کارمزد دلاری (درصد)',
+        'description' => 'توضیحات',
         'status' => [
             'published' => 'منتشر شده',
             'draft' => 'پیش نویس',
             'pending' => 'در انتظار باز بینی',
-            'closed' => 'بسته شده'
+            'closed' => 'بسته شده',
+            'read' => 'خوانده شده',
+            'contact' => 'تماس گرفته شده',
         ],
         'options' => [
             'null' => 'ضعیف',
             'avg' => 'معمولی',
             'best' => 'عالی',
         ]
-    ]
+    ],
+    'settings' => [
+        'landing' => [
+            'title' => 'عنوان صفحه اصلی',
+            'description' => 'توضیحات وبسایت ارزکو',
+            'aboutTitle' => 'عنوان درباره ما',
+            'aboutDescription' => 'توضیحات درباره ما ارزکو',
+            'compare' => [
+                'bestPriceDescription' => 'قسمت مربوط به تفاوت ها (بهترین قیمت)',
+                'bestRateDescription' => 'قسمت مربوط به تفاوت ها (بررسی امتیاز ها)',
+                'bestFeatureDescription' => 'قسمت مربوط به تفاوت ها (ویژگی ها)',
+            ]
+        ],
+        'footer' => [
+            'info' => 'متن اطلاعات (فوتر)',
+            'copyright' => 'متن کپی رایت',
+            'mainMenuTitle' => 'عنوان منو اصلی فوتر'
+        ],
+    ],
 ];

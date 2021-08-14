@@ -2,13 +2,16 @@
 
 namespace App\Providers;
 
+use App\Models\Currencies\Crypto;
 use Arr;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
+use Route;
 use Str;
+use View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -32,6 +35,16 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        view()->composer('*', function ($view) {
+            $view->with([
+                'user' => auth()->user(),
+            ]);
+        });
+
+        Route::bind('crypto', function ($crypto) {
+            return Crypto::whereName($crypto)->firstOrFail();
+        });
+
         Schema::defaultStringLength(191);
 
         Paginator::useBootstrap();
