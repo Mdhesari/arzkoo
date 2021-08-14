@@ -4,6 +4,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\CryptoController;
 use App\Http\Controllers\ExchangeController;
+use App\Http\Controllers\FallbackController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\User\DashboardController;
@@ -70,6 +71,4 @@ Route::prefix('/blog')->name('blog.')->group(function () {
     Route::get('/{post}', [BlogController::class, 'show'])->name('show');
 });
 
-// Route::prefix('exchanges')->name('exchanges.')->group(function () {
-//     Route::get('/exchanges', [ExchangeController::class, 'index'])->name('home');
-// });
+Route::fallback(FallbackController::class);

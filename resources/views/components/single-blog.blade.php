@@ -6,7 +6,8 @@
             </h1>
         </div>
         <div class="time-release">
-            <time datetime="2021-01-02">{{ $post->created_at->toFormattedDateString() }}</time>
+            <time
+                datetime="{{ $post->created_at->toFormattedDateString() }}">{{ $post->created_at->toFormattedDateString() }}</time>
         </div>
     </div>
     <div class="blog-desc">
@@ -36,8 +37,8 @@
 </div>
 
 @push('add_scripts')
-<script>
-    const postContentEl = document.getElementsByClassName('post-content')[0]
+    <script>
+        const postContentEl = document.getElementsByClassName('post-content')[0]
         const readtimeEl = document.getElementById('read-time')
 
         readtimeEl.textContent = calcReadtime(postContentEl.innerHTML)
@@ -49,6 +50,5 @@
 
             return time
         }
-
-</script>
+    </script>
 @endpush

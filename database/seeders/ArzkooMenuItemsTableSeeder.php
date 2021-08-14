@@ -53,7 +53,7 @@ class ArzkooMenuItemsTableSeeder extends Seeder
             'menu_id' => $menu->id,
             'title'   => __('seeders.menu_items.live-prices'),
             'url'     => '',
-            'route'   => 'live-prices',
+            'route'   => 'live-price',
         ]);
         if (!$menuItem->exists) {
             $menuItem->fill([
@@ -69,7 +69,7 @@ class ArzkooMenuItemsTableSeeder extends Seeder
             'menu_id' => $menu->id,
             'title'   => __('seeders.menu_items.blog'),
             'url'     => '',
-            'route'   => 'blog.home',
+            'route'   => 'blog.blog',
         ]);
         if (!$menuItem->exists) {
             $menuItem->fill([
