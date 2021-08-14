@@ -13,9 +13,15 @@ use Illuminate\Cache\RateLimiter;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
+use SEOMeta;
 
 class LoginController extends Controller
 {
+    public function __construct()
+    {
+        SEOMeta::setTitle('ورود به حساب کاربری');
+    }
+
     public function show()
     {
         return view('user.login');

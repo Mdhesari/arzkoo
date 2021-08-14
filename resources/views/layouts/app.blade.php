@@ -14,8 +14,6 @@
     {!! Twitter::generate() !!}
     {!! JsonLd::generate() !!}
 
-    <title>{{ config('app.name', 'Arzkoo') }}</title>
-
     <!-- Styles -->
     <link rel="canonical" href="{{ config('app.url') }}" />
     <link rel="stylesheet" href="{{ mix('css/font-awesome.css') }}">

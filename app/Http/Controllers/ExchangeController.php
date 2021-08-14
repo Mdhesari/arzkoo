@@ -5,9 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\Currencies\Crypto;
 use App\Models\Exchanges\Exchange;
 use Illuminate\Http\Request;
+use SEOMeta;
 
 class ExchangeController extends Controller
 {
+    public function __construct()
+    {
+        SEOMeta::setTitle('مشاهده صرافی های معتبر');
+        SEOMeta::setCanonical(route('exchanges.home'));
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -54,6 +61,10 @@ class ExchangeController extends Controller
      */
     public function show(Exchange $exchange)
     {
+        SEOMeta::setTitle($exchange->persian_title);
+        SEOMeta::setDescription($exchange->description);
+        SEOMeta::setCanonical(route('exchanges.home'));
+
         $cryptos = $exchange->cryptos()->paginate();
 
         return view('exchange.show', compact('exchange', 'cryptos'));

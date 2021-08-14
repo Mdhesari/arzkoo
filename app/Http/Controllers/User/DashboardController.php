@@ -13,10 +13,16 @@ use Illuminate\Cache\RateLimiter;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Mockery\Generator\StringManipulation\Pass\Pass;
+use SEOMeta;
 use Session;
 
 class DashboardController extends Controller
 {
+    public function __construct()
+    {
+        SEOMeta::setTitle('مدیریت حساب کاربری');
+    }
+
     public function index()
     {
         return view('user.dashboard.index');
