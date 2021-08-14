@@ -53,8 +53,8 @@
 @push('add_scripts')
     <script>
         // FORM OTP
-        window.onload = () => {
 
+        $(function() {
             class Otp {
                 constructor() {
                     this.initElements()
@@ -235,6 +235,6 @@
             }
 
             new Otp();
-        }
+        });
     </script>
 @endpush
