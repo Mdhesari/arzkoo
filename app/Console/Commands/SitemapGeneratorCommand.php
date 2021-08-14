@@ -2,8 +2,12 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Exchanges\Exchange;
+use App\Models\Post;
 use Illuminate\Console\Command;
 use Spatie\Sitemap\SitemapGenerator;
+use Spatie\Sitemap\Tags\Url;
+use TCG\Voyager\Models\Page;
 
 class SitemapGeneratorCommand extends Command
 {
@@ -40,7 +44,33 @@ class SitemapGeneratorCommand extends Command
     {
         $this->info('Generating sitemap...');
 
-        SitemapGenerator::create(config('app.url'))->getSitemap()->writeToDisk('public', 'sitemap.xml');
+        $generator = SitemapGenerator::create(config('app.url'))->getSitemap();
+
+        foreach (Page::active()->cursor() as $page) {
+            $generator->add(
+                Url::create(url($page->slug))
+                    ->setLastModificationDate($page->updated_at)
+                    ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
+            );
+        }
+
+        foreach (Post::cursor() as $post) {
+            $generator->add(
+                Url::create(url($post->slug))
+                    ->setLastModificationDate($post->updated_at)
+                    ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
+            );
+        }
+
+        foreach (Exchange::published()->cursor() as $exchange) {
+            $generator->add(
+                Url::create(route('exchanges.show', $exchange))
+                    ->setLastModificationDate($exchange->updated_at)
+                    ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
+            );
+        }
+
+        $generator->writeToFile(public_path('sitemap.xml'));
 
         $this->info('End Generating sitemap...');
     }
