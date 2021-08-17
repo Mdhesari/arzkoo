@@ -42,7 +42,7 @@
 @push('add_scripts')
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        window.onload = () => {
+        $(function() {
             Livewire.on('contactSubmitted', () => {
                 Swal.fire({
                     title: 'درخواست تماس ثبت شد',
@@ -51,6 +51,6 @@
                     confirmButtonText: 'حله'
                 })
             })
-        }
+        })
     </script>
 @endpush
