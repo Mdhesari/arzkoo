@@ -47,8 +47,8 @@
      </div>
      <div class="col-lg-6 col-md-6 col-sm-12">
          <div class="bottom-footer__left">
-             <a href="#"> شرایط و ضوابط</a>
-             <a href="#">حریم خصوصی</a>
+             <a href="{{ url('terms-and-rules') }}" target="_blank"> شرایط و ضوابط</a>
+             <a href="{{ url('privacy') }}" target="_blank">حریم خصوصی</a>
          </div>
      </div>
  </div>

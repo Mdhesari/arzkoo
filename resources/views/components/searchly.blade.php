@@ -50,10 +50,12 @@
                                     <i class="fab fa-btc"></i>
                                 </div>
                             @endif
-                            <div class="detail">
-                                <strong>{{ $best->irr_buy_price_formatted }}</strong>
-                                <p>بهترین قیمت {{ $cry->name }} در {{ $best->persian_title }}</p>
-                            </div>
+                            @if ($best)
+                                <div class="detail">
+                                    <strong>{{ $best->irr_buy_price_formatted }}</strong>
+                                    <p>بهترین قیمت {{ $cry->name }} در {{ $best->persian_title }}</p>
+                                </div>
+                            @endif
                         </div>
                     @endforeach
 

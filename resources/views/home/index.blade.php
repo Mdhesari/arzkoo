@@ -72,7 +72,7 @@
                 @foreach ($exchanges as $exchange)
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                         <div class="list-exchange">
-                            <a class="clickable" href="{{ route('home') }}">
+                            <a class="clickable" href="{{ route('exchanges.show', $exchange) }}">
                                 <img src="{{ asset($exchange->logo) }}" alt="{{ $exchange->title }}">
                                 {{ $exchange->persian_title }}
                             </a>

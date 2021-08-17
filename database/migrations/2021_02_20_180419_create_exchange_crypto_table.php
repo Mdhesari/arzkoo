@@ -33,6 +33,6 @@ class CreateExchangeCryptoTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('exchange_crypto');
     }
 }
