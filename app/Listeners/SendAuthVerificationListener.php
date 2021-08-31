@@ -28,10 +28,9 @@ class SendAuthVerificationListener
      */
     public function handle(AuthenticationAttemptEvent $event)
     {
-        info('fake sent notif to mobile ' . $event->password);
         $mobile = $event->auth->value;
         $password = $event->password;
-        $template = 'confirmation';
+        $template = 'arzkoootp';
 
         try {
 
