@@ -22,7 +22,7 @@ class TelegramStickerController extends Controller
 
         $img->text($text, $img->getWidth() / 2, $img->getHeight() / 3.5, function ($font) {
             $font->file(public_path('assets/fonts/Shabnam.ttf'));
-            $font->size(150);
+            $font->size(80);
             $font->color('#fdf6e3');
             $font->align('center');
             $font->valign('center');
@@ -32,7 +32,7 @@ class TelegramStickerController extends Controller
 
         $img->text($text, $img->getWidth() / 2, $img->getHeight() / 2, function ($font) {
             $font->file(public_path('assets/fonts/Shabnam.ttf'));
-            $font->size(60);
+            $font->size(30);
             $font->color('#fdf6e3');
             $font->align('center');
             $font->valign('center');
@@ -46,7 +46,7 @@ class TelegramStickerController extends Controller
 
         $img->text($text, $img->getWidth() / 2, $img->getHeight() / 1.5, function ($font) {
             $font->file(public_path('assets/fonts/Shabnam.ttf'));
-            $font->size(80);
+            $font->size(45);
             $font->color('#fdf6e3');
             $font->align('center');
             $font->valign('center');
