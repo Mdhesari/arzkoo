@@ -61,7 +61,7 @@ class TelegramStickerController extends Controller
             mkdir($imgPath);
         }
 
-        $imgPath .= 'today.jpg';
+        $imgPath .= 'today-' . time() .'.jpg';
 
         $img->save(public_path($imgPath));
 
