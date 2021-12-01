@@ -20,7 +20,7 @@ class TelegramStickerController extends Controller
 
         $text = Persian_image($text);
 
-        $img->text($text, $img->getWidth() / 2, $img->getHeight() / 3.5, function ($font) {
+        $img->text($text, $img->getWidth() / 2, $img->getHeight() / 3, function ($font) {
             $font->file(public_path('assets/fonts/Shabnam.ttf'));
             $font->size(80);
             $font->color('#fdf6e3');
