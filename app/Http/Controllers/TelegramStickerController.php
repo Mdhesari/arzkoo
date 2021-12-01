@@ -53,7 +53,8 @@ class TelegramStickerController extends Controller
         });
 
         if(file_exists(public_path('assets/stickers/today_.jpg'))) {
-            unlink(public_path('assets/stickers/today_.jpg'));
+            $res = unlink(public_path('assets/stickers/today_.jpg'));
+            dd($res);
         }
 
         $img->save(public_path('assets/stickers/today_.jpg'));
