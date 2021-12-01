@@ -30,9 +30,9 @@ class TelegramStickerController extends Controller
 
         $text = date('j F Y');
 
-        $img->text($text, $img->getWidth() / 2, $img->getHeight() / 2, function ($font) {
+        $img->text($text, $img->getWidth() / 2, $img->getHeight() / 1.9, function ($font) {
             $font->file(public_path('assets/fonts/Shabnam.ttf'));
-            $font->size(30);
+            $font->size(35);
             $font->color('#fdf6e3');
             $font->align('center');
             $font->valign('center');
@@ -44,7 +44,7 @@ class TelegramStickerController extends Controller
 
         $text = date('l') . " | " . $text;
 
-        $img->text($text, $img->getWidth() / 2, $img->getHeight() / 1.5, function ($font) {
+        $img->text($text, $img->getWidth() / 2, $img->getHeight() / 1.4, function ($font) {
             $font->file(public_path('assets/fonts/Shabnam.ttf'));
             $font->size(45);
             $font->color('#fdf6e3');
