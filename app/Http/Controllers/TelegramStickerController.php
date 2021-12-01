@@ -52,6 +52,10 @@ class TelegramStickerController extends Controller
             $font->valign('center');
         });
 
+        if(file_exists(public_path('assets/stickers/today.jpg'))) {
+            unlink(public_path('assets/stickers/today.jpg'));
+        }
+
         $img->save(public_path('assets/stickers/today.jpg'));
 
         return response()->json([
