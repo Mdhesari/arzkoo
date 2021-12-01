@@ -15,7 +15,7 @@ class TelegramStickerController extends Controller
     {
         require_once(base_path('tools/libs/jdf.php'));
 
-        $img = Image::make(public_path('assets/stickers/sticker.png'));
+        $img = Image::make(public_path('assets/stickers/sticker.png'))->resize(512,512);
         $text = jjdate('j F Y');
 
         $text = Persian_image($text);
