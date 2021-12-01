@@ -47,3 +47,29 @@ function getRangeLabel($range)
 
     return __('seeders.data_rows.options.' . $label);
 }
+
+/**
+ * @param $str
+ */
+function Persian_image(&$str)
+{
+    include_once(base_path('tools/libs/bidi.php'));
+
+    $text = explode("\n", $str);
+
+    $str = array();
+
+    foreach ($text as $line) {
+        $chars = app(bidi::class)->utf8Bidi(app(bidi::class)->UTF8StringToArray($line), 'R');
+        $line = '';
+        foreach ($chars as $char) {
+            $line .= app(bidi::class)->unichr($char);
+        }
+
+        $str[] = $line;
+    }
+
+    $str = implode("\n", $str);
+
+    return $str;
+}

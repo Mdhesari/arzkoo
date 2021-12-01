@@ -234,4 +234,6 @@ return [
 
     ],
 
+    "allowed_ip"    =>  env('ALLOWED_IP', '2.177.24.97,172.23.0.1'),
+
 ];
