@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Exceptions\ArzkooDeprecatedCommandException;
 use App\Models\Currencies\Crypto;
 use App\Models\Exchanges\Exchange;
 use Http;
@@ -34,12 +35,15 @@ class ExchangeScrapper extends Command
     }
 
     /**
-     * Execute the console command.
      *
      * @return int
+     * @throws ArzkooDeprecatedCommandException
+     * @deprecated since version 1.0.0
      */
     public function handle()
     {
+        throw new ArzkooDeprecatedCommandException;
+
         $start_time = microtime(true);
 
         $url = "tokenbaz.com/get/prices?coin=btc&sort=buy_price";

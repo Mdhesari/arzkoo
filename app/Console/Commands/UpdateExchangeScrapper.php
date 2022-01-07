@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Console\BaseScrapper;
+use App\Exceptions\ArzkooDeprecatedCommandException;
 use App\Models\Exchanges\Exchange;
 use Illuminate\Console\Command;
 use Str;
@@ -28,9 +29,13 @@ class UpdateExchangeScrapper extends BaseScrapper
      * Execute the console command.
      *
      * @return int
+     * @throws ArzkooDeprecatedCommandException
+     * @deprecated since version 1.0.0
      */
     public function handle()
     {
+        throw new ArzkooDeprecatedCommandException;
+
         $start_time = microtime(true);
 
         $exchanges = Exchange::cursor();
