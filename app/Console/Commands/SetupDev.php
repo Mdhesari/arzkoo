@@ -42,8 +42,11 @@ class SetupDev extends Command
         $this->call('db:seed');
         $this->info('start setting up admin panel...');
         Artisan::call('voyager:install --with-dummy');
+        $this->info('start scrap cryptos...');
         $this->call('scrap:cryptos');
+        $this->info('start scrap exchanges...');
         $this->call('scrap:exchanges');
+        $this->info('start exchanges update...');
         $this->call('scrap:exchanges-update');
         $this->info('done...');
     }
