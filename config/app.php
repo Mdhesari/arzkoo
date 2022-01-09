@@ -43,7 +43,7 @@ return [
     |
     */
 
-    'debug' => (bool) env('APP_DEBUG', false),
+    'debug' => (bool)env('APP_DEBUG', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -170,6 +170,7 @@ return [
          * Package Service Providers...
          */
         Leantony\Grid\Providers\GridServiceProvider::class,
+        \App\Providers\ExchangeProvider::class,
 
         /*
          * Application Service Providers...
@@ -234,6 +235,6 @@ return [
 
     ],
 
-    "allowed_ip"    =>  env('ALLOWED_IP', '2.177.24.97,172.23.0.1'),
+    "allowed_ip" => env('ALLOWED_IP', '2.177.24.97,172.23.0.1'),
 
 ];

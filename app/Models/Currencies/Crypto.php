@@ -12,6 +12,11 @@ class Crypto extends Model
 
     protected $guarded = ['id'];
 
+    public function getSymbolAttribute($value)
+    {
+        return strtolower($value);
+    }
+
     public function exchanges()
     {
         return $this->belongsToMany(Exchange::class, 'exchange_crypto')->withPivot([

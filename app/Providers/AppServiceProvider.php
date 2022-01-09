@@ -51,7 +51,7 @@ class AppServiceProvider extends ServiceProvider
 
         Request::macro('isSubDomain', function ($domain = null) {
 
-            $hostArr =  explode('.', $this->getHost());
+            $hostArr = explode('.', $this->getHost());
 
             if (count($hostArr) > 2) {
                 // uses sub domain

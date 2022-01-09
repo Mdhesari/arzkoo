@@ -34,6 +34,10 @@ class CryptoScrapper extends BaseScrapper
      */
     public function handle()
     {
+        if (!$this->confirm('Are you sure?! this could make some impactful changes!')) {
+            return \Symfony\Component\Console\Command\Command::SUCCESS;
+        }
+
         $start_time = microtime(true);
 
         $response = Http::withHeaders([
