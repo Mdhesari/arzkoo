@@ -49,8 +49,6 @@ class UpdateExchanges extends Command
 
         foreach (Exchange::cursor() as $exchange) {
 
-            $this->info("Exchange `{$exchange->name}` Cryptos API Request.");
-
             try {
                 $exchangeAdapter = app($exchange->name);
             } catch (\Exception $e) {
@@ -86,8 +84,8 @@ class UpdateExchanges extends Command
 
             if (!empty($temp)) {
                 $crypto->exchanges()->updateExistingPivot($exchange, [
-                    'buy_price' => $temp['bestBuy'] * 10,
-                    'sell_price' => $temp['bestSell'] * 10,
+                    'buy_price' => $temp['bestBuy'] / 10,
+                    'sell_price' => $temp['bestSell'] / 10,
                     'currency' => 'irt',
                 ]);
             }

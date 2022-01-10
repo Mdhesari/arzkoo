@@ -6,8 +6,6 @@ use App\Models\Currencies\Crypto;
 use App\Models\Rating;
 use Auth;
 use DB;
-use Doctrine\DBAL\Types\FloatType;
-use finfo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -115,11 +113,6 @@ class Exchange extends Model
 
     private function getNumberAndCurrency($number, $currency, $forceIRR = false)
     {
-        if ($forceIRR && $currency == 'USDT') {
-            $number *= config('app.USDT_TO_IRR');
-            $currency = 'IRR';
-        }
-
         return arzkoo_money($number, $currency);
     }
 
@@ -163,10 +156,10 @@ class Exchange extends Model
 
         $data = collect($this->toArray());
 
-        $data = $data->filter(fn ($item, $key) => ($item === 0 || $item === 1) && !in_array($key, [
-            'verification_days',
-            'admin_id',
-        ]));
+        $data = $data->filter(fn($item, $key) => ($item === 0 || $item === 1) && !in_array($key, [
+                'verification_days',
+                'admin_id',
+            ]));
 
         $features = $data->map(function ($item, $key) {
             return [

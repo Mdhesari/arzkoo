@@ -24,10 +24,10 @@
             <div class="header-left">
                 <div class="price">{{ $isBuy ? $exchange->buy_price_formatted : $exchange->sell_price_formatted }}
                 </div>
-                @if ($exchange->pivot->currency != 'IRR')
-                    <div class="price price_irr text-muted text-lead h6">
-                        {{ $isBuy ? $exchange->irr_buy_price_formatted : $exchange->irr_sell_price_formatted }}</div>
-                @endif
+{{--                @if ($exchange->pivot->currency != 'IRR')--}}
+{{--                    <div class="price price_irr text-muted text-lead h6">--}}
+{{--                        {{ $isBuy ? $exchange->irr_buy_price_formatted : $exchange->irr_sell_price_formatted }}</div>--}}
+{{--                @endif--}}
             </div>
         </div>
         <div class="col-lg-8 col-md-8 col-sm-12">
