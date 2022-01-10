@@ -7,7 +7,7 @@ use GuzzleHttp\Client;
 
 class Nobitex extends BaseAPI implements ExchangeAdapter
 {
-    protected $base = 'https://api.nobitex.ir';
+    protected string $base = 'https://api.nobitex.ir';
 
     protected $supported = [
         'btc',
