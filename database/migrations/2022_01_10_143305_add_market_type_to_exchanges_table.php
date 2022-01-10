@@ -14,9 +14,9 @@ class AddMarketTypeToExchangesTable extends Migration
      */
     public function up()
     {
-        Schema::table('exchanges', function (Blueprint $table) {
-            $table->enum('market_type', [Exchange::MARKET_TYPE_P2P, Exchange::MARKET_TYPE_OTC])->default(Exchange::MARKET_TYPE_P2P);
-        });
+//        Schema::table('exchanges', function (Blueprint $table) {
+//            $table->enum('market_type', [Exchange::MARKET_TYPE_P2P, Exchange::MARKET_TYPE_OTC])->default(Exchange::MARKET_TYPE_P2P);
+//        });
     }
 
     /**
@@ -26,8 +26,8 @@ class AddMarketTypeToExchangesTable extends Migration
      */
     public function down()
     {
-        Schema::table('exchanges', function (Blueprint $table) {
-            $table->drop('market_type');
-        });
+//        Schema::table('exchanges', function (Blueprint $table) {
+//            $table->drop('market_type');
+//        });
     }
 }

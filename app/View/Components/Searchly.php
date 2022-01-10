@@ -33,7 +33,7 @@ class Searchly extends Component
             'bestExchange' => function ($query) {
                 return $query->published();
             }
-        ])->limit(5)->get();
+        ])->whereIn('symbol', get_top_cryptos())->limit(10)->get();
     }
 
     /**

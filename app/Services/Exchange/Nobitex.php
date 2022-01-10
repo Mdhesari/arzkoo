@@ -2,9 +2,10 @@
 
 namespace App\Services\Exchange;
 
+use App\Services\BaseAPI;
 use GuzzleHttp\Client;
 
-class Nobitex extends BaseExchange implements ExchangeAdapter
+class Nobitex extends BaseAPI implements ExchangeAdapter
 {
     protected $base = 'https://api.nobitex.ir';
 
@@ -72,6 +73,6 @@ class Nobitex extends BaseExchange implements ExchangeAdapter
 
     public function getTopCoins()
     {
-        
+
     }
 }

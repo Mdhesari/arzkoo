@@ -21,7 +21,8 @@
             <div class="search-item col-md-5 col-xs-12">
                 <select id="currencies" name="currency">
                     @foreach ($cryptos as $cry)
-                        <option value="{{ $cry->name }}" @if ($crypto && $crypto->id == $cry->id) selected @elseif($loop->first) selected @endif>{{ $cry->name }}
+                        <option value="{{ $cry->name }}" @if ($crypto && $crypto->id == $cry->id) selected
+                                @elseif($loop->first) selected @endif>{{ $cry->name }}
                         </option>
                     @endforeach
                 </select>
@@ -42,21 +43,27 @@
                     <h2 class="mt-5">ارزکو در آخرین لحظه {{ $totalCryptos }} نرخ ارز را برای شما بررسی کرده است</h2>
                 </div>
                 <div class="live-prices m-30">
+                    @php $countBestEx = 0 @endphp
                     @foreach ($favCryptos as $cry)
+
                         @php $best = $cry->bestExchange->first() @endphp
-                        <div class="item">
-                            @if ($cry->icon)
-                                <div class="icon">
-                                    <i class="fab fa-btc"></i>
-                                </div>
-                            @endif
-                            @if ($best)
+
+                        @if ($best && $countBestEx < 5)
+
+                            <div class="item">
+                                @if ($cry->icon)
+                                    <div class="icon">
+                                        <i class="fab fa-btc"></i>
+                                    </div>
+                                @endif
                                 <div class="detail">
                                     <strong>{{ $best->irr_buy_price_formatted }}</strong>
                                     <p>بهترین قیمت {{ $cry->name }} در {{ $best->persian_title }}</p>
                                 </div>
-                            @endif
-                        </div>
+                                @php ++$countBestEx @endphp
+                            </div>
+                        @endif
+
                     @endforeach
 
                     {{-- <div class="item">
@@ -102,7 +109,7 @@
 </section>
 
 @push('add_styles')
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
     <style>
         .select2-container .select2-selection--single {
             height: 50px;
@@ -130,7 +137,7 @@
 @push('add_scripts')
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
-        $(function() {
+        $(function () {
 
             const toggles = Array.from(document.querySelectorAll('.switch-toggle .toggle')),
                 searchBtn = document.getElementById('search-btn')
@@ -187,7 +194,7 @@
                 // },
                 ajax: {
                     url: '{{ route('currencies') }}',
-                    data: function(params) {
+                    data: function (params) {
                         var query = {
                             search: params.term,
                             type: 'public'
@@ -197,7 +204,7 @@
                         return query;
                     },
                     dataType: 'json',
-                    processResults: function(data) {
+                    processResults: function (data) {
                         // Transforms the top-level key of the response object from 'items' to 'results'
                         return {
                             results: data.data

@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Services\Exchange;
+namespace App\Services;
 
 use GuzzleHttp\Client;
 
-abstract class BaseExchange
+abstract class BaseAPI
 {
     /**
      * @var string
      */
-    protected $base = '';
+    protected string $base = '';
 
     /**
      * @return \GuzzleHttp\Client

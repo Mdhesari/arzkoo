@@ -74,9 +74,9 @@ function Persian_image(&$str)
     return $str;
 }
 
-function get_top_coins()
+function get_top_cryptos(): array
 {
-    Cache::rememberForever('topCoins', function () {
-        app('nobitex')->getTopCoins();
+    return Cache::rememberForever('topCryptos', function () {
+        return collect(app('coinmarketcap')->getCryptos()->get('data'))->pluck('symbol')->toArray();
     });
 }

@@ -3,10 +3,12 @@
 namespace App\Providers;
 
 use App\Models\Currencies\Crypto;
+use App\Services\Crypto\CoinMarketCap;
 use Arr;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use Route;
@@ -26,6 +28,8 @@ class AppServiceProvider extends ServiceProvider
             $this->app->register(\Laravel\Telescope\TelescopeServiceProvider::class);
             $this->app->register(TelescopeServiceProvider::class);
         }
+
+        $this->app->bind('coinmarketcap', CoinMarketCap::class);
     }
 
     /**
@@ -92,6 +96,16 @@ class AppServiceProvider extends ServiceProvider
                 }
 
                 return $query->Where($relationAttr, 'Like', $searchQuery);
+            });
+        });
+
+        Collection::macro('recursive', function () {
+            return $this->map(function ($value) {
+                if (is_array($value) || is_object($value)) {
+                    return collect($value)->recursive();
+                }
+
+                return $value;
             });
         });
 

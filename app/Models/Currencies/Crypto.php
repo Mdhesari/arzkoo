@@ -17,6 +17,11 @@ class Crypto extends Model
         return strtolower($value);
     }
 
+    public function getIconAttribute($value)
+    {
+        return $value;
+    }
+
     public function exchanges()
     {
         return $this->belongsToMany(Exchange::class, 'exchange_crypto')->withPivot([
