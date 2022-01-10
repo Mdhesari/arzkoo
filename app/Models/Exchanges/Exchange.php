@@ -95,7 +95,6 @@ class Exchange extends Model
             $results[] = ($rating->ease_of_use_range + $rating->support_range + $rating->value_for_money_range + $rating->verification_range) / 4;
         }
 
-        info(array_sum($results));
         $ratingsCount = $this->ratings()->count();
 
         $total = $ratingsCount > 0 ? array_sum($results) / $ratingsCount : 0;
