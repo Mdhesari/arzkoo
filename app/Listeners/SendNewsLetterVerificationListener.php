@@ -6,7 +6,7 @@ use App\Events\NewSubmittedNewsletterForm;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class SendNewsLetterVerificationListener
+class SendNewsLetterVerificationListener implements ShouldQueue
 {
     /**
      * Create the event listener.
