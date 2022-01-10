@@ -73,3 +73,10 @@ function Persian_image(&$str)
 
     return $str;
 }
+
+function get_top_coins()
+{
+    Cache::rememberForever('topCoins', function () {
+        app('nobitex')->getTopCoins();
+    });
+}

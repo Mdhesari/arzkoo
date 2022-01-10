@@ -43,6 +43,13 @@ class Exchange extends Model
         $this->update($data);
     }
 
+    public function updateStatusToPending()
+    {
+        return $this->forceFill([
+            'status' => static::STATUS_PENDING,
+        ])->save();
+    }
+
     public function ratings()
     {
         return $this->hasMany(Rating::class);

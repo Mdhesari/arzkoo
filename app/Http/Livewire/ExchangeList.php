@@ -30,7 +30,7 @@ class ExchangeList extends Component
 
     private function getExchangesQuery()
     {
-        return $this->crypto->exchanges()->orderByPivot(
+        return $this->crypto->exchanges()->published()->orderByPivot(
             $this->isBuy ? 'buy_price' : 'sell_price',
             $this->isBuy ? 'ASC' : 'DESC'
         );
@@ -53,7 +53,7 @@ class ExchangeList extends Component
             $features = explode('@', $this->filter);
 
         if (in_array($feature, $features)) {
-            $features = array_filter($features, fn ($item) => $item != $feature);
+            $features = array_filter($features, fn($item) => $item != $feature);
         } else {
             $features[] = $feature;
         }
@@ -82,7 +82,7 @@ class ExchangeList extends Component
     public function render()
     {
         return view('livewire.exchange-list', [
-            'exchanges' =>  $this->exchanges,
+            'exchanges' => $this->exchanges,
         ]);
     }
 }

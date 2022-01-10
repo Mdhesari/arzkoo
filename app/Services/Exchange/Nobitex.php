@@ -69,4 +69,9 @@ class Nobitex extends BaseExchange implements ExchangeAdapter
     {
         return strtolower($symbol . '-' . $dstSymbol);
     }
+
+    public function getTopCoins()
+    {
+        
+    }
 }

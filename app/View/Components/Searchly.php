@@ -30,7 +30,9 @@ class Searchly extends Component
         $this->isBuy = $isBuy;
         $this->crypto = $crypto;
         $this->favCryptos = Crypto::with([
-            'bestExchange'
+            'bestExchange' => function ($query) {
+                return $query->published();
+            }
         ])->limit(5)->get();
     }
 
