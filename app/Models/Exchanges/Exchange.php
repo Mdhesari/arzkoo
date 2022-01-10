@@ -24,6 +24,9 @@ class Exchange extends Model
     const STATUS_PENDING = 'PENDING';
     const STATUS_CLOSED = 'CLOSED';
 
+    const MARKET_TYPE_P2P = 'P2P';
+    const MARKET_TYPE_OTC = 'OTC';
+
     const OPTION_VALUE_NULL = 'NULL';
     const OPTION_VALUE_AVG = 'AVG';
     const OPTION_VALUE_BEST = 'BEST';
