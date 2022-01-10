@@ -19,7 +19,7 @@ class Kernel extends ConsoleKernel
     /**
      * Define the application's command schedule.
      *
-     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
+     * @param \Illuminate\Console\Scheduling\Schedule $schedule
      * @return void
      */
     protected function schedule(Schedule $schedule)
@@ -28,7 +28,9 @@ class Kernel extends ConsoleKernel
         $schedule->command('sitemap:generate')->daily();
         $schedule->command('backup:clean')->weekly()->at('01:00');
         $schedule->command('backup:run')->weekly()->at('01:30');
-        $schedule->command('backup:run --only-db')->daily()->at('01:30');
+        $schedule->command('backup:run --only-db')->weekly()->at('01:30');
+        $schedule->command('arzkoo:update-exchanges')->daily()->at('00:00');
+        $schedule->command('arzkoo:update-top-cryptos')->daily()->at('00:00');
     }
 
     /**
