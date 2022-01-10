@@ -41,6 +41,7 @@ class VerifyNewsLetter extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
+            ->subject('عضویت در خبرنامه | ارزکو')
             ->line('سلام و درود')
             ->line('درخواست شما جهت ثبت نام در خبرنامه ارزکو با موفقیت ثبت شد.')
             ->line('در حال حاضر تیم ما در حال توسعه خبرنامه میباشد و به زودی جهت فعال سازی نهایی با شما در ارتباط خواهیم بود.')
