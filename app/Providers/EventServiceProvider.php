@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use App\Events\AuthenticationAttemptEvent;
+use App\Events\NewSubmittedNewsletterForm;
 use App\Listeners\SendAuthVerificationListener;
+use App\Listeners\SendNewsLetterVerificationListener;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -22,7 +24,10 @@ class EventServiceProvider extends ServiceProvider
         ],
         AuthenticationAttemptEvent::class => [
             SendAuthVerificationListener::class,
-        ]
+        ],
+        NewSubmittedNewsletterForm::class => [
+            SendNewsLetterVerificationListener::class,
+        ],
     ];
 
     /**

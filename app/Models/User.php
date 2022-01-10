@@ -72,4 +72,9 @@ class User extends \TCG\Voyager\Models\User
 
         return parent::save();
     }
+
+    public function sendNewsLetterNotification()
+    {
+
+    }
 }
