@@ -27,7 +27,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('queue:work', [
             '--max-jobs' => 1000,
             '--max-time' => 3600,
-            '--reset' => 0.5,
+            '--rest' => 0.5,
             '--sleep' => 5,
         ])->everyMinute();
         $schedule->command('sitemap:generate')->daily();
