@@ -34,7 +34,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('backup:clean')->weekly()->at('01:00');
         $schedule->command('backup:run')->weekly()->at('01:30');
         $schedule->command('backup:run --only-db')->weekly()->at('01:30');
-        $schedule->command('arzkoo:update-exchanges')->daily()->at('00:00');
+        $schedule->command('arzkoo:update-exchanges')->everyTenMinutes();
         $schedule->command('arzkoo:update-top-cryptos')->daily()->at('00:00');
     }
 
