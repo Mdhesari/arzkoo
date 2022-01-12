@@ -30,6 +30,7 @@ class Kernel extends ConsoleKernel
 //            '--rest' => 0.5,
 //            '--sleep' => 5,
 //        ])->everyMinute();
+        $schedule->command('queue:restart')->hourly();
         $schedule->command('sitemap:generate')->daily();
         $schedule->command('backup:clean')->weekly()->at('01:00');
         $schedule->command('backup:run')->weekly()->at('01:30');
