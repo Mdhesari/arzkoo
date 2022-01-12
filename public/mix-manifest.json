@@ -1,8 +1,8 @@
 {
-    "/js/app.js": "/js/app.js",
-    "/js/swiper-bundle.min.js": "/js/swiper-bundle.min.js",
-    "/css/font-awesome.css": "/css/font-awesome.css",
-    "/css/swiper-bundle.min.css": "/css/swiper-bundle.min.css",
-    "/css/tools.css": "/css/tools.css",
-    "/css/app.css": "/css/app.css"
+    "/js/app.js": "/js/app.js?id=d19154a3d3d26909b84f",
+    "/js/swiper-bundle.min.js": "/js/swiper-bundle.min.js?id=a026705b514d7ffc51a5",
+    "/css/font-awesome.css": "/css/font-awesome.css?id=4e5a606ee8fe455f096c",
+    "/css/swiper-bundle.min.css": "/css/swiper-bundle.min.css?id=e34da0cecfbab71b9e47",
+    "/css/tools.css": "/css/tools.css?id=6952631041ea69952145",
+    "/css/app.css": "/css/app.css?id=cfd26bafa46f37a73f6b"
 }
