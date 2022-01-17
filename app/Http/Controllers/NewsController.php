@@ -30,7 +30,7 @@ class NewsController extends Controller
      */
     public function shareToTelegram($post_id): \Illuminate\Http\JsonResponse
     {
-        $news = News::whereJsonContains('meta->post_id', $post_id)->firstOrFail();
+        $news = News::whereJsonContains('meta->post_id', intval($post_id))->firstOrFail();
 
         $news->shareToTelegram();
 
