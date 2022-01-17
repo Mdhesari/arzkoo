@@ -27,3 +27,5 @@ Route::middleware('limitIP')->get('telegram/sticker', [\App\Http\Controllers\Tel
 Route::get('coins/topSearch', [\App\Http\Controllers\Api\CoinController::class, 'getHotCoins']);
 
 Route::get('news', [NewsController::class, 'index']);
+
+Route::post('news/telegram', [NewsController::class, 'shareToTelegram']);

@@ -23,6 +23,18 @@ class News extends Model
 
     public function scopeFavourite($query, $count = 50)
     {
-        return $query->where('likes', '>=', $count);
+        return $query->where('likes', '>', $count);
+    }
+
+    public function shareToTelegram()
+    {
+        return $this->forceFill([
+            'meta->shared_telegram' => true,
+        ])->save();
+    }
+
+    public function scopeExceptAlreadySharedToTelegram($query)
+    {
+        return $query->whereJsonContains('meta->shared_telegram', false);
     }
 }
