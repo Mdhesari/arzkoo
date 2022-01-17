@@ -23,6 +23,7 @@
         "laravel/telescope": "^4.4",
         "laravel/tinker": "^2.5",
         "livewire/livewire": "^2.0",
+        "obiefy/api-response": "^0.9.7",
         "spatie/laravel-backup": "^7.6",
         "spatie/laravel-medialibrary": "^9.0.0",
         "spatie/laravel-permission": "^3.18",

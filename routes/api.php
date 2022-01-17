@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CurrencyController;
+use App\Http\Controllers\NewsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +22,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('currencies', [CurrencyController::class, 'getCurrencies'])->name('currencies');
 
-Route::middleware('limitIP')->get('telegram/sticker', [\App\Http\Controllers\TelegramStickerController::class,'store'])->name('telegram.sticker');
+Route::middleware('limitIP')->get('telegram/sticker', [\App\Http\Controllers\TelegramStickerController::class, 'store'])->name('telegram.sticker');
 
-Route::get('coins/topSearch',[\App\Http\Controllers\Api\CoinController::class, 'getHotCoins']);
+Route::get('coins/topSearch', [\App\Http\Controllers\Api\CoinController::class, 'getHotCoins']);
+
+Route::get('news', [NewsController::class, 'index']);
