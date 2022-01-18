@@ -13,7 +13,7 @@ class NewsController extends Controller
      */
     public function index(Request $request): \Illuminate\Http\JsonResponse
     {
-        $news = News::query()->exceptAlreadySharedToTelegram()->orderBy('likes', 'DESC');
+        $news = News::query()->exceptAlreadySharedToTelegram()->latest()->orderBy('likes', 'DESC');
 
         if ($request->has('favourite')) {
             $news = $news->favourite();

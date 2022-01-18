@@ -12,7 +12,7 @@ class News extends Model
     protected $guarded = ['id'];
 
     protected $fillable = [
-        'title', 'body', 'likes', 'dislikes', 'image',
+        'title', 'body', 'likes', 'dislikes', 'image', 'created_at', 'updated_at'
     ];
 
     protected $casts = [
