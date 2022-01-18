@@ -103,6 +103,6 @@ class NewsScrapperCommand extends BaseScrapper
             $carbon->subYears($number);
         }
 
-        return $carbon;
+        return $carbon->startOfHour();
     }
 }
