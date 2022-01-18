@@ -71,8 +71,9 @@ class NewsScrapperCommand extends BaseScrapper
                 'updated_at' => $created_at,
             ];
 
-            if (!News::whereJsonContains('meta->post_id', $nodeLink->attr('data-post-id'))->exists())
+            if (!News::whereJsonContains('meta->post_id', intval($nodeLink->attr('data-post-id')))->exists()) {
                 $news_arr[] = $data;
+            }
 
             $bar->advance();
 
