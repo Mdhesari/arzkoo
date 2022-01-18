@@ -87,7 +87,7 @@ class NewsScrapperCommand extends BaseScrapper
 
     private function getNodeCarbonTime($nodeTime): Carbon
     {
-        $carbon = Carbon::now()->change($nodeTime->attr('datetime'));
+        $carbon = Carbon::now();
         $fmt = numfmt_create('fa', NumberFormatter::DECIMAL);
         $number = numfmt_parse($fmt, $nodeTime->text());
         if (\Str::contains($nodeTime->text(), 'دقیقه')) {
