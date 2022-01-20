@@ -45,14 +45,13 @@ class Nobitex extends BaseAPI implements ExchangeAdapter
             'query' => compact('srcCurrency', 'dstCurrency'),
         ]);
 
-        return $this->getCollectionResponse($response);
+        return $this->getCollectionResponse($response)->get('stats');
     }
 
     public function getAvailableSymbols()
     {
-        $response = $this->client()->post($this->url('v2/options'));
-
-        return \Cache::rememberForever('nobitex-symbols', function () use ($response) {
+        return \Cache::rememberForever('nobitex-symbols', function () {
+            $response = $this->client()->post($this->url('v2/options'));
             return collect($this->getcollectionResponse($response)->get('coins'))->skip(0)->filter(function ($coin) {
                 $coin = (array)$coin;
                 $network = $coin['defaultNetwork'];
@@ -64,11 +63,6 @@ class Nobitex extends BaseAPI implements ExchangeAdapter
                 return $network->withdrawEnable && $network->depositEnable;
             })->pluck('coin');
         });
-    }
-
-    public function getMarketString(string $symbol, string $dstSymbol)
-    {
-        return strtolower($symbol . '-' . $dstSymbol);
     }
 
     public function getTopCoins()

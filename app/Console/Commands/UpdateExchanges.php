@@ -80,7 +80,7 @@ class UpdateExchanges extends Command
         $data = collect($exchangeAdapter->getMarketStats(
             $exchange->cryptos()->pluck('symbol')->toArray(),
             ['rls']
-        )->get('stats'));
+        ));
 
         foreach ($exchange->cryptos()->cursor() as $crypto) {
             $temp = (array)$data->get(
@@ -91,6 +91,8 @@ class UpdateExchanges extends Command
                 $crypto->exchanges()->updateExistingPivot($exchange, [
                     'buy_price' => $temp['bestBuy'] / 10,
                     'sell_price' => $temp['bestSell'] / 10,
+                    'buy_quantity' => $temp['bestBuyQuantity'] ?? null,
+                    'sell_quantity' => $temp['sellBuyQuantity'] ?? null,
                     'currency' => 'irt',
                 ]);
             }

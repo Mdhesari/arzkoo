@@ -12,6 +12,10 @@ class Crypto extends Model
 
     protected $guarded = ['id'];
 
+    protected $casts = [
+        'image' => 'string',
+    ];
+
     public function getSymbolAttribute($value)
     {
         return strtolower($value);

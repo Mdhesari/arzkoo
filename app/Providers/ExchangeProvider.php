@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Services\Exchange\Didex;
 use App\Services\Exchange\Nobitex;
 use Illuminate\Support\ServiceProvider;
 
@@ -15,6 +16,7 @@ class ExchangeProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind('nobitex', Nobitex::class);
+        $this->app->bind('didex', Didex::class);
     }
 
     /**

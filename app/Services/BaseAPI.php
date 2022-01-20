@@ -35,4 +35,14 @@ abstract class BaseAPI
     {
         return collect(json_decode($response->getBody()->getContents()));
     }
+
+    public function getMarketString(string $symbol, string $dstSymbol): string
+    {
+        return strtolower($symbol . '-' . $dstSymbol);
+    }
+
+    protected function getIranianRial($getBestBuyPrice): float|int
+    {
+        return $getBestBuyPrice * 10;
+    }
 }
