@@ -256,7 +256,7 @@ class Exchange extends Model
     public function getLogoUrlAttribute()
     {
         if (\Storage::exists($this->getAttributes()['logo'])) {
-            return \Storage::url($this->getOriginal('logo'));
+            return \Storage::url($this->getAttributes()['logo']);
         }
 
         return $this->getAttribute('logo');
