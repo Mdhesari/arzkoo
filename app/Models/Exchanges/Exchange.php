@@ -19,6 +19,10 @@ class Exchange extends Model
         'contacts' => 'array',
     ];
 
+    protected $appends = [
+        'logo_url',
+    ];
+
     const STATUS_DRAFT = 'DRAFT';
     const STATUS_PUBLISHED = 'PUBLISHED';
     const STATUS_PENDING = 'PENDING';
@@ -251,7 +255,7 @@ class Exchange extends Model
 
     public function getLogoUrlAttribute()
     {
-        if (\Storage::exists($this->getOriginal('logo'))) {
+        if (\Storage::exists($this->getAttributes()['logo'])) {
             return \Storage::url($this->getOriginal('logo'));
         }
 
