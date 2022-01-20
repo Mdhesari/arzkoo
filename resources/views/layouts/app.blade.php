@@ -70,7 +70,7 @@
     </footer>
 </div>
 
-<!BEGIN RAYCHAT CODE-->
+{{--<!BEGIN RAYCHAT CODE-->--}}
 <script type="text/javascript">!function () {
         function t() {
             var t = document.createElement("script");
@@ -82,7 +82,7 @@
         var e = document, a = window, o = "9f26960a-1a71-4711-bcbb-dab8b5fe0e78";
         "complete" == e.readyState ? t() : a.attachEvent ? a.attachEvent("onload", t) : a.addEventListener("load", t, !1)
     }();</script>
-<!END RAYCHAT CODE-->
+{{--<!END RAYCHAT CODE-->--}}
 
 @stack('modals')
 
