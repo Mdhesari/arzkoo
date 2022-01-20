@@ -168,7 +168,7 @@
                                             @endif>
                                             <a href="{{ route('exchanges.show', $exchange) }}"></a>
                                             <div class="box__img">
-                                                <img class="img-fluid" src="{{ asset($exchange->logo) }}"
+                                                <img class="img-fluid" src="{{ $exchange->logo_url }}"
                                                      alt="{{ $exchange->title }}">
                                             </div>
                                             <div class="box__star">

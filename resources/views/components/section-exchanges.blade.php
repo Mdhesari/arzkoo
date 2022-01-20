@@ -14,7 +14,7 @@
                         <div class="swiper-slide">
                             <div class="inner-slider">
                                 <a href="{{ route('exchanges.show', $exchange) }}">
-                                    <img src="{{ asset($exchange->logo) }}" alt="{{ $exchange->title }}">
+                                    <img src="{{ $exchange->logo_url }}" alt="{{ $exchange->title }}">
                                 </a>
                             </div>
                         </div>

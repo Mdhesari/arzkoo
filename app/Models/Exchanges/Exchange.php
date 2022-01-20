@@ -248,4 +248,13 @@ class Exchange extends Model
 
         return parent::save();
     }
+
+    public function getLogoUrlAttribute()
+    {
+        if (\Storage::exists($this->getOriginal('logo'))) {
+            return \Storage::url($this->getOriginal('logo'));
+        }
+
+        return $this->getAttribute('logo');
+    }
 }

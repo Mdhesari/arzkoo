@@ -73,7 +73,7 @@
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                         <div class="list-exchange">
                             <a class="clickable" href="{{ route('exchanges.show', $exchange) }}">
-                                <img src="{{ asset($exchange->logo) }}" alt="{{ $exchange->title }}">
+                                <img src="{{ $exchange->logo_url }}" alt="{{ $exchange->title }}">
                                 {{ $exchange->persian_title }}
                             </a>
                         </div>

@@ -82,8 +82,8 @@
                             <ul class="nav nav-pills" id="pills-tab" role="tablist">
                                 <li class="nav-item" role="presentation">
                                     <a class="nav-link active" id="pills-currencies-tab" data-bs-toggle="pill"
-                                        href="#pills-currencies" role="tab" aria-controls="pills-currencies"
-                                        aria-selected="true">
+                                       href="#pills-currencies" role="tab" aria-controls="pills-currencies"
+                                       aria-selected="true">
                                         ارزهای دیجیتال
                                     </a>
                                 </li>
@@ -94,37 +94,37 @@
                             </ul>
                             <div class="tab-content" id="pills-tabContent">
                                 <div class="tab-pane fade show active" id="pills-currencies" role="tabpanel"
-                                    aria-labelledby="pills-home-tab">
+                                     aria-labelledby="pills-home-tab">
                                     <table>
                                         <thead>
-                                            <th class="px-2">نام</th>
-                                            <th class="px-2 text-nowrap">قیمت خرید</th>
-                                            <th class="px-2 text-nowrap">قیمت فروش</th>
+                                        <th class="px-2">نام</th>
+                                        <th class="px-2 text-nowrap">قیمت خرید</th>
+                                        <th class="px-2 text-nowrap">قیمت فروش</th>
                                         </thead>
                                         <tbody>
-                                            @foreach ($cryptos as $crypto)
-                                                <tr>
-                                                    {{-- <td><i class="fab fa-{{ $crypto->symbol }}"></i></td> --}}
-                                                    <td class="w-100">{{ $crypto->name }}</td>
-                                                    <td class="text-nowrap text-left">
-                                                        {{ $crypto->pivot_buy_price_formatted }}</td>
-                                                    <td class="text-nowrap text-left">
-                                                        {{ $crypto->pivot_sell_price_formatted }}</td>
-                                                </tr>
-                                            @endforeach
+                                        @foreach ($cryptos as $crypto)
+                                            <tr>
+                                                {{-- <td><i class="fab fa-{{ $crypto->symbol }}"></i></td> --}}
+                                                <td class="w-100">{{ $crypto->name }}</td>
+                                                <td class="text-nowrap text-left">
+                                                    {{ $crypto->pivot_buy_price_formatted }}</td>
+                                                <td class="text-nowrap text-left">
+                                                    {{ $crypto->pivot_sell_price_formatted }}</td>
+                                            </tr>
+                                        @endforeach
                                         </tbody>
                                     </table>
 
                                     {{ $cryptos->links() }}
                                 </div>
                                 <div class="tab-pane fade" id="pills-peyment" role="tabpanel"
-                                    aria-labelledby="pills-peyment-tab">
+                                     aria-labelledby="pills-peyment-tab">
                                     <table>
                                         <tbody>
-                                            <tr>
-                                                <td><i class="fas fa-credit-card"></i></td>
-                                                <td class="w-100">درگاه ملت</td>
-                                            </tr>
+                                        <tr>
+                                            <td><i class="fas fa-credit-card"></i></td>
+                                            <td class="w-100">درگاه ملت</td>
+                                        </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -134,7 +134,7 @@
                     <div class="about-left-column col-md-4 col-sm-5">
                         <div class="broker-logo">
                             <a href="#">
-                                <img src="{{ asset($exchange->logo) }}" alt="{{ $exchange->name }}">
+                                <img src="{{ $exchange->logo_url }}" alt="{{ $exchange->name }}">
                             </a>
                         </div>
                         <div class="broker-rating row">
@@ -154,7 +154,7 @@
                                         امتیاز کاربران
                                     </p>
                                     <a href="@auth #reviews @else {{ route('login') }} @endauth"
-                                        class="btn btn-default-outline btn-block">
+                                       class="btn btn-default-outline btn-block">
                                         ثبت امتیاز
                                     </a>
                                 </div>
@@ -165,5 +165,5 @@
                 </div>
             </div>
     </section>
-    <livewire:reviews-section :exchange="$exchange" />
+    <livewire:reviews-section :exchange="$exchange"/>
 @endsection

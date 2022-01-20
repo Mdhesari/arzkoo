@@ -5,7 +5,7 @@
             <div class="header-right">
                 <h3 class="mx-1">{{ $exchange->persian_title }}</h3>
                 <div class="images">
-                    <img src="{{ asset($exchange->logo) }}" alt="{{ $exchange->name }}">
+                    <img src="{{ $exchange->logo_url }}" alt="{{ $exchange->name }}">
                 </div>
                 <div class="star">
                     @for ($i = 1; $i <= 5; $i++)
