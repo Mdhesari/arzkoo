@@ -39,7 +39,7 @@ class DidexExchangeSeeder extends Seeder
 
         $exchange_crypto = [];
 
-        foreach ($supported = $this->adapter()->getSupported() as $symbol) {
+        foreach ($this->adapter()->getSupported() as $symbol) {
             if (!$crypto = Crypto::whereSymbol(strtolower($symbol))->first()) {
                 $symbolData = $this->coinMarketCap()->getSymbolMetaData([
                     'symbol' => $symbol,
