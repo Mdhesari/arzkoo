@@ -17,4 +17,9 @@ interface ExchangeAdapter
      * @return mixed
      */
     public function getMarketString(string $symbol, string $dstSymbol);
+
+    /**
+     * @return mixed
+     */
+    public function getSupported();
 }

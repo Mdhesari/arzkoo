@@ -4,25 +4,24 @@ namespace App\Console\Commands;
 
 use App\Models\Currencies\Crypto;
 use App\Models\Exchanges\Exchange;
-use App\Services\Exchange\ExchangeAdapter;
-use DB;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Crypt;
 
-class UpdateExchanges extends Command
+class UpdateExchangesSupportedSymbols extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'arzkoo:update-exchanges';
+    protected $signature = 'arzkoo:update-exchanges-supported';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Update exchanges prices.';
+    protected $description = 'Command description';
 
     /**
      * Create a new command instance.
@@ -59,11 +58,10 @@ class UpdateExchanges extends Command
             try {
                 $exchangeAdapter = app($exchange->name);
             } catch (\Exception $e) {
-                report($e);
                 $exchangeAdapter = app('nobitex');
             }
 
-            $this->updateExchangeCoins($exchangeAdapter, $exchange);
+            $this->updateExchangesSupported($exchangeAdapter, $exchange);
 
             $bar->advance();
         }
@@ -77,29 +75,40 @@ class UpdateExchanges extends Command
         $this->info("\nExecution time of script = " . $execution_time . " sec");
     }
 
-    private function updateExchangeCoins(ExchangeAdapter $exchangeAdapter, Exchange $exchange)
+    private function updateExchangesSupported(mixed $exchangeAdapter, mixed $exchange)
     {
-        $data = collect($exchangeAdapter->getMarketStats(
-            $exchange->cryptos()->pluck('symbol')->toArray(),
-            ['rls']
-        ));
+        $symbols = collect($exchangeAdapter->getSupported());
 
-        foreach ($exchange->cryptos()->cursor() as $crypto) {
-            $temp = (array)$data->get(
-                $exchangeAdapter->getMarketString($crypto->symbol, 'rls')
-            );
+        $exchange_crypto = [];
 
-            if (!empty($temp)) {
-                $crypto->exchanges()->updateExistingPivot($exchange, [
-                    'buy_price' => $temp['bestBuy'] / 10,
-                    'sell_price' => $temp['bestSell'] / 10,
-                    'buy_quantity' => $temp['bestBuyQuantity'] ?? null,
-                    'sell_quantity' => $temp['bestSellQuantity'] ?? null,
-                    'currency' => 'irt',
+        $symbols->map(function ($symbol) use (&$exchange_crypto) {
+            if (!$crypto = Crypto::whereSymbol($symbol)->first()) {
+                $symbolData = $this->coinMarketCap()->getSymbolMetaData([
+                    'symbol' => $symbol,
+                ])->recursive()->get('data')->get(strtoupper($symbol))->toArray();
+
+                $crypto = Crypto::create([
+                    'name' => $symbolData['name'],
+                    'symbol' => $symbolData['symbol'],
+                    'logo' => $symbolData['logo'],
+                    'price' => 1,
+                    'volume' => 1,
+                    'market_cap' => 1,
                 ]);
             }
-        }
+
+            $exchange_crypto[$crypto->id] = [
+                'buy_price' => 1,
+                'sell_price' => 1,
+                'currency' => 'irt',
+            ];
+        });
+
+        $exchange->cryptos()->syncWithoutDetaching($exchange_crypto);
     }
 
-
+    private function coinMarketCap()
+    {
+        return app('coinmarketcap');
+    }
 }

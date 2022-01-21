@@ -59,7 +59,7 @@ class Didex extends BaseAPI implements ExchangeAdapter
                     'bestBuy' => $this->getIranianRial($bestBuy->get('price')),
                     'bestSell' => $this->getIranianRial($bestSell->get('price')),
                     'bestBuyQuantity' => $bestBuy->get('quantity'),
-                    'sellBuyQuantity' => $bestSell->get('quantity'),
+                    'bestSellQuantity' => $bestSell->get('quantity'),
                 ];
             }
         }

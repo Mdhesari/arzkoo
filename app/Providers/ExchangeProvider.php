@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Services\Exchange\Didex;
 use App\Services\Exchange\Nobitex;
+use App\Services\Exchange\Ramzinex;
 use Illuminate\Support\ServiceProvider;
 
 class ExchangeProvider extends ServiceProvider
@@ -17,6 +18,7 @@ class ExchangeProvider extends ServiceProvider
     {
         $this->app->bind('nobitex', Nobitex::class);
         $this->app->bind('didex', Didex::class);
+        $this->app->bind('ramzinex', Ramzinex::class);
     }
 
     /**
