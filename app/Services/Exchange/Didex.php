@@ -41,8 +41,8 @@ class Didex extends BaseExchange implements ExchangeAdapter
             if ($symbol) {
                 $market = $this->getMarketString($symbol, 'rls');
 
-                $bestBuy = $this->getBestBuy($orderBook->get('asks'));
-                $bestSell = $this->getBestSell($orderBook->get('bids'));
+                $bestBuy = $this->getBestBuy($orderBook->get('bids'));
+                $bestSell = $this->getBestSell($orderBook->get('asks'));
 
                 $markets[$market] = [
                     'bestBuy' => $this->getIranianRial($bestBuy->get('price')),
@@ -56,13 +56,13 @@ class Didex extends BaseExchange implements ExchangeAdapter
         return collect($markets);
     }
 
-    private function getBestBuy($bids)
-    {
-        return $bids->sortByDesc('price')->first();
-    }
-
-    private function getBestSell($asks)
+    private function getBestBuy($asks)
     {
         return $asks->sortByDesc('price')->first();
+    }
+
+    private function getBestSell($bids)
+    {
+        return $bids->sortByDesc('price')->first();
     }
 }

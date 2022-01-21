@@ -44,8 +44,8 @@ class Ramzinex extends BaseExchange implements ExchangeAdapter
                 $marketName = $this->getMarketString(strtolower($symbol), 'rls');
 
                 $markets[$marketName] = [
-                    'bestBuy' => $market->bestAskPrice,
-                    'bestSell' => $market->bestBidPrice,
+                    'bestBuy' => $market->bestBidPrice,
+                    'bestSell' => $market->bestAskPrice,
                     'bestBuyQuantity' => $market->bestAskVolume,
                     'bestSellQuantity' => $market->bestBidVolume,
                 ];
