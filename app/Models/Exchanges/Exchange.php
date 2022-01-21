@@ -42,7 +42,9 @@ class Exchange extends Model
             DB::raw('SUM(support_range) / count(support_range) AS support_avg'),
             DB::raw('SUM(value_for_money_range) / count(value_for_money_range) AS value_for_money_avg'),
             DB::raw('SUM(verification_range) / count(verification_range) AS verification_avg'),
-        )->first()->toArray();
+        )->first();
+
+        $data = collect($data)->map(fn($item) => is_null($item) ? 0 : $item)->toArray();
 
         $this->update($data);
     }
