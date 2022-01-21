@@ -52,7 +52,7 @@ class Didex extends BaseAPI implements ExchangeAdapter
                 $symbol = substr($market, 0, strpos($market, 'IRT'));
                 $market = $this->getMarketString(strtolower($symbol), 'rls');
 
-                $bestBuy = $this->getBestBuy($orderBook->get('bids'));
+                $bestBuy = $this->getBestBuy($orderBook->get('asks'));
                 $bestSell = $this->getBestSell($orderBook->get('bids'));
 
                 $markets[$market] = [
