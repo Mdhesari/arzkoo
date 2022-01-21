@@ -38,9 +38,10 @@ class ResetExchangeRatesCommand extends Command
      */
     public function handle()
     {
-        Exchange::all()->map(function ($exchange) {
+        Exchange::published()->get()->map(function ($exchange) {
             $exchange->ratings()->delete();
             $exchange->calcAverageRate();
+            $exchange->updateRatingsAvg();
         });
 
         return 0;
