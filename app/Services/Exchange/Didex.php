@@ -5,7 +5,7 @@ namespace App\Services\Exchange;
 use App\Services\BaseAPI;
 use GuzzleHttp\Client;
 
-class Didex extends BaseAPI implements ExchangeAdapter
+class Didex extends BaseExchange implements ExchangeAdapter
 {
     protected string $base = 'https://api.didex.com/api';
 

@@ -12,16 +12,6 @@ abstract class BaseAPI
     protected string $base = '';
 
     /**
-     * @var array
-     */
-    protected array $supported = [];
-
-    public function __construct()
-    {
-        $this->supported = $this->getSupported();
-    }
-
-    /**
      * @return \GuzzleHttp\Client
      */
     protected function client(): \GuzzleHttp\Client

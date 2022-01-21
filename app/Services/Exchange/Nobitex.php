@@ -5,7 +5,7 @@ namespace App\Services\Exchange;
 use App\Services\BaseAPI;
 use GuzzleHttp\Client;
 
-class Nobitex extends BaseAPI implements ExchangeAdapter
+class Nobitex extends BaseExchange implements ExchangeAdapter
 {
     protected string $base = 'https://api.nobitex.ir';
 

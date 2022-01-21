@@ -2,10 +2,9 @@
 
 namespace App\Services\Exchange;
 
-use App\Services\BaseAPI;
 use GuzzleHttp\Client;
 
-class Ramzinex extends BaseAPI implements ExchangeAdapter
+class Ramzinex extends BaseExchange implements ExchangeAdapter
 {
     protected string $base = 'https://api.saraf.io';
 
