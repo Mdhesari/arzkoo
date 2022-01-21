@@ -9,7 +9,7 @@ class Nobitex extends BaseAPI implements ExchangeAdapter
 {
     protected string $base = 'https://api.nobitex.ir';
 
-    protected $supported = [
+    protected array $supported = [
         'btc',
         'eth',
         'ltc',
@@ -65,8 +65,8 @@ class Nobitex extends BaseAPI implements ExchangeAdapter
         });
     }
 
-    public function getTopCoins()
+    public function getSupported()
     {
-
+        return $this->supported;
     }
 }

@@ -9,7 +9,7 @@ class Ramzinex extends BaseAPI implements ExchangeAdapter
 {
     protected string $base = 'https://api.saraf.io';
 
-    protected $supported = [];
+    protected array $supported = [];
 
     public function __construct()
     {

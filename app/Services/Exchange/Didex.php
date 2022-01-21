@@ -9,7 +9,7 @@ class Didex extends BaseAPI implements ExchangeAdapter
 {
     protected string $base = 'https://api.didex.com/api';
 
-    protected $supported = null;
+    protected array $supported = [];
 
     public function __construct()
     {
