@@ -40,7 +40,7 @@ class Ramzinex extends BaseExchange implements ExchangeAdapter
         foreach ($exchangeMarkets as $market) {
             $symbol = $this->getBaseSymbol($market->symbol, 'IRR');
 
-            if ($symbol && in_array($symbol, $srcCurrency)) {
+            if ($symbol && in_array(strtolower($symbol), $srcCurrency)) {
                 $marketName = $this->getMarketString(strtolower($symbol), 'rls');
 
                 $markets[$marketName] = [
@@ -51,7 +51,6 @@ class Ramzinex extends BaseExchange implements ExchangeAdapter
                 ];
             }
         }
-
         return collect($markets);
     }
 }
