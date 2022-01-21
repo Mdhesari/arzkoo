@@ -28,17 +28,15 @@ class Nobitex extends BaseAPI implements ExchangeAdapter
     public function getSupported()
     {
         return \Cache::rememberForever('nobitex-symbols', function () {
-            $response = $this->client()->post($this->url('v2/options'));
-            return collect($this->getcollectionResponse($response)->get('coins'))->skip(0)->filter(function ($coin) {
-                $coin = (array)$coin;
-                $network = $coin['defaultNetwork'];
+            $orderBooks = $this->getcollectionResponse($this->client()->get($this->url('v2/orderbook/all')));
 
-                if ($network == 'FIAT_MONEY') return false;
+            $symbols = $orderBooks->map(function ($orderBook, $market) {
+                if ($symbol = $this->getBaseSymbol($market, 'IRT')) {
+                    return strtolower($symbol);
+                }
+            })->filter(fn($symbol) => !is_null($symbol))->unique();
 
-                $network = $coin['networkList']->$network;
-
-                return $network->withdrawEnable && $network->depositEnable;
-            })->pluck('coin')->toArray();
+            return $symbols->values()->toArray();
         });
     }
 }

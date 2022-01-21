@@ -104,7 +104,7 @@ class UpdateExchangesSupportedSymbols extends Command
             ];
         });
 
-        $exchange->cryptos()->syncWithoutDetaching($exchange_crypto);
+        $exchange->cryptos()->sync($exchange_crypto);
     }
 
     private function coinMarketCap()
