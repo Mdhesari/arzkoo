@@ -9,29 +9,6 @@ class Nobitex extends BaseAPI implements ExchangeAdapter
 {
     protected string $base = 'https://api.nobitex.ir';
 
-    protected array $supported = [
-        'btc',
-        'eth',
-        'ltc',
-        'usdt',
-        'xrp',
-        'bch',
-        'bnb',
-        'eos',
-        'xlm',
-        'etc',
-        'trx',
-        'pmn',
-        'doge',
-        'uni',
-        'dai',
-        'link',
-        'dot',
-        'aave',
-        'ada',
-        'shi'
-    ];
-
     /**
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
@@ -48,7 +25,7 @@ class Nobitex extends BaseAPI implements ExchangeAdapter
         return $this->getCollectionResponse($response)->get('stats');
     }
 
-    public function getAvailableSymbols()
+    public function getSupported()
     {
         return \Cache::rememberForever('nobitex-symbols', function () {
             $response = $this->client()->post($this->url('v2/options'));
@@ -61,12 +38,7 @@ class Nobitex extends BaseAPI implements ExchangeAdapter
                 $network = $coin['networkList']->$network;
 
                 return $network->withdrawEnable && $network->depositEnable;
-            })->pluck('coin');
+            })->pluck('coin')->toArray();
         });
-    }
-
-    public function getSupported()
-    {
-        return $this->supported;
     }
 }

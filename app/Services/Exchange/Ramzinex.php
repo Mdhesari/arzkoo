@@ -9,13 +9,6 @@ class Ramzinex extends BaseAPI implements ExchangeAdapter
 {
     protected string $base = 'https://api.saraf.io';
 
-    protected array $supported = [];
-
-    public function __construct()
-    {
-        $this->supported = $this->getSupported();
-    }
-
     /**
      * Get supported symbols
      *
@@ -61,14 +54,5 @@ class Ramzinex extends BaseAPI implements ExchangeAdapter
         }
 
         return collect($markets);
-    }
-
-    protected function getBaseSymbol($market, $quoteSymbol)
-    {
-        if (strpos(strtoupper($market), strtoupper($quoteSymbol))) {
-            return substr($market, 0, strpos($market, $quoteSymbol));
-        }
-
-        return false;
     }
 }

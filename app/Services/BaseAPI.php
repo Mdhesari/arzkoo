@@ -12,6 +12,16 @@ abstract class BaseAPI
     protected string $base = '';
 
     /**
+     * @var array
+     */
+    protected array $supported = [];
+
+    public function __construct()
+    {
+        $this->supported = $this->getSupported();
+    }
+
+    /**
      * @return \GuzzleHttp\Client
      */
     protected function client(): \GuzzleHttp\Client
@@ -19,6 +29,9 @@ abstract class BaseAPI
         return app(Client::class);
     }
 
+    /**
+     * @return string[]
+     */
     protected function headers(): array
     {
         return [
@@ -26,23 +39,54 @@ abstract class BaseAPI
         ];
     }
 
+    /**
+     * @param string $string
+     * @return string
+     */
     protected function url(string $string): string
     {
         return $this->base . '/' . $string;
     }
 
+    /**
+     * @param \Psr\Http\Message\ResponseInterface $response
+     * @return \Illuminate\Support\Collection
+     */
     protected function getCollectionResponse(\Psr\Http\Message\ResponseInterface $response): \Illuminate\Support\Collection
     {
         return collect(json_decode($response->getBody()->getContents()));
     }
 
+    /**
+     * @param string $symbol
+     * @param string $dstSymbol
+     * @return string
+     */
     public function getMarketString(string $symbol, string $dstSymbol): string
     {
         return strtolower($symbol . '-' . $dstSymbol);
     }
 
+    /**
+     * @param $getBestBuyPrice
+     * @return float|int
+     */
     protected function getIranianRial($getBestBuyPrice): float|int
     {
         return $getBestBuyPrice * 10;
+    }
+
+    /**
+     * @param $market
+     * @param $quoteSymbol
+     * @return bool|string
+     */
+    protected function getBaseSymbol($market, $quoteSymbol): bool|string
+    {
+        if (strpos(strtoupper($market), strtoupper($quoteSymbol))) {
+            return substr($market, 0, strpos($market, $quoteSymbol));
+        }
+
+        return false;
     }
 }
