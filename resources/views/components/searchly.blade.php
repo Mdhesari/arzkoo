@@ -14,8 +14,8 @@
         <div class="row search-holder">
             <div class="search-item col-md-4 col-xs-12">
                 <div class="switch-toggle">
-                    <a href="#" class="toggle clickable @if ($isBuy) active @endif" data-type="buy">خرید</a>
-                    <a href="#" class="toggle clickable @if (!$isBuy) active @endif" data-type="sell">فروش</a>
+                    <a href="#" class="toggle clickable @if ($isBuy) active @endif" data-type="buy">خرید از شما</a>
+                    <a href="#" class="toggle clickable @if (!$isBuy) active @endif" data-type="sell"> فروش به شما</a>
                 </div>
             </div>
             <div class="search-item col-md-5 col-xs-12">

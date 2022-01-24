@@ -32,7 +32,7 @@ class ExchangeList extends Component
     {
         return $this->crypto->exchanges()->published()->orderByPivot(
             $this->isBuy ? 'buy_price' : 'sell_price',
-            $this->isBuy ? 'ASC' : 'DESC'
+            $this->isBuy ? 'DESC' : 'ASC'
         );
     }
 
