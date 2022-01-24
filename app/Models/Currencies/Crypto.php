@@ -5,6 +5,7 @@ namespace App\Models\Currencies;
 use App\Models\Exchanges\Exchange;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Storage;
 
 class Crypto extends Model
 {
@@ -15,6 +16,17 @@ class Crypto extends Model
     protected $casts = [
         'image' => 'string',
     ];
+
+    protected $appends = [
+        'logo_url',
+    ];
+
+    public function getLogoUrlAttribute()
+    {
+        if (!$this->logo) return '';
+
+        return asset(Storage::url($this->logo));
+    }
 
     public function getSymbolAttribute($value)
     {
@@ -77,5 +89,14 @@ class Crypto extends Model
         }
 
         $this->exchanges()->syncWithoutDetaching($data);
+    }
+
+    public static function storeAndGetCryptoLogoPath($logo_url)
+    {
+        $data = pathinfo($logo_url);
+
+        Storage::put($path = 'symbols/' . $data['basename'], $logo_url);
+
+        return $path;
     }
 }
