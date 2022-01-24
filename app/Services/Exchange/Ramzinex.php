@@ -36,10 +36,10 @@ class Ramzinex extends BaseExchange implements ExchangeAdapter
 
         foreach ($exchangeMarkets as $market) {
             $symbol = $market->get('base_currency_symbol')->get('en');
+            $quoteSymbol = $market->get('quote_currency_symbol')->get('en');
 
-            if ($symbol && in_array(strtolower($symbol), $srcCurrency)) {
+            if ($symbol && in_array(strtolower($symbol), $srcCurrency) && $quoteSymbol == 'irr') {
                 $marketName = $this->getMarketString(strtolower($symbol), 'rls');
-
                 $markets[$marketName] = [
                     'bestBuy' => $market->get('buy'),
                     'bestSell' => $market->get('sell'),
