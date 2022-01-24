@@ -48,6 +48,8 @@ class ConfigExchangesCommand extends Command
         $this->call('arzkoo:update-exchanges-supported');
         $this->call('arzkoo:update-exchanges');
 
+        $this->call('optimize');
+
         return 0;
     }
 }
