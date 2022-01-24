@@ -6,7 +6,7 @@
             <div class="row d-flex justify-content-center">
                 <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12">
                     <div class="register__form">
-                        <form id="main_form" action="{{ route('dashboard.confirm-mobile') }}" method="POST">
+                        <form id="main_form" action="{{ route('dashboard.confirm-mobile-form') }}" method="POST">
                             @csrf
                             <div class="holder-header-otp">
                                 <img class="img-fluid" src="{{ url('assets/img/message.png') }}" alt="Login Vector">
