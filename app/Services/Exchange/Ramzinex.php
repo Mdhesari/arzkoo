@@ -6,7 +6,7 @@ use GuzzleHttp\Client;
 
 class Ramzinex extends BaseExchange implements ExchangeAdapter
 {
-    protected string $base = 'https://api.saraf.io';
+    protected string $base = 'https://publicapi.ramzinex.com/exchange/api';
 
     /**
      * Get supported symbols
@@ -16,13 +16,10 @@ class Ramzinex extends BaseExchange implements ExchangeAdapter
     public function getSupported()
     {
         return \Cache::rememberForever('ramzinex-symbols', function () {
-            $markets = $this->getCollectionResponse($this->client()->get($this->url('exchanger/market/summery')));
-
-            $symbols = $markets->map(function ($market) {
-                if ($symbol = $this->getBaseSymbol($market->symbol, 'IRR')) {
-                    return strtolower($symbol);
-                }
-            })->filter(fn($symbol) => !is_null($symbol))->unique();
+            $currencies = $this->getCollectionResponse($this->client()->get($this->url('v1.0/exchange/currencies')))->recursive()->get('data');
+            $symbols = $currencies->map(function ($currency) {
+                return strtolower($currency->get('symbol'));
+            })->filter(fn($item) => !in_array($item, ['irr']));
 
             return $symbols->toArray();
         });
@@ -33,21 +30,21 @@ class Ramzinex extends BaseExchange implements ExchangeAdapter
      */
     public function getMarketStats(array $srcCurrency, array $dstCurrency)
     {
-        $exchangeMarkets = $this->getCollectionResponse($this->client()->get($this->url('exchanger/market/summery')))->toArray();
+        $exchangeMarkets = $this->getCollectionResponse($this->client()->get($this->url('v1.0/exchange/pairs')))->recursive()->get('data');
 
         $markets = [];
 
         foreach ($exchangeMarkets as $market) {
-            $symbol = $this->getBaseSymbol($market->symbol, 'IRR');
+            $symbol = $market->get('base_currency_symbol')->get('en');
 
             if ($symbol && in_array(strtolower($symbol), $srcCurrency)) {
                 $marketName = $this->getMarketString(strtolower($symbol), 'rls');
 
                 $markets[$marketName] = [
-                    'bestBuy' => $market->bestBidPrice,
-                    'bestSell' => $market->bestAskPrice,
-                    'bestBuyQuantity' => $market->bestAskVolume,
-                    'bestSellQuantity' => $market->bestBidVolume,
+                    'bestBuy' => $market->get('buy'),
+                    'bestSell' => $market->get('sell'),
+                    'bestBuyQuantity' => null,
+                    'bestSellQuantity' => null,
                 ];
             }
         }
