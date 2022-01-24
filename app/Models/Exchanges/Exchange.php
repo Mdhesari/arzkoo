@@ -208,7 +208,7 @@ class Exchange extends Model
         return str_replace(",", "", $amount);
     }
 
-    private static function storeAndGetExchangeLogoPath($logo)
+    public static function storeAndGetExchangeLogoPath($logo)
     {
         if (!is_dir(public_path('assets/cryptos'))) {
             mkdir(public_path('assets/cryptos'));

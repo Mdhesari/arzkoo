@@ -19,7 +19,7 @@ class Ramzinex extends BaseExchange implements ExchangeAdapter
             $currencies = $this->getCollectionResponse($this->client()->get($this->url('v1.0/exchange/currencies')))->recursive()->get('data');
             $symbols = $currencies->map(function ($currency) {
                 return strtolower($currency->get('symbol'));
-            })->filter(fn($item) => !in_array($item, ['irr']));
+            })->filter(fn($item) => !in_array($item, ['irr', 'usdt_omni']));
 
             return $symbols->toArray();
         });

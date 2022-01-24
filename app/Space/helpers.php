@@ -80,3 +80,8 @@ function get_top_cryptos(): array
         return collect(app('coinmarketcap')->getCryptos()->get('data'))->pluck('symbol')->toArray();
     });
 }
+
+//function get_fee($feeStr)
+//{
+//    return collect(explode('الی', $feeStr))->map(fn($item) => floatval(preg_replace('/([0-9]{1,3}(?:,[0-9]{3})*\.[0-9]+)/', '', $item)))->toArray();
+//}

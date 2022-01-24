@@ -40,6 +40,7 @@ class CoinMarketCap extends BaseAPI
                 'X-CMC_PRO_API_KEY' => $this->getApiKey(),
             ],
             'query' => $data,
+            'http_errors' => false,
         ]);
 
         return $this->getCollectionResponse($response);

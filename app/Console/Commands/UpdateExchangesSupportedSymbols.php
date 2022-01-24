@@ -85,23 +85,30 @@ class UpdateExchangesSupportedSymbols extends Command
             if (!$crypto = Crypto::whereSymbol($symbol)->first()) {
                 $symbolData = $this->coinMarketCap()->getSymbolMetaData([
                     'symbol' => $symbol,
-                ])->recursive()->get('data')->get(strtoupper($symbol))->toArray();
+                ])->recursive();
 
-                $crypto = Crypto::create([
-                    'name' => $symbolData['name'],
-                    'symbol' => $symbolData['symbol'],
-                    'logo' => $symbolData['logo'],
-                    'price' => 1,
-                    'volume' => 1,
-                    'market_cap' => 1,
-                ]);
+                if ($symbolData->has('data')) {
+
+                    $symbolData = $symbolData->get('data')->get(strtoupper($symbol))->toArray();
+
+                    $crypto = Crypto::create([
+                        'name' => $symbolData['name'],
+                        'symbol' => $symbolData['symbol'],
+                        'logo' => $symbolData['logo'],
+                        'price' => 1,
+                        'volume' => 1,
+                        'market_cap' => 1,
+                    ]);
+                }
             }
 
-            $exchange_crypto[$crypto->id] = [
-                'buy_price' => 1,
-                'sell_price' => 1,
-                'currency' => 'irt',
-            ];
+            if ($crypto) {
+                $exchange_crypto[$crypto->id] = [
+                    'buy_price' => 1,
+                    'sell_price' => 1,
+                    'currency' => 'irt',
+                ];
+            }
         });
 
         $exchange->cryptos()->sync($exchange_crypto);
