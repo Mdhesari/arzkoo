@@ -62,6 +62,7 @@ class InsertNewExchangesCommand extends BaseScrapper
                 $data['title'] = mb_substr($exchangeResponse->filter('.exchange-h1')->first()->text(), 0, 64, 'utf-8');
                 $data['logo'] = Exchange::storeAndGetExchangeLogoPath($exchangeResponse->filter('.img-responsive.exchange-logo')->first()->attr('src'));
                 $data['site'] = 'https://' . optional(parse_url($exchangeResponse->filter('.btn.btn--medium.btn--primary.btn--transparent.btn--with-icon.btn--icon-right.mt-10.mb-20')->first()->attr('href')))['host'];
+                $data['status'] = Exchange::STATUS_PENDING;
 
                 $data['description'] = Str::replace('توضیحات صرافی: ', '', $exchangeResponse->filter('.col-lg-11.main-bg .row .col-lg-12.pt-10 .text-justify')->first()->text());
 
