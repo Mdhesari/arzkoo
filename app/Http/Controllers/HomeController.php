@@ -15,7 +15,7 @@ class HomeController extends Controller
         SEOMeta::setTitle('مرجع خرید و فروش و بررسی صرافی و رمز ارزها');
 
         return view('home.index', [
-            'exchanges' => Exchange::published()->get(),
+            'exchanges' => Exchange::published()->inRandomOrder()->get(),
         ]);
     }
 }

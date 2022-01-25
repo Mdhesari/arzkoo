@@ -8,13 +8,16 @@ use Illuminate\View\Component;
 class SectionExchanges extends Component
 {
 
+    public $exchanges = null;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($exchanges)
     {
+        $this->exchanges = $exchanges ?? Exchange::published()->get();
     }
 
     /**
@@ -24,8 +27,6 @@ class SectionExchanges extends Component
      */
     public function render()
     {
-        return view('components.section-exchanges', [
-            'exchanges' => Exchange::published()->get()
-        ]);
+        return view('components.section-exchanges');
     }
 }
