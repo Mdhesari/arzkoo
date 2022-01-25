@@ -51,12 +51,12 @@
                         @if ($best && $countBestEx < 5)
 
                             <div class="item">
-                                {{--                                @if ($cry->icon)--}}
-                                <div class="icon">
-                                    {{--                                        <i class="fab fa-btc"></i>--}}
-                                    <img src="{{ $cry->logo_url }}" alt="{{ $cry->name }}">
-                                </div>
-                                {{--                                @endif--}}
+                                @if ($cry->icon)
+                                    <div class="icon">
+                                        {{--                                        <i class="fab fa-btc"></i>--}}
+                                        <img src="{{ $cry->logo_url }}" alt="{{ $cry->name }}">
+                                    </div>
+                                @endif
                                 <div class="detail">
                                     <strong>{{ $best->irr_buy_price_formatted }}</strong>
                                     <p>بهترین قیمت {{ $cry->name }} در {{ $best->persian_title }}</p>
