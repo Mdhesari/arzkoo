@@ -85,3 +85,37 @@ function get_top_cryptos(): array
 //{
 //    return collect(explode('الی', $feeStr))->map(fn($item) => floatval(preg_replace('/([0-9]{1,3}(?:,[0-9]{3})*\.[0-9]+)/', '', $item)))->toArray();
 //}
+
+function download_image($filename, $url)
+{
+    if (file_exists($filename)) {
+        @unlink($filename);
+    }
+
+    if (!is_dir(dirname($filename))) {
+        mkdir(dirname($filename));
+    }
+
+    $fp = fopen($filename, 'w');
+    if ($fp) {
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_BINARYTRANSFER, 1);
+        $result = parse_url($url);
+        curl_setopt($ch, CURLOPT_REFERER, $result['scheme'] . '://' . $result['host']);
+        curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:45.0) Gecko/20100101 Firefox/45.0');
+        $raw = curl_exec($ch);
+        curl_close($ch);
+        if ($raw) {
+            fwrite($fp, $raw);
+        }
+        fclose($fp);
+        if (!$raw) {
+            @unlink($filename);
+            return false;
+        }
+        return true;
+    }
+    return false;
+}

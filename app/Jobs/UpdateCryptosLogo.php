@@ -34,7 +34,7 @@ class UpdateCryptosLogo implements ShouldQueue
     {
         $this->coinmarketcap()->getSymbolMetaData([
             'symbol' => strtolower(join(',', Crypto::whereNotIn('symbol', [
-                'XDCE',
+                'XDCE', // not supported in coinmarketcap
             ])->pluck('symbol')->toArray())),
         ])->recursive()->get('data')->map(function ($crypto) {
             Crypto::whereSymbol($crypto->get('symbol'))->update([

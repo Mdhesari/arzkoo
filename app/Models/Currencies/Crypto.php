@@ -95,7 +95,7 @@ class Crypto extends Model
     {
         $data = pathinfo($logo_url);
 
-        Storage::put($path = 'symbols/' . $data['basename'], $logo_url);
+        download_image(storage_path('app/public/' . $path = 'symbols/' . $data['basename']), $logo_url);
 
         return $path;
     }

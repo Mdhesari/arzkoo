@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <h1 class="title-section m-30">
-                       ارزون بخر، گرون بفروش
+                        ارزون بخر، گرون بفروش
                     </h1>
                 </div>
             </div>
@@ -51,11 +51,12 @@
                         @if ($best && $countBestEx < 5)
 
                             <div class="item">
-                                @if ($cry->icon)
-                                    <div class="icon">
-                                        <i class="fab fa-btc"></i>
-                                    </div>
-                                @endif
+                                {{--                                @if ($cry->icon)--}}
+                                <div class="icon">
+                                    {{--                                        <i class="fab fa-btc"></i>--}}
+                                    <img src="{{ $cry->logo_url }}" alt="{{ $cry->name }}">
+                                </div>
+                                {{--                                @endif--}}
                                 <div class="detail">
                                     <strong>{{ $best->irr_buy_price_formatted }}</strong>
                                     <p>بهترین قیمت {{ $cry->name }} در {{ $best->persian_title }}</p>
