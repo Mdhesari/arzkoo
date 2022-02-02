@@ -88,8 +88,8 @@
                                     </a>
                                 </li>
                                 {{-- <li class="nav-item" role="presentation">
-                                    <a class="nav-link" id="pills-peyment-tab" data-bs-toggle="pill" href="#pills-peyment"
-                                        role="tab" aria-controls="pills-peyment" aria-selected="false">روش پرداخت</a>
+                                    <a class="nav-link" id="pills-payment-tab" data-bs-toggle="pill" href="#pills-payment"
+                                        role="tab" aria-controls="pills-payment" aria-selected="false">روش پرداخت</a>
                                 </li> --}}
                             </ul>
                             <div class="tab-content" id="pills-tabContent">
@@ -117,8 +117,8 @@
 
                                     {{ $cryptos->links() }}
                                 </div>
-                                <div class="tab-pane fade" id="pills-peyment" role="tabpanel"
-                                     aria-labelledby="pills-peyment-tab">
+                                <div class="tab-pane fade" id="pills-payment" role="tabpanel"
+                                     aria-labelledby="pills-payment-tab">
                                     <table>
                                         <tbody>
                                         <tr>
