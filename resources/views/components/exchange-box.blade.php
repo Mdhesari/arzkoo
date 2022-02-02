@@ -24,10 +24,10 @@
             <div class="header-left">
                 <div class="price">{{ $isBuy ? $exchange->buy_price_formatted : $exchange->sell_price_formatted }}
                 </div>
-{{--                @if ($exchange->pivot->currency != 'IRR')--}}
-{{--                    <div class="price price_irr text-muted text-lead h6">--}}
-{{--                        {{ $isBuy ? $exchange->irr_buy_price_formatted : $exchange->irr_sell_price_formatted }}</div>--}}
-{{--                @endif--}}
+                {{--                @if ($exchange->pivot->currency != 'IRR')--}}
+                {{--                    <div class="price price_irr text-muted text-lead h6">--}}
+                {{--                        {{ $isBuy ? $exchange->irr_buy_price_formatted : $exchange->irr_sell_price_formatted }}</div>--}}
+                {{--                @endif--}}
             </div>
         </div>
         <div class="col-lg-8 col-md-8 col-sm-12">
@@ -66,8 +66,8 @@
                                 {{ $exchange->getBestAmountDiffPercent($isBuy ? $exchange->pivot->buy_price : $exchange->pivot->sell_price, $isBuy ? $bestExchange->pivot->buy_price : $bestExchange->pivot->sell_price) }}
                                 درصد
                             </strong>
-                            <p>بیشتر از بهترین قیمت</p>
-                        @endif
+                    <p><span>{{ $isBuy ? 'کمتر':'بیشتر'  }}</span> از بهترین قیمت</p>
+                    @endif
                     </p>
                 </div>
             </div>
@@ -90,7 +90,7 @@
             <div class="footer-right text-right">
                 <i class="fas fa-shield-check" data-toggle="tooltip" data-placement="top" title=" 1 نمایش پیشفرض"></i>
                 <i class="fa fa-temperature-frigid" data-toggle="tooltip" data-placement="top"
-                    title=" 2 نمایش پیشفرض"></i>
+                   title=" 2 نمایش پیشفرض"></i>
                 <i class="fa fa-link" data-toggle="tooltip" data-placement="top" title=" 3 نمایش پیشفرض"></i>
             </div>
         </div>

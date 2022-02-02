@@ -29,7 +29,7 @@ class ExchangeBox extends Component
         $this->crypto = $crypto;
         $this->isBuy = $isBuy;
         $this->isBestToBuy = $isBest;
-        $this->bestExchange = $crypto->bestExchange()->select('buy_price', 'sell_price')->first();
+        $this->bestExchange = ($isBuy ? $crypto->bestBuyExchange() : $crypto->bestSellExchange())->select('buy_price', 'sell_price')->first();
     }
 
     /**

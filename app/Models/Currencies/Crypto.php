@@ -13,6 +13,8 @@ class Crypto extends Model
 
     protected $guarded = ['id'];
 
+    private $isBuy = false;
+
     protected $casts = [
         'image' => 'string',
     ];
@@ -45,11 +47,18 @@ class Crypto extends Model
         ]);
     }
 
-    public function bestExchange()
+    public function bestBuyExchange()
     {
         return $this->belongsToMany(Exchange::class, 'exchange_crypto')->withPivot([
             'buy_price', 'sell_price', 'currency'
-        ])->orderByPivot('buy_price');
+        ])->orderByPivot('buy_price', 'DESC');
+    }
+
+    public function bestSellExchange()
+    {
+        return $this->belongsToMany(Exchange::class, 'exchange_crypto')->withPivot([
+            'buy_price', 'sell_price', 'currency'
+        ])->orderByPivot('sell_price', 'ASC');
     }
 
     private function getNumberAndCurrency($number, $currency, $forceIRR = false)
@@ -98,5 +107,23 @@ class Crypto extends Model
         download_image(storage_path('app/public/' . $path = 'symbols/' . $data['basename']), $logo_url);
 
         return $path;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIsBuy()
+    {
+        return $this->isBuy;
+    }
+
+    /**
+     * @param mixed $isBuy
+     */
+    public function setIsBuy($isBuy)
+    {
+        $this->isBuy = $isBuy;
+
+        return $this;
     }
 }

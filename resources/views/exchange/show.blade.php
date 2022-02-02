@@ -7,6 +7,11 @@
                 {{ $exchange->persian_title . ' (' . $exchange->title . ') ' }}
             </h1>
         </div>
+        @if(!empty($exchange->site_with_query))
+            <div class="actions my-4">
+                <a href="{{ $exchange->site_with_query }}" class="btn btn-primary btn-lg">ورود به صرافی</a>
+            </div>
+        @endif
     </section>
     <section class="content-single">
         <div class="container">

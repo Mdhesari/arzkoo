@@ -46,7 +46,7 @@
                     @php $countBestEx = 0 @endphp
                     @foreach ($favCryptos as $cry)
 
-                        @php $best = $cry->bestExchange->first() @endphp
+                        @php $best = $cry->bestBuyExchange->first() @endphp
 
                         @if ($best && $countBestEx < 5)
 
