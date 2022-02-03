@@ -55,7 +55,7 @@
             <div class="b-header-left">
                 <div class="b-header-left__inner">
                     <p>
-                        قیمت برای <span>{{ arzkoo_money(1, 'USDT') }}</span>
+                        قیمت برای <span>{{ arzkoo_money(1, $crypto->symbol) }}</span>
                     </p>
                     <p>
                         @if ($isBestToBuy)
