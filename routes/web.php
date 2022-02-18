@@ -56,10 +56,10 @@ Route::middleware('auth')->group(function () {
         Route::delete('delete-account', [DashboardController::class, 'deleteAccount'])->name('dashboard.delete-account');
         Route::get('confirm-mobile', [DashboardController::class, 'updateMobileConfirmView'])->name('dashboard.confirm-mobile');
         Route::post('confirm-mobile', [DashboardController::class, 'updateMobileConfirm'])->name('dashboard.confirm-mobile-form');
-        Route::put('update-picture', [DashboardController::class, 'updatePicture'])->name('.update-picture');
-        Route::put('update-name', [DashboardController::class, 'updateName'])->name('.update-name');
-        Route::put('update-mobile', [DashboardController::class, 'updateMobile'])->name('.update-mobile');
-        Route::put('update-password', [DashboardController::class, 'updatePassword'])->name('.update-password');
+        Route::put('update-picture', [DashboardController::class, 'updatePicture'])->name('dashboard.update-picture');
+        Route::put('update-name', [DashboardController::class, 'updateName'])->name('dashboard.update-name');
+        Route::put('update-mobile', [DashboardController::class, 'updateMobile'])->name('dashboard.update-mobile');
+        Route::put('update-password', [DashboardController::class, 'updatePassword'])->name('dashboard.update-password');
     });
     Route::delete('logout', [LoginController::class, 'logout'])->name('logout');
 
