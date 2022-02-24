@@ -49,7 +49,7 @@
 
                     @if ($best && $countBestEx < 5)
                         <div class="item col-md-2 {{ $countBestEx > 2 ? 'd-none d-lg-flex':'col-4' }}">
-                            <div class="icon" data-ajib="{{ "$cry->logo" }}">
+                            <div class="icon">
                                 {{--                                        <i class="fab fa-btc"></i>--}}
                                 <img src="{{ $cry->logo_full_url }}" alt="{{ $cry->name }}">
                             </div>

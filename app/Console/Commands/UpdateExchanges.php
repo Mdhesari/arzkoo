@@ -51,11 +51,6 @@ class UpdateExchanges extends Command
 
         foreach ($query->cursor() as $exchange) {
 
-            if (!in_array($exchange->name, config('exchange.supported_exchanges'))) {
-                $exchange->updateStatusToPending();
-                continue;
-            }
-
             try {
                 $exchangeAdapter = app($exchange->name);
             } catch (\Exception $e) {

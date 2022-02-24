@@ -40,10 +40,6 @@ class ConfigExchangesCommand extends Command
     {
         $this->call('optimize:clear');
 
-        Exchange::whereIn('name', config('exchange.supported_exchanges'))->update([
-            'status' => Exchange::STATUS_PUBLISHED,
-        ]);
-
         $this->call('scrap:new-exchanges');
         $this->call('arzkoo:update-exchanges-supported');
         $this->call('arzkoo:update-exchanges');
