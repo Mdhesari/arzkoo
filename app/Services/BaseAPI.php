@@ -73,7 +73,7 @@ abstract class BaseAPI
      */
     protected function getBaseSymbol($market, $quoteSymbol): bool|string
     {
-        if (strpos(strtoupper($market), strtoupper($quoteSymbol))) {
+        if (strpos($market = strtoupper($market), $quoteSymbol = strtoupper($quoteSymbol))) {
             return substr($market, 0, strpos($market, $quoteSymbol));
         }
 

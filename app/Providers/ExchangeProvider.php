@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Services\Exchange\Didex;
+use App\Services\Exchange\Exir;
 use App\Services\Exchange\Nobitex;
 use App\Services\Exchange\Ramzinex;
 use App\Services\Exchange\Saraf;
@@ -21,6 +22,7 @@ class ExchangeProvider extends ServiceProvider
         $this->app->bind('didex', Didex::class);
         $this->app->bind('ramzinex', Ramzinex::class);
         $this->app->bind('saraf', Saraf::class);
+        $this->app->bind('exir', Exir::class);
     }
 
     /**
