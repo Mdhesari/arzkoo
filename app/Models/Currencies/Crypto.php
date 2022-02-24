@@ -20,10 +20,10 @@ class Crypto extends Model
     ];
 
     protected $appends = [
-        'logo_url',
+        'logo_full_url',
     ];
 
-    public function getLogoUrlAttribute()
+    public function getLogoFullUrlAttribute()
     {
         if (!$this->logo) return '';
 

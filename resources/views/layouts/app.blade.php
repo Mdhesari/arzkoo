@@ -18,6 +18,7 @@
     <link rel="canonical" href="{{ config('app.url') }}"/>
     <link rel="stylesheet" href="{{ mix('css/font-awesome.css') }}">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <link rel="stylesheet" href="{{ mix('css/arzkoo.css') }}">
     @if ($logo = setting('site.logo'))
         <link rel="icon" href="{{ \Storage::url($logo) }}" type="image/png">
     @endif

@@ -36,77 +36,72 @@
                 </a>
             </div>
         </div>
-
-        @if ($showMetaData)
-            <div class="row recommendations">
-                <div class="recommendations-title text-center ">
-                    <h2 class="mt-5">ارزکو در آخرین لحظه {{ $totalCryptos }} نرخ ارز را برای شما بررسی کرده است</h2>
-                </div>
-                <div class="live-prices m-30">
-                    @php $countBestEx = 0 @endphp
-                    @foreach ($favCryptos as $cry)
-
-                        @php $best = $cry->bestBuyExchange->first() @endphp
-
-                        @if ($best && $countBestEx < 5)
-
-                            <div class="item">
-                                @if ($cry->icon)
-                                    <div class="icon">
-                                        {{--                                        <i class="fab fa-btc"></i>--}}
-                                        <img src="{{ $cry->logo_url }}" alt="{{ $cry->name }}">
-                                    </div>
-                                @endif
-                                <div class="detail">
-                                    <strong>{{ $best->irr_buy_price_formatted }}</strong>
-                                    <p>بهترین قیمت {{ $cry->name }} در {{ $best->persian_title }}</p>
-                                </div>
-                                @php ++$countBestEx @endphp
-                            </div>
-                        @endif
-
-                    @endforeach
-
-                    {{-- <div class="item">
-                        <div class="icon">
-                            <i class="fab fa-btc"></i>
-                        </div>
-                        <div class="detail">
-                            <strong>800 میلیون</strong>
-                            <p>بهترین قیمت بیتکون در کریپتو</p>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="icon">
-                            <i class="fab fa-btc"></i>
-                        </div>
-                        <div class="detail">
-                            <strong>800 میلیون</strong>
-                            <p>بهترین قیمت بیتکون در کریپتو</p>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="icon">
-                            <i class="fab fa-btc"></i>
-                        </div>
-                        <div class="detail">
-                            <strong>800 میلیون</strong>
-                            <p>بهترین قیمت بیتکون در کریپتو</p>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="icon">
-                            <i class="fab fa-btc"></i>
-                        </div>
-                        <div class="detail">
-                            <strong>800 میلیون</strong>
-                            <p>بهترین قیمت بیتکون در کریپتو</p>
-                        </div>
-                    </div> --}}
-                </div>
-            </div>
-        @endif
     </div>
+    @if ($showMetaData)
+        <div class="row recommendations">
+            <div class="recommendations-title text-center ">
+                <h2 class="mt-5">ارزکو در آخرین لحظه {{ $totalCryptos }} نرخ ارز را برای شما بررسی کرده است</h2>
+            </div>
+            <div class="live-prices row m-30">
+                @php $countBestEx = 0 @endphp
+                @foreach ($favCryptos as $cry)
+                    @php $best = $cry->bestBuyExchange->first() @endphp
+
+                    @if ($best && $countBestEx < 5)
+                        <div class="item col-md-2 {{ $countBestEx > 2 ? 'd-none d-lg-flex':'col-4' }}">
+                            <div class="icon" data-ajib="{{ "$cry->logo" }}">
+                                {{--                                        <i class="fab fa-btc"></i>--}}
+                                <img src="{{ $cry->logo_full_url }}" alt="{{ $cry->name }}">
+                            </div>
+                            <div class="detail">
+                                <strong>{{ $best->irr_buy_price_formatted }}</strong>
+                                <p>بهترین قیمت {{ $cry->name }} در {{ $best->persian_title }}</p>
+                            </div>
+                            @php ++$countBestEx @endphp
+                        </div>
+                    @endif
+
+                @endforeach
+
+                {{-- <div class="item">
+                    <div class="icon">
+                        <i class="fab fa-btc"></i>
+                    </div>
+                    <div class="detail">
+                        <strong>800 میلیون</strong>
+                        <p>بهترین قیمت بیتکون در کریپتو</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="icon">
+                        <i class="fab fa-btc"></i>
+                    </div>
+                    <div class="detail">
+                        <strong>800 میلیون</strong>
+                        <p>بهترین قیمت بیتکون در کریپتو</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="icon">
+                        <i class="fab fa-btc"></i>
+                    </div>
+                    <div class="detail">
+                        <strong>800 میلیون</strong>
+                        <p>بهترین قیمت بیتکون در کریپتو</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="icon">
+                        <i class="fab fa-btc"></i>
+                    </div>
+                    <div class="detail">
+                        <strong>800 میلیون</strong>
+                        <p>بهترین قیمت بیتکون در کریپتو</p>
+                    </div>
+                </div> --}}
+            </div>
+        </div>
+    @endif
 </section>
 
 @push('add_styles')
