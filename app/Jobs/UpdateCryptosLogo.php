@@ -33,9 +33,7 @@ class UpdateCryptosLogo
     public function handle()
     {
         $this->coinmarketcap()->getSymbolMetaData([
-            'symbol' => strtolower(join(',', Crypto::whereNotIn('symbol', [
-                'XDCE', // not supported in coinmarketcap
-            ])->pluck('symbol')->toArray())),
+            'symbol' => strtolower(join(',', Crypto::whereNotIn('symbol', config('crypto.coinmarketcap.unsupported'))->pluck('symbol')->toArray())),
         ])->recursive()->get('data')->map(function ($crypto) {
             Crypto::whereSymbol($crypto->get('symbol'))->update([
                 'logo' => Crypto::storeAndGetCryptoLogoPath($crypto->get('logo'))
