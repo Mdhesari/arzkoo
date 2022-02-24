@@ -11,7 +11,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Crypt;
 
-class UpdateCryptosLogo implements ShouldQueue
+class UpdateCryptosLogo
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
