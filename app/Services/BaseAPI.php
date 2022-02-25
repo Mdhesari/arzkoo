@@ -58,12 +58,12 @@ abstract class BaseAPI
     }
 
     /**
-     * @param $getBestBuyPrice
+     * @param $irtAmount
      * @return float|int
      */
-    protected function getIranianRial($getBestBuyPrice): float|int
+    protected function getIranianRial($irtAmount): float|int
     {
-        return $getBestBuyPrice * 10;
+        return $irtAmount * 10;
     }
 
     /**
