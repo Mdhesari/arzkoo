@@ -63,7 +63,11 @@
                         @else
                             معمولا
                             <strong>
-                                {{ $exchange->getBestAmountDiffPercent($isBuy ? $exchange->pivot->buy_price : $exchange->pivot->sell_price, $isBuy ? $bestExchange->pivot->buy_price : $bestExchange->pivot->sell_price) }}
+                                {{
+    $exchange->getBestAmountDiffPercent(
+    $isBuy ? $exchange->pivot->buy_price : $exchange->pivot->sell_price,
+    $isBuy ? $bestExchange->pivot->buy_price : $bestExchange->pivot->sell_price)
+     }}
                                 درصد
                             </strong>
                     <p><span>{{ $isBuy ? 'کمتر':'بیشتر'  }}</span> از بهترین قیمت</p>
