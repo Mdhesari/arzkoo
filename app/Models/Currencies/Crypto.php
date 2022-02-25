@@ -53,14 +53,14 @@ class Crypto extends Model
 
     public function bestBuyExchange()
     {
-        return $this->belongsToMany(Exchange::class, 'exchange_crypto')->withPivot([
+        return $this->belongsToMany(Exchange::class, 'exchange_crypto')->published()->withPivot([
             'buy_price', 'sell_price', 'currency'
         ])->orderByPivot('buy_price', 'DESC');
     }
 
     public function bestSellExchange()
     {
-        return $this->belongsToMany(Exchange::class, 'exchange_crypto')->withPivot([
+        return $this->belongsToMany(Exchange::class, 'exchange_crypto')->published()->withPivot([
             'buy_price', 'sell_price', 'currency'
         ])->orderByPivot('sell_price', 'ASC');
     }
