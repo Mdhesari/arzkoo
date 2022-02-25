@@ -133,7 +133,7 @@ class Exchange extends Model
 
     public function getBestAmountDiffPercent($currentAmount, $bestAmount)
     {
-        info($currentAmount, $bestAmount);
+        info([$currentAmount, $bestAmount]);
         $percent = $currentAmount - $bestAmount;
         $percent = abs(($percent / $bestAmount) * 100);
 
