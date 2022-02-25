@@ -21,7 +21,8 @@
             <div class="search-item col-md-5 col-xs-12">
                 <select id="currencies" name="currency">
                     @foreach ($cryptos as $cry)
-                        <option value="{{ $cry->name }}" @if ($crypto && $crypto->id == $cry->id) selected
+                        <option data-logo="{{ $cry->logo_full_url }}" value="{{ $cry->name }}"
+                                @if ($crypto && $crypto->id == $cry->id) selected
                                 @elseif($loop->first) selected @endif>{{ $cry->name }}
                         </option>
                     @endforeach
@@ -62,43 +63,6 @@
                     @endif
 
                 @endforeach
-
-                {{-- <div class="item">
-                    <div class="icon">
-                        <i class="fab fa-btc"></i>
-                    </div>
-                    <div class="detail">
-                        <strong>800 میلیون</strong>
-                        <p>بهترین قیمت بیتکون در کریپتو</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="icon">
-                        <i class="fab fa-btc"></i>
-                    </div>
-                    <div class="detail">
-                        <strong>800 میلیون</strong>
-                        <p>بهترین قیمت بیتکون در کریپتو</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="icon">
-                        <i class="fab fa-btc"></i>
-                    </div>
-                    <div class="detail">
-                        <strong>800 میلیون</strong>
-                        <p>بهترین قیمت بیتکون در کریپتو</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="icon">
-                        <i class="fab fa-btc"></i>
-                    </div>
-                    <div class="detail">
-                        <strong>800 میلیون</strong>
-                        <p>بهترین قیمت بیتکون در کریپتو</p>
-                    </div>
-                </div> --}}
             </div>
         </div>
     @endif
@@ -133,6 +97,10 @@
 @push('add_scripts')
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
+        function getSelectItem(data) {
+            return '<span">' + data.text + '<img class="select2-logo" src="' + data.logo + '" /> ' + '</span>';
+        }
+
         $(function () {
 
             const toggles = Array.from(document.querySelectorAll('.switch-toggle .toggle')),
@@ -175,24 +143,26 @@
                 return $state;
             };
 
-            $("#currencies").select2({
+            $('#currencies').select2({
                 width: "100%",
-                // templateResult: function(idioma) {
-                //     console.log(idioma)
-                //     var $span = $("<span><img src='https://www.free-country-flags.com/countries/" +
-                //         idioma.id + "/1/tiny/" + idioma.id + ".png'/> " + idioma.text + "</span>");
-                //     return $span;
-                // },
-                // templateSelection: function(idioma) {
-                //     var $span = $("<span><img src='https://www.free-country-flags.com/countries/" +
-                //         idioma.id + "/1/tiny/" + idioma.id + ".png'/> " + idioma.text + "</span>");
-                //     return $span;
-                // },
+                templateResult: function (data, el) {
+                    if (!data.logo) return
+                    return $('<span">' + data.text + '<img class="select2-logo" src="' + data.logo + '" /> ' + '</span>');
+                },
+                templateSelection: function (data, el) {
+                    let logo = data.logo ?? data.element.dataset.logo
+
+                    return $('<span>' + data.text + '<img class="select2-logo" src="' + logo + '" /> ' + '</span>');
+                },
+                pagination: {
+                    more: true
+                },
                 ajax: {
                     url: '{{ route('currencies') }}',
                     data: function (params) {
                         var query = {
                             search: params.term,
+                            page: params.page || 1,
                             type: 'public'
                         }
 
@@ -200,10 +170,13 @@
                         return query;
                     },
                     dataType: 'json',
-                    processResults: function (data) {
+                    processResults: function (data, params) {
                         // Transforms the top-level key of the response object from 'items' to 'results'
                         return {
-                            results: data.data
+                            results: data.data,
+                            pagination: {
+                                more: data.meta.current_page < data.meta.last_page
+                            }
                         };
                     }
                 },

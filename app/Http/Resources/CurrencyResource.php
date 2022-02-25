@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class CurrencyResource extends JsonResource
@@ -9,7 +10,7 @@ class CurrencyResource extends JsonResource
     /**
      * Transform the resource into an array.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Request $request
      * @return array
      */
     public function toArray($request)
@@ -18,7 +19,8 @@ class CurrencyResource extends JsonResource
 
         return [
             "id" => $this->name,
-            "text" => $this->name
+            "text" => $this->name,
+            "logo" => $this->logo_full_url,
         ];
     }
 }

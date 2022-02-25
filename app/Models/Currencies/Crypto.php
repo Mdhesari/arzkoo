@@ -27,6 +27,10 @@ class Crypto extends Model
     {
         if (!$this->logo) return '';
 
+        if (isset(parse_url($this->logo)['scheme'])) {
+            return $this->logo;
+        }
+
         return asset(Storage::url($this->logo));
     }
 

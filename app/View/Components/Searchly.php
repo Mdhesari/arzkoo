@@ -46,7 +46,7 @@ class Searchly extends Component
         $query = Crypto::query();
 
         if ($this->crypto) {
-            $query->offset($this->crypto->id);
+            $query->whereName($this->crypto->name);
         }
 
         return view('components.searchly', [
