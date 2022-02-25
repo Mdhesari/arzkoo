@@ -11,9 +11,11 @@ class Arzpaya extends BaseExchange implements ExchangeAdapter
      */
     public function getSupported(): array
     {
-        $symbols = $this->getCollectionResponse($this->client()->get($this->url('Public/GetPrice/irt')));
+        return \Cache::rememberForever('arzpaya-symbols', function () {
+            $symbols = $this->getCollectionResponse($this->client()->get($this->url('Public/GetPrice/irt')));
 
-        return $symbols->keys()->map(fn($symbol) => substr($symbol, 0, strpos($symbol, 'IR')))->toArray();
+            return $symbols->keys()->map(fn($symbol) => substr($symbol, 0, strpos($symbol, 'IR')))->toArray();
+        });
     }
 
     public function getMarketStats(array $srcCurrency, array $dstCurrency)
@@ -29,8 +31,8 @@ class Arzpaya extends BaseExchange implements ExchangeAdapter
                 $marketName = $this->getMarketString(strtolower($symbol), 'rls');
 
                 $markets[$marketName] = [
-                    'bestBuy' => $data->BuyPrice,
-                    'bestSell' => $data->SellPrice,
+                    'bestBuy' => $this->getIranianRial($data->BuyPrice),
+                    'bestSell' => $this->getIranianRial($data->SellPrice),
                     'bestBuyQuantity' => null,
                     'bestSellQuantity' => null,
                 ];
