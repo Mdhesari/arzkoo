@@ -24,13 +24,13 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('queue:work', [
-            '--max-jobs' => 1000,
-            '--max-time' => 3600,
-            '--rest' => 0.5,
-            '--sleep' => 5,
-        ])->everyMinute();
-        $schedule->command('queue:restart')->hourly();
+//        $schedule->command('queue:work', [
+//            '--max-jobs' => 1000,
+//            '--max-time' => 3600,
+//            '--rest' => 0.5,
+//            '--sleep' => 5,
+//        ])->everyMinute();
+//        $schedule->command('queue:restart')->hourly();
         $schedule->command('sitemap:generate')->daily();
         $schedule->command('backup:clean')->weekly()->at('01:00');
         $schedule->command('backup:run')->weekly()->at('01:30');
