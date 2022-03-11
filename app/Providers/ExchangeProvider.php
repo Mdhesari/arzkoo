@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Services\Exchange\Arzpaya;
+use App\Services\Exchange\Bittestan;
 use App\Services\Exchange\Didex;
 use App\Services\Exchange\Exir;
 use App\Services\Exchange\Nobitex;
@@ -25,6 +26,7 @@ class ExchangeProvider extends ServiceProvider
         $this->app->bind('saraf', Saraf::class);
         $this->app->bind('exir', Exir::class);
         $this->app->bind('arzpaya', Arzpaya::class);
+        $this->app->bind('bittestan', Bittestan::class);
     }
 
     /**
