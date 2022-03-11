@@ -79,11 +79,11 @@
                         </div>
                     </div>
                 @endforeach
-                <a class="clickable lists-exchanges__more" href="{{ route('exchanges.home') }}">
-                    مشاهده بیشتر
-                    <i class="fad fa-angle-double-left"></i>
-                </a>
             </div>
+            <a class="clickable lists-exchanges__more d-block mx-auto" href="{{ route('exchanges.home') }}">
+                مشاهده بیشتر
+                <i class="fad fa-angle-double-left"></i>
+            </a>
         </div>
     </section>
     {{--    <section class="whats-crypto py-5">--}}
