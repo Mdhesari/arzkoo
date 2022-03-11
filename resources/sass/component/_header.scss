@@ -18,27 +18,29 @@ header {
             display: flex;
             align-items: center;
             .logo-holder {
-                width: 96px;
+                width: 150px;
                 margin-left: 8px;
                 img {
                     width: 100%;
                 }
             }
             .main-menu {
+                margin-right: 20px;
                 ul {
                     li {
                         display: inline-block;
+                        margin: 0 14px;
                         a {
                             padding: 0 8px;
                             color: $color-second;
                             transition: 0.3s all;
+                            font-size: 14px;
+                            &.active {
+                                color: $color-purpel;
+                            }
                             &:hover {
                                 color: $color-purpel;
                             }
-                        }
-
-                        &.active a {
-                            color: $color-purpel;
                         }
                     }
                 }
@@ -52,17 +54,18 @@ header {
             position: relative;
             & > a {
                 color: $color-first;
-                padding: 6px 12px;
-                font-size: 14px;
+                padding: 8px 16px;
+                font-size: 12px;
                 display: inline-flex;
                 border: 1px solid $color-first;
-                border-radius: 5px;
+                border-radius: 2em;
                 transition: all 0.5s;
                 align-items: center;
 
                 &:hover {
                     color: $color-white;
-                    background-color: $color-first;
+                    background-color: #ff6067;
+                    border: 1px solid #ff6067;
                 }
             }
             .profile-btn {
@@ -137,6 +140,7 @@ header {
             overflow-y: auto;
             overflow-x: hidden;
             transition: 0.3s all;
+            margin-right: 0 !important;
             ul {
                 margin-top: 16px;
                 li {
