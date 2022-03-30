@@ -30,7 +30,7 @@
         "spatie/laravel-sitemap": "^6.0",
         "tcg/voyager": "^1.4",
         "ext-intl": "*",
-      "ext-curl": "*"
+        "ext-curl": "*"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.5",
