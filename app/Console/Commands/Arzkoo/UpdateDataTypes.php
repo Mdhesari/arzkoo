@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands;
+namespace App\Console\Commands\Content\Exchange\Exchange\Arzkoo;
 
 use Illuminate\Console\Command;
 

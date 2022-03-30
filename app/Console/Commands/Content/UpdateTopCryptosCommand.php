@@ -1,18 +1,17 @@
 <?php
 
-namespace App\Console\Commands;
+namespace App\Console\Commands\Content;
 
-use App\Models\Exchanges\Exchange;
 use Illuminate\Console\Command;
 
-class ConfigExchangesCommand extends Command
+class UpdateTopCryptosCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'arzkoo:config-exchanges';
+    protected $signature = 'arzkoo:update-top-cryptos';
 
     /**
      * The console command description.
@@ -38,13 +37,9 @@ class ConfigExchangesCommand extends Command
      */
     public function handle()
     {
-        $this->call('optimize:clear');
+        cache()->forget('topCrypto');
 
-        $this->call('scrap:new-exchanges');
-        $this->call('arzkoo:update-exchanges-supported');
-        $this->call('arzkoo:update-exchanges');
-
-        $this->call('optimize');
+        get_top_cryptos();
 
         return 0;
     }

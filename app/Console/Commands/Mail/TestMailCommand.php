@@ -1,17 +1,18 @@
 <?php
 
-namespace App\Console\Commands;
+namespace App\Console\Commands\Content\Exchange\Exchange\Arzkoo\Arzkoo\Mail;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Mail;
 
-class TestQueueCommand extends Command
+class TestMailCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'arzkoo:test-queue';
+    protected $signature = 'arzkoo:test-mail';
 
     /**
      * The console command description.
@@ -37,8 +38,8 @@ class TestQueueCommand extends Command
      */
     public function handle()
     {
-        dispatch(function () {
-            info('hello there from queue');
-        })->delay(now()->addMinutes(5));
+        Mail::raw('Hello World!', function($msg) {$msg->to('mdhesari99@gmail.com')->subject('Test Email'); });
+
+        return 0;
     }
 }

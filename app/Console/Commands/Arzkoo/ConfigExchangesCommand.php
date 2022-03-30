@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Console\Commands;
+namespace App\Console\Commands\Content\Exchange\Exchange\Arzkoo\Arzkoo\Mail\Content\Mail\Arzkoo;
 
-use App\Jobs\UpdateCryptosLogo;
+use App\Models\Exchanges\Exchange;
 use Illuminate\Console\Command;
 
-class UpdateCryptosCommand extends Command
+class ConfigExchangesCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'arzkoo:update-cryptos';
+    protected $signature = 'arzkoo:config-exchanges';
 
     /**
      * The console command description.
@@ -38,7 +38,13 @@ class UpdateCryptosCommand extends Command
      */
     public function handle()
     {
-        dispatch(new UpdateCryptosLogo);
+        $this->call('optimize:clear');
+
+        $this->call('scrap:new-exchanges');
+        $this->call('arzkoo:update-exchanges-supported');
+        $this->call('arzkoo:update-exchanges');
+
+        $this->call('optimize');
 
         return 0;
     }

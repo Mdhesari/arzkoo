@@ -1,18 +1,17 @@
 <?php
 
-namespace App\Console\Commands;
+namespace App\Console\Commands\Content\Exchange\Exchange\Arzkoo\Arzkoo;
 
-use App\Models\Exchanges\Exchange;
 use Illuminate\Console\Command;
 
-class ResetExchangeRatesCommand extends Command
+class TestQueueCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'arzkoo:reset-exchange-rates';
+    protected $signature = 'arzkoo:test-queue';
 
     /**
      * The console command description.
@@ -38,12 +37,8 @@ class ResetExchangeRatesCommand extends Command
      */
     public function handle()
     {
-        Exchange::published()->get()->map(function ($exchange) {
-            $exchange->ratings()->delete();
-            $exchange->calcAverageRate();
-            $exchange->updateRatingsAvg();
-        });
-
-        return 0;
+        dispatch(function () {
+            info('hello there from queue');
+        })->delay(now()->addMinutes(5));
     }
 }

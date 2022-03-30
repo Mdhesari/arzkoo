@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Console\Commands;
+namespace App\Console\Commands\Content\Exchange\Exchange\Arzkoo\Arzkoo\Mail\Content\Mail;
 
+use App\Models\EmailSubscription;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Mail;
 
-class TestMailCommand extends Command
+class ResetMailSubscriptionCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'arzkoo:test-mail';
+    protected $signature = 'arzkoo:reset-mail-subscriptions';
 
     /**
      * The console command description.
@@ -38,7 +38,7 @@ class TestMailCommand extends Command
      */
     public function handle()
     {
-        Mail::raw('Hello World!', function($msg) {$msg->to('mdhesari99@gmail.com')->subject('Test Email'); });
+        EmailSubscription::where('id', '>', 0)->delete();
 
         return 0;
     }

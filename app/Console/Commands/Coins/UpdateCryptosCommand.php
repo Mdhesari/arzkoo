@@ -1,17 +1,18 @@
 <?php
 
-namespace App\Console\Commands;
+namespace App\Console\Commands\Content\Exchange\Exchange\Arzkoo\Arzkoo\Mail\Content\Mail\Coins;
 
+use App\Jobs\UpdateCryptosLogo;
 use Illuminate\Console\Command;
 
-class UpdateTopCryptosCommand extends Command
+class UpdateCryptosCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'arzkoo:update-top-cryptos';
+    protected $signature = 'arzkoo:update-cryptos';
 
     /**
      * The console command description.
@@ -37,9 +38,7 @@ class UpdateTopCryptosCommand extends Command
      */
     public function handle()
     {
-        cache()->forget('topCrypto');
-
-        get_top_cryptos();
+        dispatch(new UpdateCryptosLogo);
 
         return 0;
     }

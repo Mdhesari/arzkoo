@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands;
+namespace App\Console\Commands\Content\Exchange\Exchange\Arzkoo\Arzkoo\Mail\Content\Mail\Coins;
 
 use App\Console\BaseScrapper;
 use App\Models\Currencies\Crypto;

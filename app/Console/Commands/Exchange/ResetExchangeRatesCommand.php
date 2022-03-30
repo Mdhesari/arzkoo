@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Console\Commands;
+namespace App\Console\Commands\Content\Exchange\Exchange\Arzkoo\Arzkoo\Mail\Content\Exchange;
 
-use App\Models\EmailSubscription;
+use App\Models\Exchanges\Exchange;
 use Illuminate\Console\Command;
 
-class ResetMailSubscriptionCommand extends Command
+class ResetExchangeRatesCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'arzkoo:reset-mail-subscriptions';
+    protected $signature = 'arzkoo:reset-exchange-rates';
 
     /**
      * The console command description.
@@ -38,7 +38,11 @@ class ResetMailSubscriptionCommand extends Command
      */
     public function handle()
     {
-        EmailSubscription::where('id', '>', 0)->delete();
+        Exchange::published()->get()->map(function ($exchange) {
+            $exchange->ratings()->delete();
+            $exchange->calcAverageRate();
+            $exchange->updateRatingsAvg();
+        });
 
         return 0;
     }
