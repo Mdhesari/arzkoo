@@ -31,12 +31,17 @@ class Nobitex extends BaseExchange implements ExchangeAdapter
             $orderBooks = $this->getcollectionResponse($this->client()->get($this->url('v2/orderbook/all')));
 
             $symbols = $orderBooks->map(function ($orderBook, $market) {
-                if ($symbol = $this->getBaseSymbol($market, 'IRT')) {
+                if ( $symbol = $this->getBaseSymbol($market, 'IRT') ) {
                     return strtolower($symbol);
                 }
-            })->filter(fn($symbol) => !is_null($symbol))->unique();
+            })->filter(fn($symbol) => ! is_null($symbol))->unique();
 
             return $symbols->values()->toArray();
         });
+    }
+
+    public function getUSDTIRR()
+    {
+        return intval(collect($this->getMarketStats(['usdt'], ['rls']))->toArray()['usdt-rls']->bestSell);
     }
 }

@@ -35,7 +35,7 @@ abstract class BaseAPI
      */
     protected function url(string $string): string
     {
-        return $this->base . '/' . $string;
+        return $this->base.'/'.$string;
     }
 
     /**
@@ -54,7 +54,7 @@ abstract class BaseAPI
      */
     public function getMarketString(string $symbol, string $dstSymbol): string
     {
-        return strtolower($symbol . '-' . $dstSymbol);
+        return strtolower($symbol.'-'.$dstSymbol);
     }
 
     /**
@@ -73,10 +73,15 @@ abstract class BaseAPI
      */
     protected function getBaseSymbol($market, $quoteSymbol): bool|string
     {
-        if (strpos($market = strtoupper($market), $quoteSymbol = strtoupper($quoteSymbol))) {
+        if ( strpos($market = strtoupper($market), $quoteSymbol = strtoupper($quoteSymbol)) ) {
             return substr($market, 0, strpos($market, $quoteSymbol));
         }
 
         return false;
+    }
+
+    protected function getUSDTToIRR($quantity): float|int
+    {
+        return $quantity * get_usdt_to_irr();
     }
 }

@@ -14,7 +14,7 @@ function get_default_currency_symbol()
 
 function make_mobile_limiter_key($username)
 {
-    return 'key' . $username . ':send_verification';
+    return 'key'.$username.':send_verification';
 }
 
 function get_available_in_rate_limiter(RateLimiter $limiter, $key)
@@ -39,13 +39,13 @@ function getRangeLabel($range)
 {
     $label = 'null';
 
-    if ($range > 0 && $range < 3)
+    if ( $range > 0 && $range < 3 )
         $label = 'avg';
 
-    if ($range > 0 && $range > 3)
+    if ( $range > 0 && $range > 3 )
         $label = 'best';
 
-    return __('seeders.data_rows.options.' . $label);
+    return __('seeders.data_rows.options.'.$label);
 }
 
 /**
@@ -88,34 +88,41 @@ function get_top_cryptos(): array
 
 function download_image($filename, $url)
 {
-    if (file_exists($filename)) {
+    if ( file_exists($filename) ) {
         @unlink($filename);
     }
 
-    if (!is_dir(dirname($filename))) {
+    if ( ! is_dir(dirname($filename)) ) {
         mkdir(dirname($filename));
     }
 
     $fp = fopen($filename, 'w');
-    if ($fp) {
+    if ( $fp ) {
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_BINARYTRANSFER, 1);
         $result = parse_url($url);
-        curl_setopt($ch, CURLOPT_REFERER, $result['scheme'] . '://' . $result['host']);
+        curl_setopt($ch, CURLOPT_REFERER, $result['scheme'].'://'.$result['host']);
         curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:45.0) Gecko/20100101 Firefox/45.0');
         $raw = curl_exec($ch);
         curl_close($ch);
-        if ($raw) {
+        if ( $raw ) {
             fwrite($fp, $raw);
         }
         fclose($fp);
-        if (!$raw) {
+        if ( ! $raw ) {
             @unlink($filename);
             return false;
         }
         return true;
     }
     return false;
+}
+
+function get_usdt_to_irr()
+{
+    return Cache::remember('usdt-to-irt', now()->addHour(), function () {
+        return app('nobitex')->getUSDTIRR();
+    });
 }

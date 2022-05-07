@@ -6,6 +6,7 @@ use App\Services\Exchange\Arzpaya;
 use App\Services\Exchange\Bittestan;
 use App\Services\Exchange\Didex;
 use App\Services\Exchange\Exir;
+use App\Services\Exchange\Kucoin;
 use App\Services\Exchange\Nobitex;
 use App\Services\Exchange\Ramzinex;
 use App\Services\Exchange\Saraf;
@@ -27,6 +28,7 @@ class ExchangeProvider extends ServiceProvider
         $this->app->bind('exir', Exir::class);
         $this->app->bind('arzpaya', Arzpaya::class);
         $this->app->bind('bittestan', Bittestan::class);
+        $this->app->bind('kucoin', Kucoin::class);
     }
 
     /**
