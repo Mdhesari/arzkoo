@@ -21,14 +21,9 @@ class ExchangeProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('nobitex', Nobitex::class);
-        $this->app->bind('didex', Didex::class);
-        $this->app->bind('ramzinex', Ramzinex::class);
-        $this->app->bind('saraf', Saraf::class);
-        $this->app->bind('exir', Exir::class);
-        $this->app->bind('arzpaya', Arzpaya::class);
-        $this->app->bind('bittestan', Bittestan::class);
-        $this->app->bind('kucoin', Kucoin::class);
+        foreach (config('exchange.adapters') as $adapter) {
+            $this->app->bind($adapter);
+        }
     }
 
     /**
