@@ -37,7 +37,7 @@ class CommentDataRows extends BaseDataRows
                 'order'        => 2,
                 'details'      => [
                     'validation' => [
-                        'rule' => ['required', 'max:3'],
+                        'rule' => ['required', 'min:3'],
                     ]
                 ]
             ])->save();
