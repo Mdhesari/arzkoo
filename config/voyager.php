@@ -79,7 +79,7 @@ return [
     */
 
     'database' => [
-        'tables' => [
+        'tables'              => [
             'hidden' => ['migrations', 'data_rows', 'data_types', 'menu_items', 'password_resets', 'permission_role', 'settings'],
         ],
         'autoload_migrations' => true,
@@ -132,12 +132,12 @@ return [
                 'classes'    => 'class-full-of-rum',
                 'icon_class' => 'voyager-person',
             ],
-            'voyager::generic.home' => [
+            'voyager::generic.home'    => [
                 'route'        => '/',
                 'icon_class'   => 'voyager-home',
                 'target_blank' => true,
             ],
-            'voyager::generic.logout' => [
+            'voyager::generic.logout'  => [
                 'route'      => 'voyager.logout',
                 'icon_class' => 'voyager-power',
             ],
@@ -162,16 +162,16 @@ return [
 
     'bread' => [
         // When a BREAD is added, create the Menu item using the BREAD properties.
-        'add_menu_item' => true,
+        'add_menu_item'  => true,
 
         // which menu add item to
-        'default_menu' => 'admin',
+        'default_menu'   => 'admin',
 
         // When a BREAD is added, create the related Permission.
         'add_permission' => true,
 
         // which role add premissions to
-        'default_role' => 'admin',
+        'default_role'   => 'admin',
     ],
 
     /*
@@ -185,7 +185,7 @@ return [
 
     'primary_color' => '#22A7F0',
 
-    'show_dev_tips' => true, // Show development tip "How To Use:" in Menu and Settings
+    'show_dev_tips'  => true, // Show development tip "How To Use:" in Menu and Settings
 
     // Here you can specify additional assets you would like to be included in the master.blade
     'additional_css' => [
@@ -196,21 +196,21 @@ return [
         //'js/custom.js',
     ],
 
-    'googlemaps' => [
+    'googlemaps'            => [
         'key'    => env('GOOGLE_MAPS_KEY', ''),
         'center' => [
             'lat' => env('GOOGLE_MAPS_DEFAULT_CENTER_LAT', '32.715738'),
             'lng' => env('GOOGLE_MAPS_DEFAULT_CENTER_LNG', '-117.161084'),
         ],
-        'zoom' => env('GOOGLE_MAPS_DEFAULT_ZOOM', 11),
+        'zoom'   => env('GOOGLE_MAPS_DEFAULT_ZOOM', 11),
     ],
 
     // Activate compass when environment is NOT local
-    'compass_in_production' => false,
+    'compass_in_production' => env('ADMIN_COMPASS_ENABLED', false),
 
     'media' => [
         // The allowed mimetypes to be uploaded through the media-manager.
-        'allowed_mimetypes' => '*', //All types can be uploaded
+        'allowed_mimetypes'   => '*', //All types can be uploaded
         /*
         'allowed_mimetypes' => [
           'image/jpeg',
