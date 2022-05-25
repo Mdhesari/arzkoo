@@ -40,5 +40,7 @@ class PermissionsTableSeeder extends Seeder
         Permission::generateFor('cryptos');
 
         Permission::generateFor('contacts');
+
+        Permission::generateFor('comments');
     }
 }

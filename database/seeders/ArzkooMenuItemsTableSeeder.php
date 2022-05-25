@@ -23,7 +23,7 @@ class ArzkooMenuItemsTableSeeder extends Seeder
             'url'     => '',
             'route'   => 'home',
         ]);
-        if (!$menuItem->exists) {
+        if ( ! $menuItem->exists ) {
             $menuItem->fill([
                 'target'     => '_self',
                 'icon_class' => 'voyager-boat',
@@ -39,7 +39,7 @@ class ArzkooMenuItemsTableSeeder extends Seeder
             'url'     => '',
             'route'   => 'exchanges.home',
         ]);
-        if (!$menuItem->exists) {
+        if ( ! $menuItem->exists ) {
             $menuItem->fill([
                 'target'     => '_self',
                 'icon_class' => 'voyager-boat',
@@ -55,7 +55,7 @@ class ArzkooMenuItemsTableSeeder extends Seeder
             'url'     => '',
             'route'   => 'live-price',
         ]);
-        if (!$menuItem->exists) {
+        if ( ! $menuItem->exists ) {
             $menuItem->fill([
                 'target'     => '_self',
                 'icon_class' => 'voyager-boat',
@@ -71,7 +71,7 @@ class ArzkooMenuItemsTableSeeder extends Seeder
             'url'     => '',
             'route'   => 'blog.blog',
         ]);
-        if (!$menuItem->exists) {
+        if ( ! $menuItem->exists ) {
             $menuItem->fill([
                 'target'     => '_self',
                 'icon_class' => 'voyager-boat',
@@ -89,7 +89,7 @@ class ArzkooMenuItemsTableSeeder extends Seeder
             'url'     => '',
             'route'   => 'voyager.exchanges.index',
         ]);
-        if (!$menuItem->exists) {
+        if ( ! $menuItem->exists ) {
             $menuItem->fill([
                 'target'     => '_self',
                 'icon_class' => 'voyager-shop',
@@ -105,7 +105,7 @@ class ArzkooMenuItemsTableSeeder extends Seeder
             'url'     => '',
             'route'   => 'voyager.cryptos.index',
         ]);
-        if (!$menuItem->exists) {
+        if ( ! $menuItem->exists ) {
             $menuItem->fill([
                 'target'     => '_self',
                 'icon_class' => 'voyager-dollar',
@@ -121,10 +121,26 @@ class ArzkooMenuItemsTableSeeder extends Seeder
             'url'     => '',
             'route'   => 'voyager.contacts.index',
         ]);
-        if (!$menuItem->exists) {
+        if ( ! $menuItem->exists ) {
             $menuItem->fill([
                 'target'     => '_self',
                 'icon_class' => 'voyager-telephone',
+                'color'      => null,
+                'parent_id'  => $menuItem->id,
+                'order'      => 4,
+            ])->save();
+        }
+
+        $menuItem = MenuItem::firstOrNew([
+            'menu_id' => $menu->id,
+            'title'   => __('seeders.menu_items.comments'),
+            'url'     => '',
+            'route'   => 'voyager.contacts.index',
+        ]);
+        if ( ! $menuItem->exists ) {
+            $menuItem->fill([
+                'target'     => '_self',
+                'icon_class' => 'voyager-comments',
                 'color'      => null,
                 'parent_id'  => $menuItem->id,
                 'order'      => 4,

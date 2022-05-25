@@ -2,12 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Space\DataRows\CommentDataRows;
 use App\Space\DataRows\ContactDataRows;
 use App\Space\DataRows\CryptoDataRows;
 use App\Space\DataRows\ExchangeDataRows;
-use App\Space\DataRows\LotDataRows;
-use App\Space\DataRows\LotGroupDataRows;
-use App\Space\DataRows\OwnerDataRows;
 use Illuminate\Database\Seeder;
 use Illuminate\Pipeline\Pipeline;
 use TCG\Voyager\Models\DataType;
@@ -27,6 +25,7 @@ class ArzkooDataRowsTableSeeder extends Seeder
             ExchangeDataRows::class,
             CryptoDataRows::class,
             ContactDataRows::class,
+            CommentDataRows::class,
         ])
             ->via('create')
             ->then(function ($groupDataType) {

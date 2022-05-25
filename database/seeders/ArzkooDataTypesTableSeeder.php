@@ -13,6 +13,7 @@ use App\Models\Lot;
 use App\Models\LotGroup;
 use App\Models\Owner;
 use App\Policies\OwnerPolicy;
+use BeyondCode\Comments\Comment;
 use Illuminate\Database\Seeder;
 use TCG\Voyager\Models\DataType;
 
@@ -61,6 +62,20 @@ class ArzkooDataTypesTableSeeder extends Seeder
                 'display_name_plural'   => __('seeders.data_types.contacts.plural'),
                 'icon'                  => 'voyager-images',
                 'model_name'            => Contact::class,
+                // 'controller'            => AdminExchangeController::class,
+                'generate_permissions'  => 1,
+                'description'           => '',
+            ])->save();
+        }
+
+        $dataType = $this->dataType('slug', 'comments');
+        if (!$dataType->exists) {
+            $dataType->fill([
+                'name'                  => 'comments',
+                'display_name_singular' => __('seeders.data_types.comments.singular'),
+                'display_name_plural'   => __('seeders.data_types.comments.plural'),
+                'icon'                  => 'voyager-comment',
+                'model_name'            => Comment::class,
                 // 'controller'            => AdminExchangeController::class,
                 'generate_permissions'  => 1,
                 'description'           => '',
