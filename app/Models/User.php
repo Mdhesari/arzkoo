@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use BeyondCode\Comments\Traits\CanComment;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -11,7 +12,7 @@ use Storage;
 
 class User extends \TCG\Voyager\Models\User
 {
-    use HasFactory, Notifiable, SoftDeletes;
+    use HasFactory, Notifiable, SoftDeletes, CanComment;
 
     /**
      * The attributes that are mass assignable.
