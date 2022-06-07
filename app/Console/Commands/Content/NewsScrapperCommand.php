@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands\Exchange\Content\Content;
+namespace App\Console\Commands\Content;
 
 use App\Console\BaseScrapper;
 use App\Models\Exchanges\Exchange;

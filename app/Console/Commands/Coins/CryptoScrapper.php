@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands\Exchange\Content\Coins;
+namespace App\Console\Commands\Coins;
 
 use App\Console\BaseScrapper;
 use App\Models\Currencies\Crypto;
