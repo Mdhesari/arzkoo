@@ -21,8 +21,8 @@ class ExchangeProvider extends ServiceProvider
      */
     public function register()
     {
-        foreach (config('exchange.adapters') as $adapter) {
-            $this->app->bind($adapter);
+        foreach (config('exchange.adapters') as $exchange => $adapter) {
+            $this->app->bind($exchange, $adapter);
         }
     }
 
