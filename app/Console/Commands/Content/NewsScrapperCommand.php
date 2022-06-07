@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands\Content\Exchange\Exchange\Arzkoo\Arzkoo\Mail\Content\Mail\Content;
+namespace App\Console\Commands\Exchange\Content\Content;
 
 use App\Console\BaseScrapper;
 use App\Models\Exchanges\Exchange;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands\Content\Exchange\Exchange\Arzkoo\Arzkoo\Mail\Content\Mail\Arzkoo;
+namespace App\Console\Commands\Exchange\Content\Arzkoo;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;

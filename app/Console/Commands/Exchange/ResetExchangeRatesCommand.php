@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands\Content\Exchange\Exchange\Arzkoo\Arzkoo\Mail\Content\Exchange;
+namespace App\Console\Commands\Exchange;
 
 use App\Models\Exchanges\Exchange;
 use Illuminate\Console\Command;

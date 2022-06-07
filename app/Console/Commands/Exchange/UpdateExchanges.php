@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands\Content\Exchange\Exchange;
+namespace App\Console\Commands\Exchange;
 
 use App\Models\Currencies\Crypto;
 use App\Models\Exchanges\Exchange;

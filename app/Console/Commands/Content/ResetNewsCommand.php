@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands;
+namespace App\Console\Commands\Exchange\Content;
 
 use App\Models\News;
 use Illuminate\Console\Command;
