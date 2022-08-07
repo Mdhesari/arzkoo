@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f8121c0640b1c9a1c61f3291883898d7",
+    "content-hash": "18fcf40af0ef5f476eb148beaa57fba9",
     "packages": [
         {
             "name": "arrilot/laravel-widgets",
@@ -9690,28 +9690,27 @@
         },
         {
             "name": "mdhesari/mysql-localhost",
-            "version": "dev-main",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Mdhesari/mysql-localhost.git",
-                "reference": "acd4314679a2f078b88a892dd6105fc888d05497"
+                "reference": "e990ee3f2258c12caddfcbfc57d759d3974ead8f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Mdhesari/mysql-localhost/zipball/acd4314679a2f078b88a892dd6105fc888d05497",
-                "reference": "acd4314679a2f078b88a892dd6105fc888d05497",
+                "url": "https://api.github.com/repos/Mdhesari/mysql-localhost/zipball/e990ee3f2258c12caddfcbfc57d759d3974ead8f",
+                "reference": "e990ee3f2258c12caddfcbfc57d759d3974ead8f",
                 "shasum": ""
             },
             "require": {
                 "ext-pdo": "*",
                 "friendsofphp/php-cs-fixer": "^3.4",
-                "illuminate/support": "^7.0|^8.0",
-                "php": "^7.3|^8.0"
+                "illuminate/support": "^7.0|^8.0|^9.0",
+                "php": "^7.3|^8.0|^9.0"
             },
             "require-dev": {
                 "orchestra/testbench": "^5.0"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -9740,9 +9739,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Mdhesari/mysql-localhost/issues",
-                "source": "https://github.com/Mdhesari/mysql-localhost/tree/main"
+                "source": "https://github.com/Mdhesari/mysql-localhost/tree/1.0.1"
             },
-            "time": "2021-12-27T08:11:43+00:00"
+            "time": "2022-07-22T20:16:06+00:00"
         },
         {
             "name": "mockery/mockery",
@@ -12095,9 +12094,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "mdhesari/mysql-localhost": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
