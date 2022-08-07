@@ -9,6 +9,12 @@
                     </h1>
                 </div>
             </div>
+        @else
+            <div class="mb-4 text-center">
+                <h1 class="h2 text-white">
+                    {{ $isBuy ? ' فروش ':' خرید ' . $crypto->name }}
+                </h1>
+            </div>
         @endif
 
         <div class="row search-holder">
