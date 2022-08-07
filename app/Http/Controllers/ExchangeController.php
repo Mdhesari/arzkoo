@@ -62,7 +62,9 @@ class ExchangeController extends Controller
      */
     public function show(Exchange $exchange)
     {
-        SEOMeta::setTitle($exchange->persian_title);
+        SEOMeta::setTitle(
+            ' نقد و بررسی صرافی '.$exchange->persian_title.' ('.$exchange->title.') '
+        );
         SEOMeta::setDescription($exchange->description);
         SEOMeta::setCanonical(route('exchanges.home'));
 

@@ -38,7 +38,7 @@ Route::prefix('exchanges')->group(function () {
     Route::get('/', [ExchangeController::class, 'index'])->name('exchanges.home');
     Route::get('/buy-{crypto?}', [ExchangeController::class, 'buyList'])->name('exchanges.buy-list');
     Route::get('/sell-{crypto?}', [ExchangeController::class, 'sellList'])->name('exchanges.sell-list');
-    Route::get('/show/{exchange}', [ExchangeController::class, 'show'])->name('exchanges.show');
+    Route::get('/{exchange}', [ExchangeController::class, 'show'])->name('exchanges.show');
 });
 
 Route::middleware('guest')->group(function () {
