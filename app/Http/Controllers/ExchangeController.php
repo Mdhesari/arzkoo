@@ -11,7 +11,8 @@ class ExchangeController extends Controller
 {
     public function __construct()
     {
-        SEOMeta::setTitle('مشاهده صرافی های معتبر');
+        SEOMeta::setTitle('لیست صرافی ها و کارگزاران ارزهای پایه');
+        SEOMeta::setDescription('لیست صرافی ها و کارگزاران ارز های پایه را مشاهده کنید و از بین این صرافی ها، بهترین صرافی ها را پیدا کرده و خرید و فروش خود را انجام دهید.');
         SEOMeta::setCanonical(route('exchanges.home'));
     }
 
@@ -45,7 +46,7 @@ class ExchangeController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -56,8 +57,8 @@ class ExchangeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function show(Exchange $exchange)
     {
@@ -73,7 +74,7 @@ class ExchangeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -84,8 +85,8 @@ class ExchangeController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -96,7 +97,7 @@ class ExchangeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
