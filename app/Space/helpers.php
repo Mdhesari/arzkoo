@@ -35,7 +35,7 @@ function arzkoo_money($number, $currency = 'IRR', $locale = 'fa_IR')
     $number = numfmt_format_currency($fmt, $number, $currency);
 
     if ( Str::contains($number, ['ریال', 'IRT', 'irt']) )
-        return 'تومان'.Str::of($number)->replace(['ریال', 'IRT', 'irt'], '');
+        return Str::of($number)->replace(['ریال', 'IRT', 'irt'], '') . ' تومان ';
 
     return $number;
 }
