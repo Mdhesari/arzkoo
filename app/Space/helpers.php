@@ -32,7 +32,7 @@ function arzkoo_money($number, $currency = 'IRR', $locale = 'fa_IR')
 {
     $fmt = numfmt_create($locale, NumberFormatter::CURRENCY);
 
-    return Str::of(numfmt_format_currency($fmt, $number, $currency))->replace(['ریال', 'IRT'], 'تومان');
+    return Str::of(numfmt_format_currency($fmt, $number, $currency))->replace(['ریال', 'IRT', 'irt'], 'تومان');
 }
 
 function getRangeLabel($range)
