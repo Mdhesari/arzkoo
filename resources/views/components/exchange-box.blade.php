@@ -3,10 +3,12 @@
     <div class="row align-items-center">
         <div class="col-lg-8 col-md-8 col-sm-12">
             <div class="header-right">
-                <h3 class="mx-1">{{ $exchange->persian_title }}</h3>
-                <div class="images">
-                    <img src="{{ $exchange->logo_url }}" alt="{{ $exchange->name }}">
-                </div>
+                <a href="{{ route('exchanges.show', $exchange) }}">
+                    <h2 class="mx-1 h3">{{ $exchange->persian_title }}</h2>
+                    <div class="images">
+                        <img src="{{ $exchange->logo_url }}" alt="{{ $exchange->name }}">
+                    </div>
+                </a>
                 <div class="star">
                     @for ($i = 1; $i <= 5; $i++)
                         <i class="fa fa-star @if ($exchange->rate_avg >= $i) star-yellow @endif"></i>
