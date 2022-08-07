@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <h1 class="title-section m-30">
-                        با ارزکو ارزون بخر، گرون بفروش
+                        با <strong>ارزکو</strong> ارزون بخر، گرون بفروش
                     </h1>
                 </div>
             </div>
