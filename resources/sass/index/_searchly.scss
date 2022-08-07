@@ -1,6 +1,7 @@
 .searchly {
-    background-image: linear-gradient(to bottom right, #6b59d4, #453987);
-
+    background-color: #fff;
+    position: relative;
+    overflow: hidden;
     .title-section {
         color: $color-white;
     }
@@ -9,10 +10,11 @@
             width: 100%;
 
             h2{
-                color: $color-white;
                 font-weight: 300;
-                font-size: 18px;
                 line-height: 24px;
+                font-size: 2rem;
+                color: rgb(0 0 0 / 74%);
+                text-shadow: 2px 2px 3px rgb(255 255 255 / 53%);
             }
         }
     }
@@ -27,6 +29,12 @@
             width: 16%;
             display: flex;
             align-items: center;
+            background-color: #fff;
+            min-height: 150px;
+            border-radius: 4px;
+            justify-content: center;
+            padding: 16px;
+
 
             .icon {
                 margin-left: 16px;
@@ -38,16 +46,17 @@
             }
 
             .detail {
-                text-align: center;
-                padding: 12px 0;
+
 
                 strong {
-                    color: $color-white;
-                    font-size: 22px;
+                    color: #5556a2;
+                    font-size: 18px;
+                    margin-bottom: 4px;
+                    display: block;
                 }
 
                 p {
-                    color: $color-white;
+                    color: #5556a2;
                     font-size: .8em;
                     line-height: 1.33em;
                     margin-bottom: 0;
@@ -88,3 +97,38 @@
 .padding-0 {
     padding: 0 !important;
 }
+
+
+section.searchly:before {
+    content: "";
+    position: absolute;
+    width: 300%;
+    height: 100vh;
+    top: 15%;
+    left: 50%;
+    background-color: #5556a2;
+    border-radius: 50%;
+    transform: translateX(-50%) skew(0, -10deg);
+    animation: wave 7s ease-in-out infinite alternate;
+    -webkit-animation: wave 7s ease-in-out infinite alternate;
+    z-index: 0;
+}
+
+
+@keyframes wave {
+    from {
+        transform: translateX(-50%) skew(0, -10deg);
+    }
+    to {
+        transform: translateX(-30%) skew(10deg, 0);
+        -webkit-transform: translateX(-30%) skew(10deg, 0);
+        -moz-transform: translateX(-30%) skew(10deg, 0);
+        -ms-transform: translateX(-30%) skew(10deg, 0);
+        -o-transform: translateX(-30%) skew(10deg, 0);
+    }
+}
+
+
+
+
+
