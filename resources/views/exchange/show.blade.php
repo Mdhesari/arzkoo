@@ -100,26 +100,27 @@
                             <div class="tab-content" id="pills-tabContent">
                                 <div class="tab-pane fade show active" id="pills-currencies" role="tabpanel"
                                      aria-labelledby="pills-home-tab">
-                                    <table>
-                                        <thead>
-                                        <th class="px-2">نام</th>
-                                        <th class="px-2 text-nowrap">قیمت خرید</th>
-                                        <th class="px-2 text-nowrap">قیمت فروش</th>
-                                        </thead>
-                                        <tbody>
-                                        @foreach ($cryptos as $crypto)
-                                            <tr>
-                                                {{-- <td><i class="fab fa-{{ $crypto->symbol }}"></i></td> --}}
-                                                <td>{{ $crypto->name }}</td>
-                                                <td class="text-nowrap">
-                                                    {{ $crypto->pivot_buy_price_formatted }}</td>
-                                                <td class="text-nowrap">
-                                                    {{ $crypto->pivot_sell_price_formatted }}</td>
-                                            </tr>
-                                        @endforeach
-                                        </tbody>
-                                    </table>
-
+                                     <div class="table-hodler">
+                                        <table>
+                                            <thead>
+                                            <th class="px-2">نام</th>
+                                            <th class="px-2 text-nowrap">قیمت خرید</th>
+                                            <th class="px-2 text-nowrap">قیمت فروش</th>
+                                            </thead>
+                                            <tbody>
+                                            @foreach ($cryptos as $crypto)
+                                                <tr>
+                                                    {{-- <td><i class="fab fa-{{ $crypto->symbol }}"></i></td> --}}
+                                                    <td>{{ $crypto->name }}</td>
+                                                    <td class="text-nowrap">
+                                                        {{ $crypto->pivot_buy_price_formatted }}</td>
+                                                    <td class="text-nowrap">
+                                                        {{ $crypto->pivot_sell_price_formatted }}</td>
+                                                </tr>
+                                            @endforeach
+                                            </tbody>
+                                        </table>
+                                     </div>
                                     {{ $cryptos->links() }}
                                 </div>
                                 <div class="tab-pane fade" id="pills-payment" role="tabpanel"
