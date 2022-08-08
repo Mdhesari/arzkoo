@@ -197,6 +197,23 @@
                 slidesPerView: 5,
                 spaceBetween: 30,
                 freeMode: true,
+                centeredSlides: true,
+                breakpoints: {
+                    // when window width is <= 768px
+                    992: {
+                        slidesPerView: 5,
+                        spaceBetweenSlides: 30
+                    },
+                    768: {
+                        slidesPerView: 3,
+                        spaceBetweenSlides: 30
+                    },
+                    100: {
+                        slidesPerView: 2,
+                        spaceBetweenSlides: 30
+                    }
+                    // when window width is <= 999px
+                },
                 pagination: {
                     el: ".swiper-pagination",
                     clickable: true,
