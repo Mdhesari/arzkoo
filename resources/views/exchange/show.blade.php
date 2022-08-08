@@ -111,7 +111,17 @@
                                             @foreach ($cryptos as $crypto)
                                                 <tr>
                                                     {{-- <td><i class="fab fa-{{ $crypto->symbol }}"></i></td> --}}
-                                                    <td>{{ $crypto->name }}</td>
+                                                    <td>
+                                                        <div class="crypto-holder d-flex align-items-center">
+                                                            <div class="crypto-icon">
+                                                                <img src="{{ $crypto->logo_full_url }}"/>
+                                                            </div>
+                                                            <span>
+                                                                {{ $crypto->name }}
+                                                            </span>
+                                                        </div>
+                                                    
+                                                    </td>
                                                     <td class="text-nowrap">
                                                         {{ $crypto->pivot_buy_price_formatted }}</td>
                                                     <td class="text-nowrap">
@@ -121,7 +131,7 @@
                                             </tbody>
                                         </table>
                                      </div>
-                                    {{ $cryptos->links() }}
+                                  
                                 </div>
                                 <div class="tab-pane fade" id="pills-payment" role="tabpanel"
                                      aria-labelledby="pills-payment-tab">
