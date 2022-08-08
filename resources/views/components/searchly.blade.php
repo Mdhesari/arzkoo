@@ -197,38 +197,21 @@
                 slidesPerView: 5,
                 spaceBetween: 30,
                 freeMode: true,
-                centeredSlides: true,
-                initialSlides: 2,
                 breakpoints: {
-                    0: {
-                        slidesPerView: 2,
-                        spaceBetween: 0,
-                    },
-                    350: {
-                        slidesPerView: 3,
-                        spaceBetween: 0,
-
-                    },
-                    540: {
-                        slidesPerView: 5,
-                        spaceBetween: 0,
-
+                    // when window width is <= 768px
+                    992: {
+                        slidesPerView: 7,
+                        spaceBetweenSlides: 30
                     },
                     768: {
-                        slidesPerView: 7,
-                        spaceBetween: 0,
-
+                        slidesPerView: 5,
+                        spaceBetweenSlides: 30
                     },
-                    1100: {
-                        slidesPerView: 9,
-                        spaceBetween: 0,
-
-                    },
-                    1200: {
-                        slidesPerView: 11,
-                        spaceBetween: 0,
-
-                    },
+                    100: {
+                        slidesPerView: 2,
+                        spaceBetweenSlides: 30
+                    }
+                    // when window width is <= 999px
                 },
                 pagination: {
                     el: ".swiper-pagination",
