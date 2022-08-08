@@ -194,10 +194,42 @@
             });
 
             var swiper = new Swiper(".live-prices-slider", {
-                slidesPerView: "auto",
+                slidesPerView: 5,
                 spaceBetween: 30,
                 freeMode: true,
+                centeredSlides: true,
+                initialSlides: 2,
+                breakpoints: {
+                    0: {
+                        slidesPerView: 2,
+                        spaceBetween: 0,
+                    },
+                    350: {
+                        slidesPerView: 3,
+                        spaceBetween: 0,
 
+                    },
+                    540: {
+                        slidesPerView: 5,
+                        spaceBetween: 0,
+
+                    },
+                    768: {
+                        slidesPerView: 7,
+                        spaceBetween: 0,
+
+                    },
+                    1100: {
+                        slidesPerView: 9,
+                        spaceBetween: 0,
+
+                    },
+                    1200: {
+                        slidesPerView: 11,
+                        spaceBetween: 0,
+
+                    },
+                },
                 pagination: {
                     el: ".swiper-pagination",
                     clickable: true,
