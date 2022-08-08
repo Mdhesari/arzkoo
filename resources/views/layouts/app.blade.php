@@ -15,7 +15,7 @@
 {!! JsonLd::generate() !!}
 
 <!-- Styles -->
-    <link rel="canonical" href="{{ config('app.url') }}"/>
+    <link rel="canonical" href="{{ url()->current() }}"/>
     <link rel="stylesheet" href="{{ mix('css/font-awesome.css') }}">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <link rel="stylesheet" href="{{ mix('css/arzkoo.css') }}">

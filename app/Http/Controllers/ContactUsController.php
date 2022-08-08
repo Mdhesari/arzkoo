@@ -10,7 +10,6 @@ class ContactUsController extends Controller
     public function __construct()
     {
         SEOMeta::setTitle('تماس با ما');
-        SEOMeta::setCanonical(route('contact-us'));
     }
 
     public function index()
