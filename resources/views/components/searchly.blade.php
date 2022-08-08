@@ -201,11 +201,11 @@
                 breakpoints: {
                     // when window width is <= 768px
                     992: {
-                        slidesPerView: 5,
+                        slidesPerView: 7,
                         spaceBetweenSlides: 30
                     },
                     768: {
-                        slidesPerView: 3,
+                        slidesPerView: 7,
                         spaceBetweenSlides: 30
                     },
                     100: {
