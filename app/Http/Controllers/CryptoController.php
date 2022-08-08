@@ -10,7 +10,6 @@ class CryptoController extends Controller
     public function __construct()
     {
         SEOMeta::setTitle('قیمت لحظه ای رمز ارزها');
-        SEOMeta::setCanonical(route('live-price'));
     }
 
     public function livePrices()

@@ -13,7 +13,6 @@ class ExchangeController extends Controller
     {
         SEOMeta::setTitle('لیست صرافی ها و کارگزاران ارزهای پایه');
         SEOMeta::setDescription('لیست صرافی ها و کارگزاران ارز های پایه را مشاهده کنید و از بین این صرافی ها، بهترین صرافی ها را پیدا کرده و خرید و فروش خود را انجام دهید.');
-        SEOMeta::setCanonical(route('exchanges.home'));
     }
 
     /**
@@ -68,7 +67,6 @@ class ExchangeController extends Controller
             ' نقد و بررسی صرافی '.$exchange->persian_title.' ('.$exchange->title.') '
         );
         SEOMeta::setDescription($exchange->description);
-        SEOMeta::setCanonical(route('exchanges.home'));
 
         $cryptos = $exchange->cryptos()->paginate();
 
