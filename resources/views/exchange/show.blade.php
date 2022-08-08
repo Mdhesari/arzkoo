@@ -110,10 +110,10 @@
                                         @foreach ($cryptos as $crypto)
                                             <tr>
                                                 {{-- <td><i class="fab fa-{{ $crypto->symbol }}"></i></td> --}}
-                                                <td class="w-100">{{ $crypto->name }}</td>
-                                                <td class="text-nowrap text-left">
+                                                <td>{{ $crypto->name }}</td>
+                                                <td class="text-nowrap">
                                                     {{ $crypto->pivot_buy_price_formatted }}</td>
-                                                <td class="text-nowrap text-left">
+                                                <td class="text-nowrap">
                                                     {{ $crypto->pivot_sell_price_formatted }}</td>
                                             </tr>
                                         @endforeach
