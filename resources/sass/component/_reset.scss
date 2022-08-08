@@ -4,17 +4,6 @@ body {
     margin: 0;
     direction: rtl;
     box-sizing: border-box;
-    font-family: "irans";
-}
-
-@font-face {
-    font-family: "irans";
-    src: url("../../fonts/IRANSansWeb.woff");
-}
-
-@font-face {
-    font-family: "irans";
-    src: url("../../fonts/IRANSansWeb(FaNum).woff");
 }
 
 a {
@@ -33,15 +22,6 @@ li {
 
 ol {
     margin: 0 !important;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: "irans";
 }
 
 .body-wrapper {
