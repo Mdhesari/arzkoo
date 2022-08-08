@@ -44,7 +44,7 @@
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container-fluid">
         @if ($showMetaData)
             <div class="row recommendations">
                 <div class="recommendations-title text-center ">
@@ -56,7 +56,7 @@
                         @foreach ($favCryptos as $cry)
                             @php $best = $cry->bestBuyExchange->first() @endphp
 
-                            @if ($best && $countBestEx < 5)
+                            @if ($best)
                                 <div class="swiper-slide">
                                     <div class="item">
                                         <div class="icon">
