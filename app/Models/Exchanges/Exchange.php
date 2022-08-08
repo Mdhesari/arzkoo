@@ -63,7 +63,7 @@ class Exchange extends Model
 
     public function getVerificationDaysLabelAttribute()
     {
-        return ' + ' . $this->verification_days . ' روز ';
+        return ' + '.$this->verification_days.' روز ';
     }
 
     public function getLogoAttribute($value)
@@ -73,21 +73,21 @@ class Exchange extends Model
 
     public function getContactsSocialAttribute()
     {
-        if (!isset($this->contacts['socials'])) return null;
+        if ( ! isset($this->contacts['socials']) ) return null;
 
         return $this->contacts['socials'];
     }
 
     public function getContactsMobilesAttribute()
     {
-        if (!isset($this->contacts['mobiles'])) return null;
+        if ( ! isset($this->contacts['mobiles']) ) return null;
 
         return $this->contacts['mobiles'];
     }
 
     public function getContactsEmailsAttribute()
     {
-        if (!isset($this->contacts['emails'])) return null;
+        if ( ! isset($this->contacts['emails']) ) return null;
 
         return $this->contacts['emails'];
     }
@@ -128,7 +128,7 @@ class Exchange extends Model
 
     private function getNumberAndCurrency($number, $currency, $forceIRR = false)
     {
-        return arzkoo_money($number, $currency);
+        return arzkoo_money($number, 'IRR');
     }
 
     public function getBestAmountDiffPercent($currentAmount, $bestAmount)
@@ -172,14 +172,14 @@ class Exchange extends Model
 
         $data = collect($this->toArray());
 
-        $data = $data->filter(fn($item, $key) => ($item === 0 || $item === 1) && !in_array($key, [
+        $data = $data->filter(fn($item, $key) => ($item === 0 || $item === 1) && ! in_array($key, [
                 'verification_days',
                 'admin_id',
             ]));
 
         $features = $data->map(function ($item, $key) {
             return [
-                'title' => __('exchanges.features.' . $key),
+                'title' => __('exchanges.features.'.$key),
                 'value' => $item
             ];
         });
@@ -190,12 +190,12 @@ class Exchange extends Model
     public static function createData($exchange)
     {
         return array_merge([
-            'name' => $exchange['title'],
-            'title' => $exchange['exchange_title'],
-            'persian_title' => $exchange['label'],
-            'site' => 'https://' . optional(parse_url($exchange['site_with_source']))['host'],
+            'name'            => $exchange['title'],
+            'title'           => $exchange['exchange_title'],
+            'persian_title'   => $exchange['label'],
+            'site'            => 'https://'.optional(parse_url($exchange['site_with_source']))['host'],
             'site_with_query' => $exchange['site_with_source'],
-            'logo' => static::storeAndGetExchangeLogoPath($exchange['logo'])
+            'logo'            => static::storeAndGetExchangeLogoPath($exchange['logo'])
         ], static::getFeesFields($exchange));
     }
 
@@ -211,15 +211,15 @@ class Exchange extends Model
 
     public static function storeAndGetExchangeLogoPath($logo)
     {
-        if (!is_dir(public_path('assets/cryptos'))) {
+        if ( ! is_dir(public_path('assets/cryptos')) ) {
             mkdir(public_path('assets/cryptos'));
         }
 
         $data = pathinfo($logo);
 
-        $url = "https://tokenbaz.com" . $logo;
+        $url = "https://tokenbaz.com".$logo;
 
-        file_put_contents(public_path($path = 'assets/cryptos/' . $data['basename']), file_get_contents($url));
+        file_put_contents(public_path($path = 'assets/cryptos/'.$data['basename']), file_get_contents($url));
 
         return $path;
     }
@@ -235,8 +235,8 @@ class Exchange extends Model
         $data = [
             'usdt_min_fee_percent' => $usdt_fee[0],
             'usdt_max_fee_percent' => isset($usdt_fee[1]) ? $usdt_fee[1] : $usdt_fee[0],
-            'irr_min_fee_percent' => $irr_fee[0],
-            'irr_max_fee_percent' => isset($irr_fee[1]) ? $irr_fee[1] : $irr_fee[0],
+            'irr_min_fee_percent'  => $irr_fee[0],
+            'irr_max_fee_percent'  => isset($irr_fee[1]) ? $irr_fee[1] : $irr_fee[0],
         ];
 
         $data = array_map(function ($item) {
@@ -249,7 +249,7 @@ class Exchange extends Model
     public function save(array $options = [])
     {
         // If no author has been assigned, assign the current user's id as the author of the post
-        if (!$this->admin_id && Auth::user()) {
+        if ( ! $this->admin_id && Auth::user() ) {
             $this->admin_id = Auth::user()->getKey();
         }
 
@@ -258,7 +258,7 @@ class Exchange extends Model
 
     public function getLogoUrlAttribute()
     {
-        if (\Storage::exists($this->getAttributes()['logo'])) {
+        if ( \Storage::exists($this->getAttributes()['logo']) ) {
             return \Storage::url($this->getAttributes()['logo']);
         }
 
