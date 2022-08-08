@@ -72,7 +72,7 @@ class Crypto extends Model
             $currency = 'IRR';
         }
 
-        return arzkoo_money($number, $currency);
+        return arzkoo_money($number, 'IRR');
     }
 
     public function getPivotSellPriceFormattedAttribute()
