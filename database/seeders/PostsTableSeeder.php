@@ -131,7 +131,7 @@ class PostsTableSeeder extends Seeder
                         'directionality'             => 'rtl',
                         'content_style'              => "@import url('".asset('css/fonts.css')."');",
                         'menubar'                    => 'file edit view insert format tools table tc help',
-                        'toolbar'                    => 'undo redo | bold italic underline strikethrough | fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor casechange removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | a11ycheck ltr rtl | showcomments addcomment',
+                        'toolbar'                    => 'undo redo | bold italic underline strikethrough | fontfamily fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor casechange removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | a11ycheck ltr rtl | showcomments addcomment',
                         'autosave_ask_before_unload' => true,
                         'autosave_interval'          => '30s',
                     ],

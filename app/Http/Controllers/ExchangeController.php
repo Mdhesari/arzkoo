@@ -68,7 +68,7 @@ class ExchangeController extends Controller
         );
         SEOMeta::setDescription($exchange->description);
 
-        $cryptos = $exchange->cryptos()->paginate();
+        $cryptos = $exchange->cryptos()->cursor();
 
         return view('exchange.show', compact('exchange', 'cryptos'));
     }
