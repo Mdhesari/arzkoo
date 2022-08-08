@@ -205,5 +205,6 @@
           clickable: true,
         },
       });
+      
     </script>
 @endpush
