@@ -52,32 +52,31 @@
             </div>
             <div class="swiper live-prices live-prices-slider row m-30">
                 <div class="swiper-wrapper">
-                @php $countBestEx = 0 @endphp
-                @foreach ($favCryptos as $cry)
-                    @php $best = $cry->bestBuyExchange->first() @endphp
+                    @php $countBestEx = 0 @endphp
+                    @foreach ($favCryptos as $cry)
+                        @php $best = $cry->bestBuyExchange->first() @endphp
 
-                    @if ($best && $countBestEx < 5)
-                        <div  class="swiper-slide">
-                            <div class="item">
-                                <div class="icon">
-                                    {{--                                        <i class="fab fa-btc"></i>--}}
-                                    <img src="{{ $cry->logo_full_url }}" alt="{{ $cry->name }}">
+                        @if ($best && $countBestEx < 5)
+                            <div class="swiper-slide">
+                                <div class="item">
+                                    <div class="icon">
+                                        <img src="{{ $cry->logo_full_url }}" alt="{{ $cry->name }}">
+                                    </div>
+                                    <div class="detail">
+                                        <strong>{{ $best->irr_buy_price_formatted }}</strong>
+                                        <p>بهترین قیمت {{ $cry->name }} در {{ $best->persian_title }}</p>
+                                    </div>
+                                    @php ++$countBestEx @endphp
                                 </div>
-                                <div class="detail">
-                                    <strong>{{ $best->irr_buy_price_formatted }}</strong>
-                                    <p>بهترین قیمت {{ $cry->name }} در {{ $best->persian_title }}</p>
-                                </div>
-                                @php ++$countBestEx @endphp
                             </div>
-                        </div>
-                    @endif
+                        @endif
 
-                @endforeach
+                    @endforeach
                 </div>
             </div>
         </div>
     @endif
-    </div>
+</div>
 </section>
 
 @push('add_styles')

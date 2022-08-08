@@ -33,7 +33,6 @@
 @endpush
 
 @push('add_scripts')
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     {{-- <script defer src="{{ asset('js/swiper-bundle.min.js') }}"></script> --}}
     <script>
         $(function() {
