@@ -44,6 +44,7 @@
             </div>
         </div>
     </div>
+    <div class="container">
     @if ($showMetaData)
         <div class="row recommendations">
             <div class="recommendations-title text-center ">
@@ -75,6 +76,7 @@
             </div>
         </div>
     @endif
+</div>
 </section>
 
 @push('add_styles')
@@ -192,28 +194,16 @@
             });
         })
 
-        var swiper = new Swiper(".live-prices-slider", {
-            slidesPerView: 5,
-            spaceBetween: 30,
-            autoplay: {
-                delay: 5000
-            },
-            breakpoints: {
-                // when window width is <= 768px
-                992: {
-                    slidesPerView: 5,
-                    spaceBetweenSlides: 10
-                },
-                768: {
-                    slidesPerView: 3,
-                    spaceBetweenSlides: 30
-                },
-                100: {
-                    slidesPerView: 1,
-                    spaceBetweenSlides: 50
-                }
-                // when window width is <= 999px
-            }
-        })
+       
+      var swiper = new Swiper(".live-prices-slider", {
+        slidesPerView: 5,
+        spaceBetween: 30,
+        freeMode: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+      });
+      
     </script>
 @endpush
