@@ -18,6 +18,7 @@
     <link rel="canonical" href="{{ url()->current() }}"/>
     <link rel="stylesheet" href="{{ mix('css/font-awesome.css') }}">
     <link rel="stylesheet" href="{{ mix('css/fonts.css') }}">
+    <link rel="stylesheet" href="{{ mix('css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <link rel="stylesheet" href="{{ mix('css/arzkoo.css') }}">
     @if ($logo = setting('site.logo'))
