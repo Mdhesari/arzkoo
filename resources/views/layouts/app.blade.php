@@ -18,6 +18,7 @@
     <link rel="canonical" href="{{ url()->current() }}"/>
     <link rel="stylesheet" href="{{ mix('css/font-awesome.css') }}">
     <link rel="stylesheet" href="{{ mix('css/fonts.css') }}">
+    <link rel="stylesheet" href="{{ mix('css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <link rel="stylesheet" href="{{ mix('css/arzkoo.css') }}">
     @if ($logo = setting('site.logo'))
@@ -30,7 +31,8 @@
 
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+{{--    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>--}}
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <script src="{{ mix('js/app.js') }}" defer></script>
 
     @stack('add_scripts')
