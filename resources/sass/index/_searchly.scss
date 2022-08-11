@@ -12,7 +12,7 @@
         font-size: 2rem;
         color: rgb(0 0 0 / 74%);
         text-shadow: 2px 2px 3px rgb(255 255 255 / 53%);
-        line-height:30px;
+        line-height: 30px;
 
         strong {
             font-size: 3rem;
@@ -88,12 +88,15 @@
 }
 
 @media (max-width: 768px) {
-    .searchly{
+    .searchly {
         height: initial;
-        .title-section{
-            font-size:"18px";
-            strong{
-                    font-size: 30px;
+
+        .title-section {
+            font-size: 18px;
+            line-height: 36px;
+
+            strong {
+                font-size: 30px;
             }
         }
     }
@@ -126,7 +129,7 @@ section.searchly:before {
     position: absolute;
     width: 300%;
     height: 100vh;
-    top:22%;
+    top: 22%;
     left: 50%;
     background-color: #5556a2;
     border-radius: 50%;
