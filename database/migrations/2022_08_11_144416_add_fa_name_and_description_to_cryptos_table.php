@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddFaNameToCryptosTable extends Migration
+class AddFaNameAndDescriptionToCryptosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,6 +14,7 @@ class AddFaNameToCryptosTable extends Migration
     public function up()
     {
         Schema::table('cryptos', function (Blueprint $table) {
+            $table->text('description')->nullable();
             $table->string('fa_name')->nullable();
         });
     }
@@ -26,7 +27,7 @@ class AddFaNameToCryptosTable extends Migration
     public function down()
     {
         Schema::table('cryptos', function (Blueprint $table) {
-            $table->dropColumn('fa_name');
+            $table->dropColumn(['fa_name', 'description']);
         });
     }
 }
