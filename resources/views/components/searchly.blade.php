@@ -12,7 +12,7 @@
         @else
             <div class="mb-4 text-center">
                 <h1 class="h2 text-white">
-                    {{ ($isBuy ? ' فروش ':' خرید ') . $crypto->name }}
+                    {{ ($isBuy ? ' فروش ':' خرید ') . $crypto->full_name }}
                 </h1>
             </div>
         @endif

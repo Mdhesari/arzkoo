@@ -18,8 +18,8 @@ class CurrencyResource extends JsonResource
         // return parent::toArray($request);
 
         return [
-            "id" => $this->name,
-            "text" => $this->name,
+            "id"   => $this->name,
+            "text" => $this->full_name,
             "logo" => $this->logo_full_url,
         ];
     }
