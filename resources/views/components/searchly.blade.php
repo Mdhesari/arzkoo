@@ -20,14 +20,14 @@
         <div class="row search-holder">
             <div class="search-item col-md-4 col-xs-12">
                 <div class="switch-toggle">
-                    <a href="#" class="toggle clickable @if ($isBuy) active @endif" data-type="buy">خرید از شما</a>
-                    <a href="#" class="toggle clickable @if (!$isBuy) active @endif" data-type="sell"> فروش به شما</a>
+                    <a href="#" class="toggle clickable @if ($isBuy) active @endif" data-type="buy">فروش</a>
+                    <a href="#" class="toggle clickable @if (!$isBuy) active @endif" data-type="sell">خرید</a>
                 </div>
             </div>
             <div class="search-item col-md-5 col-xs-12">
                 <select id="currencies" name="currency">
                     @foreach ($cryptos as $cry)
-                        <option data-logo="{{ $cry->logo_full_url }}" value="{{ $cry->full_name }}"
+                        <option data-logo="{{ $cry->logo_full_url }}" value="{{ $cry->name }}"
                                 @if ($crypto && $crypto->id == $cry->id) selected
                                 @elseif($loop->first) selected @endif>{{ $cry->full_name }}
                         </option>
@@ -147,7 +147,7 @@
                 }
                 var baseUrl = "/user/pages/images/flags";
                 var $state = $(
-                    '<span><img src="' + baseUrl + '/' + state.element.value.toLowerCase() +
+                    '<span data-url="'+ data.url +'"><img src="' + baseUrl + '/' + state.element.value.toLowerCase() +
                     '.png" class="img-flag" /> ' +
                     state.text + '</span>'
                 );
@@ -156,6 +156,13 @@
 
             $('#currencies').select2({
                 width: "100%",
+                createTag: function (params) {
+                    console.log(params)
+                    return {
+                        id: params.id,
+                        text: params.text
+                    }
+                },
                 templateResult: function (data, el) {
                     if (!data.logo) return
                     return $('<span">' + data.text + '<img class="select2-logo" src="' + data.logo + '" /> ' + '</span>');
