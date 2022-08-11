@@ -61,10 +61,10 @@ class CryptoDetailsScrapper extends BaseScrapper
 
                     $crypto->update($data);
                 } else {
-                    $this->info('no data found for '.$crypto->name);
+                    $this->info('no data found for '.$name);
                 }
             } catch (\Exception $e) {
-                $this->info('no data found for '.$crypto->name);
+                $this->info('no data found for '.$name);
             }
 
             $bar->advance();
