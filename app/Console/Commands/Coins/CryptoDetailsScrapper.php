@@ -51,16 +51,15 @@ class CryptoDetailsScrapper extends BaseScrapper
         foreach (Crypto::cursor() as $crypto) {
             $response = $this->cli->request('GET', 'https://arzdigital.com/coins/'.$crypto->name);
 
-            $data['fa_name'] = $response->filter('.arz-coin-page-tab__title')->first()->text();
+            if ( $data['fa_name'] = $response->filter('.arz-coin-page-tab__title')->first()->count() ) {
+                $data['fa_name'] = $response->filter('.arz-coin-page-tab__title')->first()->text();
 
-            $data['description'] = $response->filter('.arz-coin-details__explanation-text')->first()->text();
+                $data['description'] = $response->filter('.arz-coin-details__explanation-text')->first()->text();
 
-            if ( $data['fa_name'] ) {
                 $crypto->update($data);
             }
 
             $bar->advance();
-
         }
 
         $bar->finish();
