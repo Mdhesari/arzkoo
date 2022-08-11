@@ -90,6 +90,12 @@
 @media (max-width: 768px) {
     .searchly{
         height: initial;
+        .title-section{
+            font-size:"18px";
+            strong{
+                    font-size: 30px;
+            }
+        }
     }
     .search-item {
         margin-bottom: 30px;
