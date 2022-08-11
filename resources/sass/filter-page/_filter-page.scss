@@ -12,8 +12,13 @@
                 color: #464646;
             }
             .images {
+                width: 75px;
+                height:75px;
                 img {
-                    max-height: 35px;
+                    width:100%;
+                    height:100%;
+                    object-fit: contain;
+
                 }
             }
 
@@ -108,4 +113,7 @@
     .filters-main__card .header-right{
         flex-wrap: wrap;
     }
+   .b-header-left-inner{
+        text-align: right;
+   } 
 }

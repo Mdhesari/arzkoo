@@ -118,7 +118,8 @@
             padding-right: 60px;
 
             .broker-logo {
-                margin: 50px 0;
+                width:150px;
+                margin:50px auto;
 
                 img {
                     width: 100%;
@@ -229,10 +230,10 @@
     }
 
     .rating {
-        margin-top: 8px;
+        margin-top: 12px  !important;
         label {
             cursor: pointer;
-            margin-left: 16px;
+            margin-left: 30px;
             cursor: pointer;
             width: 6px;
             
