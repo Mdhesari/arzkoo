@@ -20,14 +20,14 @@ class Crypto extends Model
     ];
 
     protected $appends = [
-        'logo_full_url',
+        'logo_full_url', 'full_name'
     ];
 
     public function getLogoFullUrlAttribute()
     {
-        if (!$this->logo) return '';
+        if ( ! $this->logo ) return '';
 
-        if (isset(parse_url($this->logo)['scheme'])) {
+        if ( isset(parse_url($this->logo)['scheme']) ) {
             return $this->logo;
         }
 
@@ -67,7 +67,7 @@ class Crypto extends Model
 
     private function getNumberAndCurrency($number, $currency, $forceIRR = false)
     {
-        if ($forceIRR && $currency == 'USDT') {
+        if ( $forceIRR && $currency == 'USDT' ) {
             $number *= config('app.USDT_TO_IRR');
             $currency = 'IRR';
         }
@@ -95,9 +95,9 @@ class Crypto extends Model
             ], Exchange::createData($exch));
 
             $data[$exchange->id] = [
-                'buy_price' => Exchange::getPrice($exch['buy_price']),
+                'buy_price'  => Exchange::getPrice($exch['buy_price']),
                 'sell_price' => Exchange::getPrice($exch['sell_price']),
-                'currency' => $exch['pair']
+                'currency'   => $exch['pair']
             ];
         }
 
@@ -108,9 +108,14 @@ class Crypto extends Model
     {
         $data = pathinfo($logo_url);
 
-        download_image(storage_path('app/public/' . $path = 'symbols/' . $data['basename']), $logo_url);
+        download_image(storage_path('app/public/'.$path = 'symbols/'.$data['basename']), $logo_url);
 
         return $path;
+    }
+
+    public function getFullNameAttribute()
+    {
+        return $this->name.' ('.$this->fa_name.') ';
     }
 
     /**

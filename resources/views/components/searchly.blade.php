@@ -12,7 +12,7 @@
         @else
             <div class="mb-4 text-center">
                 <h1 class="h2 text-white">
-                    {{ ($isBuy ? ' فروش ':' خرید ') . $crypto->name }}
+                    {{ ($isBuy ? ' فروش ':' خرید ') . $crypto->full_name }}
                 </h1>
             </div>
         @endif
@@ -27,9 +27,9 @@
             <div class="search-item col-md-5 col-xs-12">
                 <select id="currencies" name="currency">
                     @foreach ($cryptos as $cry)
-                        <option data-logo="{{ $cry->logo_full_url }}" value="{{ $cry->name }}"
+                        <option data-logo="{{ $cry->logo_full_url }}" value="{{ $cry->full_name }}"
                                 @if ($crypto && $crypto->id == $cry->id) selected
-                                @elseif($loop->first) selected @endif>{{ $cry->name }}
+                                @elseif($loop->first) selected @endif>{{ $cry->full_name }}
                         </option>
                     @endforeach
                 </select>
