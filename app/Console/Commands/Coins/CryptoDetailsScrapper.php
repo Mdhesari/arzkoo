@@ -49,15 +49,18 @@ class CryptoDetailsScrapper extends BaseScrapper
         $bar->start();
 
         foreach (Crypto::cursor() as $crypto) {
-            $response = $this->cli->request('GET', 'https://arzdigital.com/coins/cardano/');
+            $response = $this->cli->request('GET', 'https://arzdigital.com/coins/'.$crypto->name);
 
             $data['fa_name'] = $response->filter('.arz-coin-page-tab__title')->first()->text();
 
             $data['description'] = $response->filter('.arz-coin-details__explanation-text')->first()->text();
 
-            $crypto->update($data);
+            if ( $data['fa_name'] ) {
+                $crypto->update($data);
+            }
 
             $bar->advance();
+
         }
 
         $bar->finish();
