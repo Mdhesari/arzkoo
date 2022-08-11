@@ -30,7 +30,7 @@ class ExchangeController extends Controller
 
     public function buyList(Request $request, Crypto $crypto)
     {
-        SEOMeta::setTitle("خرید {$crypto->name} با بهترین قیمت در صرافی های برتر ");
+        SEOMeta::setTitle("خرید {$crypto->full_name} با بهترین قیمت در صرافی های برتر ");
         $isBuy = true;
 
         return view('exchange.list', compact('crypto', 'isBuy'));
@@ -38,7 +38,7 @@ class ExchangeController extends Controller
 
     public function sellList(Request $request, Crypto $crypto)
     {
-        SEOMeta::setTitle(" فروش {$crypto->name} با بهترین قیمت در صرافی های برتر ");
+        SEOMeta::setTitle(" فروش {$crypto->full_name} با بهترین قیمت در صرافی های برتر ");
         $isBuy = false;
 
         return view('exchange.list', compact('crypto', 'isBuy'));

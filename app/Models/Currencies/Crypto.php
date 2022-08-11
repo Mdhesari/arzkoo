@@ -115,7 +115,7 @@ class Crypto extends Model
 
     public function getFullNameAttribute()
     {
-        return $this->name.' ('.$this->fa_name.') ';
+        return $this->fa_name.' ('.$this->name.') ';
     }
 
     /**

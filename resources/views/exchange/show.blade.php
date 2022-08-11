@@ -100,7 +100,7 @@
                             <div class="tab-content" id="pills-tabContent">
                                 <div class="tab-pane fade show active" id="pills-currencies" role="tabpanel"
                                      aria-labelledby="pills-home-tab">
-                                     <div class="table-hodler">
+                                    <div class="table-hodler">
                                         <table>
                                             <thead>
                                             <th class="px-2">نام</th>
@@ -117,10 +117,10 @@
                                                                 <img src="{{ $crypto->logo_full_url }}"/>
                                                             </div>
                                                             <span>
-                                                                {{ $crypto->name }}
+                                                                {{ $crypto->full_name }}
                                                             </span>
                                                         </div>
-                                                    
+
                                                     </td>
                                                     <td class="text-nowrap">
                                                         {{ $crypto->pivot_buy_price_formatted }}</td>
@@ -130,8 +130,8 @@
                                             @endforeach
                                             </tbody>
                                         </table>
-                                     </div>
-                                  
+                                    </div>
+
                                 </div>
                                 <div class="tab-pane fade" id="pills-payment" role="tabpanel"
                                      aria-labelledby="pills-payment-tab">
