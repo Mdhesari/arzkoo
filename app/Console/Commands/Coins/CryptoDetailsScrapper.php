@@ -57,6 +57,8 @@ class CryptoDetailsScrapper extends BaseScrapper
                 $data['description'] = $response->filter('.arz-coin-details__explanation-text')->first()->text();
 
                 $crypto->update($data);
+            } else {
+                $this->info('no data found for '.$crypto->name);
             }
 
             $bar->advance();
