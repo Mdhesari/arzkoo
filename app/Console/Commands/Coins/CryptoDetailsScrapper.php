@@ -49,7 +49,9 @@ class CryptoDetailsScrapper extends BaseScrapper
         $bar->start();
 
         foreach (Crypto::cursor() as $crypto) {
-            $response = $this->cli->request('GET', 'https://arzdigital.com/coins/'.$crypto->name);
+            $name = \Str::replace(' ', '-', $crypto->name);
+
+            $response = $this->cli->request('GET', 'https://arzdigital.com/coins/'.$name);
 
             try {
                 if ( $data['fa_name'] = $response->filter('.arz-coin-page-tab__title')->first()->count() ) {
